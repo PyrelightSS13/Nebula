@@ -1,0 +1,8 @@
+#ifndef MODPACK_PYRELIGHT
+#define MODPACK_PYRELIGHT
+#include "_pyrelight.dm"
+#include "datum/culture.dm"
+#include "datum/factions.dm"
+#include "datum/locations.dm"
+#include "datum/religions.dm"
+#endif
