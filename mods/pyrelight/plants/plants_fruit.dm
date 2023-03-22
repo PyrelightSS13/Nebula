@@ -32,7 +32,6 @@
 
 /obj/item/chems/food/fruit/on_update_icon()
 	. = ..()
-	cut_overlays()
 	var/list/comp_count = list()
 	for(var/datum/fruit_segment/comp as anything in get_composition())
 		if(!comp.contributes_to_fruit_icon)
