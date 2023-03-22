@@ -1,33 +1,33 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/exterior/sand,
-/area/space)
+/area/pyrelight/outside)
 "d" = (
 /turf/exterior/wildgrass,
-/area/space)
+/area/pyrelight/outside)
 "u" = (
 /turf/exterior/grass,
-/area/space)
+/area/pyrelight/outside)
 "w" = (
 /obj/abstract/landmark/start{
 	name = "Observer-Start"
 	},
 /turf/exterior/wildgrass,
-/area/space)
+/area/pyrelight/outside)
 "D" = (
 /obj/abstract/landmark/latejoin,
 /turf/exterior/wildgrass,
-/area/space)
+/area/pyrelight/outside)
 "E" = (
 /turf/exterior/water,
-/area/space)
+/area/pyrelight/outside)
 "N" = (
 /turf/exterior/dirt,
-/area/space)
+/area/pyrelight/outside)
 "V" = (
 /obj/abstract/level_data/pyrelight,
 /turf/exterior/water,
-/area/space)
+/area/pyrelight/outside)
 
 (1,1,1) = {"
 E
