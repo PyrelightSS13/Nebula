@@ -1346,6 +1346,7 @@
 #include "code\game\turfs\exterior\_exterior.dm"
 #include "code\game\turfs\exterior\exterior_barren.dm"
 #include "code\game\turfs\exterior\exterior_chlorine.dm"
+#include "code\game\turfs\exterior\exterior_cobblestone.dm"
 #include "code\game\turfs\exterior\exterior_concrete.dm"
 #include "code\game\turfs\exterior\exterior_dirt.dm"
 #include "code\game\turfs\exterior\exterior_grass.dm"
