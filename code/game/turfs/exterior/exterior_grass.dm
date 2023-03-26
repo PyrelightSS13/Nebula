@@ -1,9 +1,10 @@
 /turf/exterior/grass
 	name = "grass"
-	possible_states = 1
+	possible_states = 3
 	icon = 'icons/turf/exterior/grass.dmi'
 	footstep_type = /decl/footsteps/grass
 	icon_edge_layer = EXT_EDGE_GRASS
+	icon_has_corners = TRUE
 
 /turf/exterior/wildgrass
 	name = "wild grass"
