@@ -1,0 +1,8 @@
+#include "_plants.dm"
+#include "_plot.dm"
+#include "_subsystem.dm"
+#include "fruit_subtypes/nightweave.dm"
+#include "plants_fruit_segment.dm"
+#include "plants_fruit_template.dm"
+#include "plants_fruit.dm"
+#include "plant_subtypes/nightweave.dm"
