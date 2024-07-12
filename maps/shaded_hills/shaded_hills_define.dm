@@ -20,6 +20,9 @@
 	_available_backpacks    = list(
 		/decl/backpack_outfit/sack
 	)
+	lobby_screens = list(
+		'maps/shaded_hills/pyre_light.png'
+	)
 	lobby_tracks = list(
 		/decl/music_track/dhaka,
 		/decl/music_track/teller,
