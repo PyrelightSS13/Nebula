@@ -1,8 +1,16 @@
 // ZOMBIES
 // Dead and rotting, but still mobile and aggressive.
+
+/datum/mob_controller/aggressive/zombie
+
 /mob/living/human/proc/make_zombie()
 	set_trait(/decl/trait/metabolically_inert, TRAIT_LEVEL_EXISTS)
 	set_trait(/decl/trait/undead, TRAIT_LEVEL_MINOR)
+
+	if(istype(ai))
+		QDEL_NULL(ai)
+	faction = "undead"
+	ai = new /datum/mob_controller/aggressive/zombie(src)
 
 	for(var/obj/item/organ/organ in get_organs())
 		organ.die()
@@ -15,6 +23,11 @@
 		_skin_colour = pick(COLOR_GRAY, COLOR_GRAY15, COLOR_GRAY20, COLOR_GRAY40, COLOR_GRAY80, COLOR_WHITE)
 		SET_HAIR_COLOUR(src, _skin_colour, TRUE)
 		SET_FACIAL_HAIR_COLOUR(src, _skin_colour, TRUE)
+
+	var/obj/item/organ/external/head/head = get_organ(BP_HEAD)
+	if(istype(head))
+		head.glowing_eyes = TRUE
+	set_eye_colour(COLOR_RED)
 
 	for(var/obj/item/organ/external/limb in get_external_organs())
 		if(!BP_IS_PROSTHETIC(limb))

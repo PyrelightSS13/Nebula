@@ -1,8 +1,15 @@
+/datum/mob_controller/aggressive/skeleton
+
 // SKELETONS
 // Immune to blind or deaf, but weak to physical damage.
 /mob/living/human/proc/make_skeleton()
 	set_trait(/decl/trait/metabolically_inert, TRAIT_LEVEL_EXISTS)
 	set_trait(/decl/trait/undead, TRAIT_LEVEL_MODERATE)
+
+	if(istype(ai))
+		QDEL_NULL(ai)
+	ai = new /datum/mob_controller/aggressive/skeleton(src)
+	faction = "undead"
 
 	for(var/obj/item/organ/external/limb in get_external_organs())
 		if(!BP_IS_PROSTHETIC(limb))
@@ -19,6 +26,12 @@
 /mob/living/human/skeleton/post_setup(species_name, datum/mob_snapshot/supplied_appearance)
 	. = ..()
 	make_skeleton()
+	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/forged/banded(src))
+	if(prob(20))
+		put_in_active_hand(new /obj/item/bladed/broadsword(src))
+	else
+		put_in_active_hand(new /obj/item/bladed/shortsword(src))
+		put_in_inactive_hand(new /obj/item/shield/buckler(src))
 
 /mob/living/human/skeleton/Initialize(mapload, species_name, datum/mob_snapshot/supplied_appearance)
 	if(!species_name)
