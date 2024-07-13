@@ -75,6 +75,10 @@
 	var/sedative_strength = 1 // A multiplier on dose.
 
 /decl/material/liquid/sedatives/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+
 	ADJ_STATUS(M, STAT_JITTER, -50)
 	var/threshold = 1
 	var/dose = LAZYACCESS(M.chem_doses, type) * sedative_strength
@@ -111,6 +115,10 @@
 
 /decl/material/liquid/psychoactives/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	..()
+
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+
 	SET_STATUS_MAX(M, STAT_DRUGGY, 15)
 	M.add_chemical_effect(CE_PULSE, -1)
 
@@ -126,8 +134,11 @@
 	uid = "chem_hallucinogenics"
 
 /decl/material/liquid/hallucinogenics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	M.add_chemical_effect(CE_MIND, -2)
 	M.set_hallucination(50, 50)
+	return ..()
 
 /decl/material/liquid/psychotropics
 	name = "psychotropics"
@@ -143,6 +154,8 @@
 	uid = "chem_psychotropics"
 
 /decl/material/liquid/psychotropics/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	var/threshold = 1
 	var/dose = LAZYACCESS(M.chem_doses, type)
 	if(dose < 1 * threshold)
@@ -166,6 +179,7 @@
 		SET_STATUS_MAX(M, STAT_DRUGGY, 40)
 		if(prob(15))
 			M.emote(pick(/decl/emote/visible/twitch, /decl/emote/audible/giggle))
+	return ..()
 
 // Welcome back, Three Eye
 /decl/material/liquid/glowsap/gleam

@@ -46,6 +46,7 @@
 /mob/living/human/zombie/post_setup(species_name, datum/mob_snapshot/supplied_appearance)
 	. = ..()
 	make_zombie()
+	grant_basic_undead_equipment()
 
 /mob/living/human/zombie/Initialize(mapload, species_name, datum/mob_snapshot/supplied_appearance)
 	if(!species_name)

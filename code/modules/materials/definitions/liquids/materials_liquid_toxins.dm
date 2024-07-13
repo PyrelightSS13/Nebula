@@ -77,7 +77,14 @@
 	exoplanet_rarity_plant = MAT_RARITY_UNCOMMON
 	exoplanet_rarity_gas = MAT_RARITY_EXOTIC
 
+/decl/material/liquid/venom/affect_ingest(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
+	return ..()
+
 /decl/material/liquid/venom/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
+	if(M.has_trait(/decl/trait/metabolically_inert))
+		return
 	if(prob(REAGENT_VOLUME(holder, type)*2))
 		SET_STATUS_MAX(M, STAT_CONFUSE, 3)
 	..()

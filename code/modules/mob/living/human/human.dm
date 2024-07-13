@@ -1225,11 +1225,24 @@
 	return FALSE
 
 /mob/living/human/set_status(condition, amount)
-	if(has_trait(/decl/trait/undead, TRAIT_LEVEL_MODERATE))
+	if(has_trait(/decl/trait/undead))
 		var/static/list/ignore_status_conditions = list(
 			STAT_BLIND,
+			STAT_DEAF,
+			STAT_CONFUSE,
+			STAT_DIZZY,
+			STAT_JITTER,
+			STAT_STUTTER,
+			STAT_SLUR,
+			STAT_ASLEEP,
+			STAT_DRUGGY,
+			STAT_DROWSY,
+			STAT_BLURRY,
+			STAT_BLIND,
+			STAT_TINNITUS,
 			STAT_DEAF
 		)
 		if(condition in ignore_status_conditions)
 			return
+
 	. = ..()
