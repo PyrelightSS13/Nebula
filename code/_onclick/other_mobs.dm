@@ -74,31 +74,11 @@
 	if(.)
 		return
 
-	setClickCooldown(attack_delay)
+	a_intent = I_HURT
 	var/attacking_with = get_natural_weapon()
 	if(a_intent == I_HELP || !attacking_with)
 		return A.attack_animal(src)
 
-	var/decl/pronouns/G = get_pronouns()
-	face_atom(A)
-	if(attack_delay)
-		stop_automove() // Cancel any baked-in movement.
-		do_windup_animation(A, attack_delay, no_reset = TRUE)
-		if(!do_after(src, attack_delay, A) || !Adjacent(A))
-			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [A]!"))
-			reset_windup_animation()
-			ai?.move_to_target(TRUE) // Restart hostile mob tracking.
-			return TRUE
-		ai?.move_to_target(TRUE) // Restart hostile mob tracking.
-
-	if(ismob(A)) // Clientless mobs are too dum to move away, so they can be missed.
-		var/mob/mob = A
-		if(!mob.ckey && !prob(get_melee_accuracy()))
-			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [A]!"))
-			reset_windup_animation()
-			return TRUE
-
-	a_intent = I_HURT
 	. = A.attackby(attacking_with, src)
 	if(!.)
 		reset_windup_animation()

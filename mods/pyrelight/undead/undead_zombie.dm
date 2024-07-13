@@ -54,3 +54,8 @@
 		var/decl/species/grafadreka/drakes = GET_DECL(/decl/species/grafadreka)
 		species_name = drakes.name
 	. = ..()
+
+/mob/living/human/get_attack_telegraph_delay()
+	if(client || !has_trait(/decl/trait/undead))
+		return 0
+	return DEFAULT_ATTACK_COOLDOWN

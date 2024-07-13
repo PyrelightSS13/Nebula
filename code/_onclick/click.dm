@@ -207,6 +207,9 @@
 	if(istype(G) && G.Touch(A,1))
 		return TRUE
 
+	if(a_intent == I_HURT && istype(A) && !do_attack_windup_checking(A))
+		return TRUE
+
 	// Pick up items.
 	if(check_dexterity(DEXTERITY_HOLD_ITEM, silent = TRUE))
 		return A.attack_hand(src)
