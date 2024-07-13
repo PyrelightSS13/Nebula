@@ -38,3 +38,10 @@
 			equip_to_slot_or_del(new /obj/item/clothing/suit/armor/crafted/leather(src), slot_wear_suit_str)
 			put_in_active_hand(new /obj/item/bladed/knife(src))
 		return
+
+// This sucks.
+/obj/item/can_embed()
+	. = ..()
+	var/mob/living/holder = loc
+	if(. && istype(holder) && holder.get_attack_telegraph_delay() > 0) // probably an AI mob holding a weapon
+		return FALSE

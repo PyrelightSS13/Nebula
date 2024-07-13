@@ -16,6 +16,9 @@
 		wound.disinfected = FALSE
 
 // 50% damage bonus on prone, stunned or confused enemies.
+/decl/natural_attack/bite/sharp/drake
+	damage = 10
+
 /decl/natural_attack/bite/sharp/drake/get_unarmed_damage(mob/living/user, mob/living/victim)
 	. = ..()
 	if(victim.current_posture?.prone || HAS_STATUS(victim, STAT_CONFUSE) || HAS_STATUS(victim, STAT_STUN))
