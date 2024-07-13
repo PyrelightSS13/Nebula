@@ -1705,7 +1705,7 @@ default behaviour is:
 	return clamp(get_base_telegraphed_melee_accuracy() - melee_accuracy_mods(), 0, 100)
 
 // This will generally only be invoked by AI driven mobs. Player humans do not show the windup.
-/mob/living/proc/do_attack_windup_checking(atom/target)
+/mob/living/do_attack_windup_checking(atom/target)
 
 	var/attack_delay = get_attack_telegraph_delay()
 	if(attack_delay <= 0)

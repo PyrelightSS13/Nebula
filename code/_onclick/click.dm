@@ -116,6 +116,13 @@
 	var/sdepth = A.storage_depth(src)
 	if((!isturf(A) && A == loc) || (sdepth != -1 && sdepth <= 1))
 		if(holding)
+
+			if(a_intent == I_HURT && istype(A) && !do_attack_windup_checking(A))
+				return TRUE
+
+			if(holding != get_active_held_item())
+				return TRUE
+
 			var/resolved = holding.resolve_attackby(A, src, params)
 			if(!resolved && A && holding)
 				holding.afterattack(A, src, 1, params) // 1 indicates adjacency
@@ -137,8 +144,15 @@
 	if(isturf(A) || isturf(A.loc) || (sdepth != -1 && sdepth <= 1))
 		if(A.Adjacent(src)) // see adjacent.dm
 			if(holding)
+
+				if(a_intent == I_HURT && istype(A) && !do_attack_windup_checking(A))
+					return TRUE
+
+				if(holding != get_active_held_item())
+					return TRUE
+
 				// Return 1 in attackby() to prevent afterattack() effects (when safely moving items for example)
-				var/resolved = holding.resolve_attackby(A,src, params)
+				var/resolved = holding.resolve_attackby(A, src, params)
 				if(!resolved && A && holding)
 					holding.afterattack(A, src, 1, params) // 1: clicking something Adjacent
 				setClickCooldown(DEFAULT_QUICK_COOLDOWN)
