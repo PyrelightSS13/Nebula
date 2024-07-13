@@ -186,3 +186,7 @@
 	else
 		animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = windup_time-2)
 		animate(pixel_x = default_pixel_x, pixel_y = default_pixel_y, time = 2)
+
+// reset wherever the attack animation got us to.
+/atom/movable/proc/reset_windup_animation()
+	animate(src, pixel_x = default_pixel_x, pixel_y = default_pixel_y, time = 2)

@@ -86,7 +86,7 @@
 		do_windup_animation(A, attack_delay, no_reset = TRUE)
 		if(!do_after(src, attack_delay, A) || !Adjacent(A))
 			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [A]!"))
-			animate(src, pixel_x = default_pixel_x, pixel_y = default_pixel_y, time = 2) // reset wherever the attack animation got us to.
+			reset_windup_animation()
 			ai?.move_to_target(TRUE) // Restart hostile mob tracking.
 			return TRUE
 		ai?.move_to_target(TRUE) // Restart hostile mob tracking.
@@ -95,10 +95,14 @@
 		var/mob/mob = A
 		if(!mob.ckey && !prob(get_melee_accuracy()))
 			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [A]!"))
+			reset_windup_animation()
 			return TRUE
 
+	a_intent = I_HURT
 	. = A.attackby(attacking_with, src)
-	if(isliving(A))
+	if(!.)
+		reset_windup_animation()
+	else if(isliving(A))
 		apply_attack_effects(A)
 
 // Attack hand but for simple animals
