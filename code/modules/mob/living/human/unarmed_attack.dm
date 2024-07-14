@@ -167,15 +167,9 @@
 	attack_noun = list("mouth")
 	attack_sound = 'sound/weapons/bite.ogg'
 	shredding = 0
-	damage = 0
 	sharp = 0
 	edge = 0
 	usable_with_limbs = list(BP_HEAD)
-
-/decl/natural_attack/bite/sharp
-	attack_verb = list("bit", "chomped")
-	sharp = 1
-	edge = 1
 
 /decl/natural_attack/bite/is_usable(var/mob/living/human/user, var/mob/living/human/target, var/zone)
 

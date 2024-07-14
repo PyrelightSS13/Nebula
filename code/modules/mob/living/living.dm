@@ -449,8 +449,11 @@ default behaviour is:
 	if(isturf(old_loc))
 		for(var/atom/movable/AM as anything in ret_grab())
 			if(AM != src && AM.loc != loc && !AM.anchored && old_loc.Adjacent(AM))
-				AM.glide_size = glide_size // This is adjusted by grabs again from events/some of the procs below, but doing it here makes it more likely to work with recursive movement.
-				AM.DoMove(get_dir(get_turf(AM), old_loc), src, TRUE)
+				if(get_z(AM) <= get_z(src))
+					AM.glide_size = glide_size // This is adjusted by grabs again from events/some of the procs below, but doing it here makes it more likely to work with recursive movement.
+					AM.DoMove(get_dir(get_turf(AM), old_loc), src, TRUE)
+				else // Hackfix for eternal bump due to grabber moving down through an openturf.
+					AM.dropInto(get_turf(src))
 
 	var/list/mygrabs = get_active_grabs()
 	for(var/obj/item/grab/G as anything in mygrabs)
@@ -1690,4 +1693,43 @@ default behaviour is:
 		return FALSE
 	if(target.is_open() && target.has_gravity() && !can_overcome_gravity())
 		return FALSE
+	return TRUE
+
+/mob/living/proc/get_attack_telegraph_delay()
+	return 0
+
+/mob/living/proc/get_base_telegraphed_melee_accuracy()
+	return 85
+
+/mob/living/proc/get_telegraphed_melee_accuracy()
+	return clamp(get_base_telegraphed_melee_accuracy() - melee_accuracy_mods(), 0, 100)
+
+// This will generally only be invoked by AI driven mobs. Player humans do not show the windup.
+/mob/living/do_attack_windup_checking(atom/target)
+
+	var/attack_delay = get_attack_telegraph_delay()
+	if(attack_delay <= 0)
+		return TRUE
+
+	var/decl/pronouns/G = get_pronouns()
+	setClickCooldown(attack_delay)
+	face_atom(target)
+
+	stop_automove() // Cancel any baked-in movement.
+	do_windup_animation(target, attack_delay, no_reset = TRUE)
+	if(!do_after(src, attack_delay, target) || !Adjacent(target))
+		visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [target]!"))
+		reset_windup_animation()
+		ai?.move_to_target(TRUE) // Restart hostile mob tracking.
+		return FALSE
+
+	ai?.move_to_target(TRUE) // Restart hostile mob tracking.
+	if(ismob(target))
+		// Clientless mobs are too dum to move away, so they can be missed.
+		var/mob/mob = target
+		if(!mob.ckey && !prob(get_telegraphed_melee_accuracy()))
+			visible_message(SPAN_NOTICE("\The [src] misses [G.his] attack on \the [target]!"))
+			reset_windup_animation()
+			return FALSE
+
 	return TRUE
