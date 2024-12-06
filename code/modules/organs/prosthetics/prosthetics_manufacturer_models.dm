@@ -15,7 +15,7 @@
 	is_robotic = FALSE
 	modular_limb_tier = MODULAR_BODYPART_ANYWHERE
 	bodytype_category = BODYTYPE_HUMANOID
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 	required_map_tech = MAP_TECH_LEVEL_MEDIEVAL
 	uid = "bodytype_prosthetic_wooden"
 

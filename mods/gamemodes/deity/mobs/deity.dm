@@ -47,8 +47,8 @@
 
 /mob/living/deity/Destroy()
 
-	for(var/phenom in phenomenas)
-		remove_phenomena(phenom)
+	for(var/phenomenon in phenomena)
+		remove_phenomenon(phenomenon)
 
 	if(length(items_by_category))
 		for(var/cat in items_by_category)

@@ -1,11 +1,11 @@
-/datum/phenomena/conversion
+/datum/phenomenon/conversion
 	name = "Conversion"
 	desc = "Ask a non-follower to convert to your cult. This is completely voluntary. Requires the subject to be close to an altar."
 	cost = 20
 	flags = PHENOMENA_NONFOLLOWER
 	expected_type = /mob/living
 
-/datum/phenomena/conversion/can_activate(var/atom/target)
+/datum/phenomenon/conversion/can_activate(var/atom/target)
 	if(!..())
 		return 0
 	var/is_good = 0
@@ -18,7 +18,7 @@
 		return 0
 	return 1
 
-/datum/phenomena/conversion/activate(var/mob/living/L)
+/datum/phenomenon/conversion/activate(var/mob/living/L)
 	to_chat(src,SPAN_NOTICE("You give \the [L] a chance to willingly convert. May they choose wisely."))
 	var/choice = alert(L, "You feel a weak power enter your mind attempting to convert it.", "Conversion", "Allow Conversion", "Deny Conversion")
 	if(choice == "Allow Conversion")
@@ -28,14 +28,14 @@
 		to_chat(L, SPAN_WARNING("With little difficulty you force the intrusion out of your mind. May it stay that way."))
 		to_chat(src, SPAN_WARNING("\The [L] decides not to convert."))
 
-/datum/phenomena/forced_conversion
+/datum/phenomenon/forced_conversion
 	name = "Forced Conversion"
 	desc = "Force a non-follower to join you. They need to be on top of an altar and conscious for this to work. They may resist, but that will hurt them."
 	cost = 100
 	flags = PHENOMENA_NONFOLLOWER
 	expected_type = /mob/living
 
-/datum/phenomena/forced_conversion/can_activate(var/mob/living/L)
+/datum/phenomenon/forced_conversion/can_activate(var/mob/living/L)
 	if(!..())
 		return 0
 	var/obj/structure/deity/altar/A = locate() in get_turf(L)
@@ -45,7 +45,7 @@
 
 	return 1
 
-/datum/phenomena/forced_conversion/activate(var/mob/living/L)
+/datum/phenomenon/forced_conversion/activate(var/mob/living/L)
 	var/obj/structure/deity/altar/A = locate() in get_turf(L)
 	A.set_target(L)
 	to_chat(linked, SPAN_NOTICE("You imbue \the [A] with your power, setting forth to force \the [L] to your will."))

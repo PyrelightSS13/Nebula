@@ -131,7 +131,7 @@
 	return TRUE
 
 /obj/item/paper/attack_self(mob/user)
-	if(user.a_intent == I_HURT)
+	if(user.check_intent(I_FLAG_HARM))
 		if(is_crumpled)
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return

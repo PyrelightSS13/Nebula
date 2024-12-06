@@ -379,7 +379,7 @@
 			owner.update_health()
 
 /obj/item/organ/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-	if(BP_IS_PROSTHETIC(src) || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
+	if(BP_IS_PROSTHETIC(src) || !istype(target) || !istype(user) || (user != target && user.check_intent(I_FLAG_HELP)))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"Ew, no.","Bon appetit!") == "Ew, no.")

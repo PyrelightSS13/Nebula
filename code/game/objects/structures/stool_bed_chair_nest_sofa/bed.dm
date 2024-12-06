@@ -176,7 +176,7 @@
 	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 6)
 	movable_flags = MOVABLE_FLAG_WHEELED
 	user_comfort = 0
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 
 /obj/structure/bed/travois/can_apply_padding()
 	return FALSE

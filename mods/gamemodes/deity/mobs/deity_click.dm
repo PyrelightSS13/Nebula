@@ -10,9 +10,9 @@
 		if(silenced)
 			to_chat(src, SPAN_WARNING("You cannot do that as you are silenced!"))
 		else
-			var/datum/phenomena/phenomena = get_phenomena(modifiers["shift"], modifiers["ctrl"])
-			if(phenomena)
-				phenomena.Click(A)
+			var/datum/phenomenon/phenomenon = get_phenomenon(modifiers["shift"], modifiers["ctrl"])
+			if(phenomenon)
+				phenomenon.Click(A)
 		return
 	if(current_boon && is_follower(A))
 		grant_boon(A)

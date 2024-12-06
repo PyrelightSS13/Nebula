@@ -130,7 +130,7 @@
 		return TRUE
 
 	// TODO: convert to converts_into entry.
-	if(can_be_pulverized && IS_HAMMER(W) && material?.hardness >= MAT_VALUE_RIGID && user.a_intent == I_HURT)
+	if(can_be_pulverized && IS_HAMMER(W) && material?.hardness >= MAT_VALUE_RIGID && user.check_intent(I_FLAG_HARM))
 
 		if(W.material?.hardness < material.hardness)
 			to_chat(user, SPAN_WARNING("\The [W] is not hard enough to pulverize [material.solid_name]."))
@@ -155,7 +155,7 @@
 			return TRUE
 
 	var/list/can_be_converted_into = get_stack_conversion_dictionary()
-	if(length(can_be_converted_into) && user.a_intent != I_HURT)
+	if(length(can_be_converted_into) && !user.check_intent(I_FLAG_HARM))
 
 		var/convert_tool
 		var/obj/item/stack/convert_type

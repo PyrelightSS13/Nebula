@@ -28,10 +28,10 @@
 	base_cost = 100
 	boon_path = /spell/tear_veil
 
-/datum/deity_item/phenomena/hellscape
-	name = "Phenomena: Reveal Hellscape"
+/datum/deity_item/phenomenon/hellscape
+	name = "Phenomenon: Reveal Hellscape"
 	desc = "You show a non-believer what their future will be like."
 	category = DEITY_TREE_DARK_MINION
 	requirements = list(DEITY_TREE_DARK_MINION = 1)
 	base_cost = 110
-	phenomena_path = /datum/phenomena/hellscape
+	phenomenon_path = /datum/phenomenon/hellscape

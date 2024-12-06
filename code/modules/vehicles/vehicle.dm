@@ -106,7 +106,7 @@
 	return ..() // handles bash()
 
 /obj/vehicle/bash(obj/item/weapon, mob/user)
-	if(isliving(user) && user.a_intent == I_HELP)
+	if(isliving(user) && user.check_intent(I_FLAG_HELP))
 		return FALSE
 	if(!weapon.user_can_attack_with(user))
 		return FALSE

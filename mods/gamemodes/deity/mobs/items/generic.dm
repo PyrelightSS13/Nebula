@@ -7,15 +7,15 @@
 		. = new boon_path()
 		D.set_boon(.)
 
-/datum/deity_item/phenomena
-	var/phenomena_path
+/datum/deity_item/phenomenon
+	var/phenomenon_path
 	max_level = 1
 
-/datum/deity_item/phenomena/buy(var/mob/living/deity/D)
+/datum/deity_item/phenomenon/buy(var/mob/living/deity/D)
 	..()
-	if(level == 1 && phenomena_path)
-		D.add_phenomena(phenomena_path)
-		D.update_phenomenas()
+	if(level == 1 && phenomenon_path)
+		D.add_phenomenon(phenomenon_path)
+		D.update_phenomena()
 
 /datum/deity_item/boon/single_charge/buy(var/mob/living/deity/D)
 	. = ..()

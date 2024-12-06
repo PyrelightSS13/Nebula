@@ -65,7 +65,7 @@
 			return TRUE
 		if(handle_eaten_by_mob(user, target) != EATEN_INVALID)
 			return TRUE
-		if(user.a_intent == I_HURT)
+		if(user.check_intent(I_FLAG_HARM))
 			if(standard_splash_mob(user,target))
 				return TRUE
 			if(reagents && reagents.total_volume)

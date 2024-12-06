@@ -455,7 +455,7 @@
 	return . || TRUE
 
 /obj/item/attack_self(mob/user)
-	if(user.a_intent == I_HURT && istype(material))
+	if(user.check_intent(I_FLAG_HARM) && istype(material))
 		var/list/results = squash_item(skip_qdel = TRUE)
 		if(results && user.try_unequip(src, user.loc))
 			user.visible_message(SPAN_DANGER("\The [user] squashes \the [src] into a lump."))

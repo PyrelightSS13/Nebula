@@ -12,10 +12,31 @@
 	category              = "clothing"
 
 /decl/stack_recipe/textiles/banner
+	name                       = "banner"
 	result_type                = /obj/item/banner
 	category                   = "furniture"
 	crafting_extra_cost_factor = 1.1 // less material is lost because it's relatively simple
 	difficulty                 = MAT_VALUE_NORMAL_DIY // Slightly easier than making actual clothing.
+
+/decl/stack_recipe/textiles/banner/forked
+	name                       = "banner, forked"
+	result_type                = /obj/item/banner/forked
+
+/decl/stack_recipe/textiles/banner/pointed
+	name                       = "banner, pointed"
+	result_type                = /obj/item/banner/pointed
+
+/decl/stack_recipe/textiles/banner/rounded
+	name                       = "banner, rounded"
+	result_type                = /obj/item/banner/rounded
+
+/decl/stack_recipe/textiles/banner/square
+	name                       = "banner, square"
+	result_type                = /obj/item/banner/square
+
+/decl/stack_recipe/textiles/banner/tasselled
+	name                       = "banner, tasselled"
+	result_type                = /obj/item/banner/tasselled
 
 /decl/stack_recipe/textiles/sack
 	result_type                = /obj/item/bag/sack

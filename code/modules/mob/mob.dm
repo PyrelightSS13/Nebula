@@ -1135,11 +1135,10 @@
 /mob/proc/update_mouse_pointer()
 	if(!client)
 		return
-
-	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
-
-	if(examine_cursor_icon && client.keys_held["Shift"])
-		client.mouse_pointer_icon = examine_cursor_icon
+	if(client.keys_held["Shift"])
+		client.add_mouse_pointer(/decl/mouse_pointer/examine)
+	else
+		client.remove_mouse_pointer(/decl/mouse_pointer/examine)
 
 /mob/keybind_face_direction(direction)
 	facedir(direction)

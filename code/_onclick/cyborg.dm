@@ -137,7 +137,7 @@
 	return
 
 /obj/machinery/door/airlock/BorgAltClick() // Eletrifies doors. Forwards to AI code.
-	if (usr.a_intent != I_HELP)
+	if (!usr.check_intent(I_FLAG_HELP))
 		AICtrlAltClick()
 	else
 		..()

@@ -216,7 +216,7 @@
 		update_icon()
 		return TRUE
 
-	if(lit != FIRE_LIT && user.a_intent == I_HURT)
+	if(lit != FIRE_LIT && user.check_intent(I_FLAG_HARM))
 		to_chat(user, SPAN_DANGER("You start stomping on \the [src], trying to destroy it."))
 		if(do_after(user, 5 SECONDS, src))
 			visible_message(SPAN_DANGER("\The [user] stamps and kicks at \the [src] until it is completely destroyed."))
@@ -229,7 +229,7 @@
 	var/mob/living/victim = grab.get_affecting_mob()
 	if(!istype(victim))
 		return FALSE
-	if (user.a_intent != I_HURT)
+	if (!user.check_intent(I_FLAG_HARM))
 		return TRUE
 	if (!grab.force_danger())
 		to_chat(user, SPAN_WARNING("You need a better grip!"))
@@ -278,7 +278,7 @@
 /obj/structure/fire_source/attackby(var/obj/item/thing, var/mob/user)
 
 	// Gate a few interactions behind intent so they can be bypassed if needed.
-	if(user.a_intent != I_HURT)
+	if(!user.check_intent(I_FLAG_HARM))
 		// Put cooking items onto the fire source.
 		if(istype(thing, /obj/item/chems/cooking_vessel) && user.try_unequip(thing, get_turf(src)))
 			thing.reset_offsets()
@@ -298,7 +298,7 @@
 		try_light(thing.get_heat())
 		return TRUE
 
-	if((lit != FIRE_LIT || user.a_intent == I_HURT))
+	if((lit != FIRE_LIT || user.check_intent(I_FLAG_HARM)))
 		// Only drop in one log at a time.
 		if(istype(thing, /obj/item/stack))
 			var/obj/item/stack/stack = thing

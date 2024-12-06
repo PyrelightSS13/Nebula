@@ -5,7 +5,6 @@
 	desc = "An automated combat drone armed with state of the art weaponry and shielding."
 	icon = 'icons/mob/simple_animal/drone_combat.dmi'
 	burst_projectile = 0
-	a_intent = I_HURT
 	max_health = 300
 	move_intents = list(
 		/decl/move_intent/walk/animal_slow,

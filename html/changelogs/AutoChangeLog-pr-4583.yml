@@ -1,0 +1,5 @@
+author: MistakeNot4892
+changes:
+  - {tweak: Most wooden floors and tables on space maps are now chipboard laminate
+      instead.}
+delete-after: true

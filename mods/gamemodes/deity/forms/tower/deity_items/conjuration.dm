@@ -33,12 +33,12 @@
 	boon_path = /spell/aoe_turf/conjure/forcewall/tower
 	requirements = list(DEITY_TREE_CONJURATION = 1)
 
-/datum/deity_item/phenomena/dimensional_locker
-	name = "Phenomena: Dimensional Locker"
+/datum/deity_item/phenomenon/dimensional_locker
+	name = "Phenomenon: Dimensional Locker"
 	desc = "Gain the ability to move a magical locker around. While it cannot move living things, you can move it around as you please, even disappearing it into the nether."
 	base_cost = 50
 	category = DEITY_TREE_CONJURATION
-	phenomena_path = /datum/phenomena/movable_object/dimensional_locker
+	phenomenon_path = /datum/phenomenon/movable_object/dimensional_locker
 	requirements = list(DEITY_TREE_CONJURATION = 1)
 
 //Level 2
@@ -73,13 +73,13 @@
 	category = DEITY_TREE_CONJURATION
 	requirements = list(DEITY_UNLOCK_ARMS = 1)
 
-/datum/deity_item/phenomena/portals
-	name = "Phenomena: Portals"
+/datum/deity_item/phenomenon/portals
+	name = "Phenomenon: Portals"
 	desc = "Gain the ability to create portals for your followers to enter through. You will need to create two for it work. Any created past that will delete the oldest portal."
 	base_cost = 75
 	requirements = list(DEITY_TREE_CONJURATION = 2)
 	category = DEITY_TREE_CONJURATION
-	phenomena_path = /datum/phenomena/portals
+	phenomenon_path = /datum/phenomenon/portals
 
 //Level 3
 /datum/deity_item/boon/single_charge/fireball
@@ -98,10 +98,10 @@
 	category = DEITY_TREE_CONJURATION
 	requirements = list(DEITY_TREE_CONJURATION = 3)
 
-/datum/deity_item/phenomena/banishing_smite
-	name = "Phenomena: Banishing Smite"
+/datum/deity_item/phenomenon/banishing_smite
+	name = "Phenomenon: Banishing Smite"
 	desc = "Gain the ability to smite an individual, dealing damage to them. If they are weakened enough, this can cause them to temporarily be transported."
 	base_cost = 75
 	requirements = list(DEITY_TREE_CONJURATION = 3)
 	category = DEITY_TREE_CONJURATION
-	phenomena_path = /datum/phenomena/banishing_smite
+	phenomenon_path = /datum/phenomenon/banishing_smite

@@ -283,7 +283,7 @@
 	return 0
 
 /obj/item/shockpaddles/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-	if(!ishuman(target) || user.a_intent == I_HURT)
+	if(!ishuman(target) || user.check_intent(I_FLAG_HARM))
 		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
 	var/mob/living/human/H = target
 	if(can_use(user, H))

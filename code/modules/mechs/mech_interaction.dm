@@ -133,7 +133,7 @@
 
 	// User is not necessarily the exosuit, or the same person, so update intent.
 	if(user != src)
-		a_intent = user.a_intent
+		set_intent(user.get_intent())
 		if(user.zone_sel)
 			zone_sel.set_selected_zone(user.get_target_zone())
 		else
@@ -328,7 +328,7 @@
 		user.client.screen -= hud_elements
 		user.client.eye = user
 	if(user in pilots)
-		a_intent = I_HURT
+		set_intent(I_FLAG_HARM)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
 		update_pilots()
@@ -337,7 +337,7 @@
 /mob/living/exosuit/attackby(var/obj/item/thing, var/mob/user)
 
 	// Install equipment.
-	if(user.a_intent != I_HURT && istype(thing, /obj/item/mech_equipment))
+	if(!user.check_intent(I_FLAG_HARM) && istype(thing, /obj/item/mech_equipment))
 		if(hardpoints_locked)
 			to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 			return TRUE
@@ -380,7 +380,7 @@
 		return TRUE
 
 	// Various tool and construction interactions.
-	if(user.a_intent != I_HURT)
+	if(!user.check_intent(I_FLAG_HARM))
 
 		// Removing systems from hardpoints.
 		if(IS_MULTITOOL(thing))

@@ -5,7 +5,7 @@
 	icon_state                  = ICON_STATE_WORLD
 	w_class                     = ITEM_SIZE_TINY
 	origin_tech                 = @'{"materials":1}'
-	material                    = /decl/material/solid/organic/wood
+	material                    = /decl/material/solid/organic/wood/oak
 
 	/// Parameters for lighting when lit.
 	var/lit_light_range         = 1
@@ -102,7 +102,7 @@
 
 /obj/item/flame/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	if(!istype(target) || user.a_intent == I_HURT || !lit || user.get_target_zone() != BP_MOUTH)
+	if(!istype(target) || user.check_intent(I_FLAG_HARM) || !lit || user.get_target_zone() != BP_MOUTH)
 		return ..()
 
 	var/obj/item/clothing/mask/smokable/cigarette/cig = target.get_equipped_item(slot_wear_mask_str)
@@ -207,7 +207,7 @@
 
 /obj/item/flame/attackby(obj/item/W, mob/user)
 
-	if(user.a_intent != I_HURT && !can_manually_light && (W.isflamesource() || W.get_heat() > T100C))
+	if(!user.check_intent(I_FLAG_HARM) && !can_manually_light && (W.isflamesource() || W.get_heat() > T100C))
 		light(user)
 		return TRUE
 

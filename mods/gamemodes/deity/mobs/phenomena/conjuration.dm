@@ -1,10 +1,10 @@
-/datum/phenomena/movable_object/dimensional_locker
+/datum/phenomenon/movable_object/dimensional_locker
 	object_type = /obj/structure/closet
 	name = "Dimensional Locker"
 	cost = 10
 	desc = "Summon a trans-dimensional locker anywhere within your influence. You may transport objects and things, but not people in it."
 
-/datum/phenomena/movable_object/dimensional_locker/activate(var/atom/a, var/mob/living/deity/user)
+/datum/phenomenon/movable_object/dimensional_locker/activate(var/atom/a, var/mob/living/deity/user)
 	var/list/mobs_inside = list()
 	recursive_content_check(object_to_move, mobs_inside, client_check = 0, sight_check = 0, include_objects = 0)
 
@@ -14,7 +14,7 @@
 		to_chat(M,SPAN_WARNING("You are suddenly flung out of \the [object_to_move]!"))
 	..()
 
-/datum/phenomena/portals
+/datum/phenomenon/portals
 	name = "Portals"
 	desc = "Summon a portal linked to the last portal you've created. The portal will be destroyed if it is not linked when someone crosses it."
 	cost = 30
@@ -22,12 +22,12 @@
 	expected_type = /atom
 	var/list/portals = list()
 
-/datum/phenomena/portals/activate(var/atom/a, var/mob/living/deity/user)
+/datum/phenomenon/portals/activate(var/atom/a, var/mob/living/deity/user)
 	..()
 	var/obj/effect/portal/P = new(get_turf(a), null, 0)
 	P.failchance = 0
 	portals += P
-	events_repository.register(/decl/observ/destroyed, P,src, TYPE_PROC_REF(/datum/phenomena/portals, remove_portal))
+	events_repository.register(/decl/observ/destroyed, P,src, TYPE_PROC_REF(/datum/phenomenon/portals, remove_portal))
 	if(portals.len > 2)
 		var/removed = portals[1]
 		remove_portal(removed)
@@ -38,7 +38,7 @@
 		P1.target = get_turf(P2)
 		P2.target = get_turf(P1)
 
-/datum/phenomena/portals/proc/remove_portal(var/portal)
+/datum/phenomenon/portals/proc/remove_portal(var/portal)
 	portals -= portal
 	events_repository.unregister(/decl/observ/destroyed, portal,src)
 	var/turf/T = get_turf(portal)
@@ -46,7 +46,7 @@
 		if(P.target == T)
 			P.target = null
 
-/datum/phenomena/banishing_smite
+/datum/phenomenon/banishing_smite
 	name = "Banishing Smite"
 	desc = "Deal a terrible blow to a mortal. If they are hurt enough ,they will find themselves trapped in a rift for 30 seconds."
 	cost = 70
@@ -54,7 +54,7 @@
 	flags = PHENOMENA_NEAR_STRUCTURE|PHENOMENA_MUNDANE|PHENOMENA_FOLLOWER|PHENOMENA_NONFOLLOWER
 	expected_type = /mob/living
 
-/datum/phenomena/banishing_smite/activate(var/mob/living/L, var/mob/living/deity/user)
+/datum/phenomenon/banishing_smite/activate(var/mob/living/L, var/mob/living/deity/user)
 	..()
 	L.take_overall_damage(rand(5,30),0,0,0,"blunt intrument") //Actual spell does 5d10 but maaaybe too much.
 	playsound(get_turf(L), 'sound/effects/bamf.ogg', 100, 1)

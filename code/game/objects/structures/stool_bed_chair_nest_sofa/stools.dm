@@ -174,4 +174,4 @@
 
 //Generated subtypes for mapping porpoises
 /obj/item/stool/wood
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak

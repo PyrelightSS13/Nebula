@@ -4,8 +4,8 @@
 /obj/machinery/vending
 	name = "Vendomat"
 	desc = "A generic vending machine."
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "generic"
+	icon = 'icons/obj/machines/vending/generic.dmi'
+	icon_state = ICON_STATE_WORLD
 	layer = BELOW_OBJ_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -19,9 +19,6 @@
 	emagged = 0 //Ignores if somebody doesn't have card access to that machine.
 	wires = /datum/wires/vending
 	required_interaction_dexterity = DEXTERITY_SIMPLE_MACHINES
-
-	var/icon_vend //Icon_state when vending
-	var/icon_deny //Icon_state when denying access
 
 	// Power
 	var/vend_power_usage = 150 //actuators and stuff
@@ -144,7 +141,7 @@
 		return 1
 
 /obj/machinery/vending/receive_mouse_drop(atom/dropping, mob/user, params)
-	if(!(. = ..()) && isitem(dropping) && istype(user) && user.a_intent == I_HELP && CanPhysicallyInteract(user))
+	if(!(. = ..()) && isitem(dropping) && istype(user) && user.check_intent(I_FLAG_HELP) && CanPhysicallyInteract(user))
 		return attempt_to_stock(dropping, user)
 
 /obj/machinery/vending/attackby(obj/item/W, mob/user)
@@ -186,7 +183,7 @@
 	if((. = component_attackby(W, user)))
 		return
 
-	if((user.a_intent == I_HELP) && attempt_to_stock(W, user))
+	if((user.check_intent(I_FLAG_HELP)) && attempt_to_stock(W, user))
 		return TRUE
 
 	if((obj_flags & OBJ_FLAG_ANCHORABLE) && (IS_WRENCH(W) || IS_HAMMER(W)))
@@ -359,8 +356,11 @@
 		return
 	if((!allowed(user)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(user, "<span class='warning'>Access denied.</span>")//Unless emagged of course
-		flick(icon_deny,src)
+		var/deny_state = "[icon_state]-deny"
+		if(check_state_in_icon(deny_state, icon))
+			flick(deny_state, src)
 		return
+
 	vend_ready = 0 //One thing at a time!!
 	status_message = "Vending..."
 	status_error = 0
@@ -369,8 +369,9 @@
 	do_vending_reply()
 
 	use_power_oneoff(vend_power_usage)	//actuators and stuff
-	if (icon_vend) //Show the vending animation if needed
-		flick(icon_vend,src)
+	var/vend_state = "[icon_state]-vend"
+	if (check_state_in_icon(vend_state, icon)) //Show the vending animation if needed
+		flick(vend_state, src)
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/machinery/vending, finish_vending), R), vend_delay)
 
 /obj/machinery/vending/proc/do_vending_reply()

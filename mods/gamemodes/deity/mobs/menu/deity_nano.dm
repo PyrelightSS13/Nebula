@@ -1,6 +1,6 @@
 /mob/living/deity
 	var/list/nano_data = list()
-	var/datum/phenomena/selected
+	var/datum/phenomenon/selected
 
 /mob/living/deity/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/uistate = global.self_topic_state)
 	if(!nano_data["categories"]) //If we don't have the categories set yet, we should populate our data.
@@ -14,7 +14,7 @@
 		nano_data["phenomenaMenu"] = 0 //0 Phenoms 1 Bindings
 		set_nano_category(0)
 		update_followers()
-		update_phenomenas()
+		update_phenomena()
 		update_phenomena_bindings()
 	else
 		update_category()
@@ -55,25 +55,25 @@
 		follower_data[++follower_data.len] = minion_data
 	nano_data["followers"] = follower_data
 
-/mob/living/deity/proc/update_phenomenas()
+/mob/living/deity/proc/update_phenomena()
 	var/list/phenomena_data = list()
-	for(var/p in phenomenas)
-		var/datum/phenomena/P = phenomenas[p]
-		phenomena_data[++phenomena_data.len] = list("name" = p, "description" = P.desc, "cost" = P.cost, "cooldown" = P.cooldown)
-	nano_data["phenomenas"] = phenomena_data
+	for(var/p in phenomena)
+		var/datum/phenomenon/phenomenon = phenomena[p]
+		phenomena_data[++phenomena_data.len] = list("name" = p, "description" = phenomenon.desc, "cost" = phenomenon.cost, "cooldown" = phenomenon.cooldown)
+	nano_data["phenomena"] = phenomena_data
 
 /mob/living/deity/proc/update_phenomena_bindings()
 	var/list/phenomena_bindings = list()
-	for(var/intent in intent_phenomenas)
+	for(var/intent in intent_phenomena)
 		var/list/intent_data = list()
-		for(var/binding in intent_phenomenas[intent])
-			var/datum/phenomena/P = intent_phenomenas[intent][binding]
+		for(var/binding in intent_phenomena[intent])
+			var/datum/phenomenon/P = intent_phenomena[intent][binding]
 			var/list/data = list()
 			if(P)
 				data["phenomena_name"] = P.name
 			data["binding"] = binding
 			intent_data[++intent_data.len] = data
-		phenomena_bindings[++phenomena_bindings.len] = list("intent" = intent, "intent_data" = intent_data)
+		phenomena_bindings[++phenomena_bindings.len] = list("intent" = "\ref[intent]", "intent_data" = intent_data)
 	nano_data["bindings"] = phenomena_bindings
 	//Update the hud as well.
 	var/obj/screen/intent/deity/SD = istype(hud_used) && hud_used.action_intent

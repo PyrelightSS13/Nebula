@@ -555,7 +555,7 @@ By design, d1 is the smallest direction and d2 is the highest
 //you can use wires to heal robotics
 /obj/item/stack/cable_coil/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	var/obj/item/organ/external/affecting = istype(target) && GET_EXTERNAL_ORGAN(target, user?.get_target_zone())
-	if(affecting && user.a_intent == I_HELP)
+	if(affecting && user.check_intent(I_FLAG_HELP))
 		if(!affecting.is_robotic())
 			to_chat(user, SPAN_WARNING("\The [target]'s [affecting.name] is not robotic. \The [src] cannot repair it."))
 		else if(BP_IS_BRITTLE(affecting))

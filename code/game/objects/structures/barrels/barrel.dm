@@ -6,8 +6,8 @@
 	anchored                  = TRUE
 	atom_flags                = ATOM_FLAG_CLIMBABLE
 	matter                    = null
-	material                  = /decl/material/solid/organic/wood
-	color                     = /decl/material/solid/organic/wood::color
+	material                  = /decl/material/solid/organic/wood/oak
+	color                     = /decl/material/solid/organic/wood/oak::color
 	material_alteration       = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
 	wrenchable                = FALSE
 	storage                   = /datum/storage/barrel
@@ -32,7 +32,7 @@
 
 /obj/structure/reagent_dispensers/barrel/attackby(obj/item/W, mob/user)
 	. = ..()
-	if(!. && user.a_intent == I_HELP && reagents?.total_volume > FLUID_PUDDLE)
+	if(!. && user.check_intent(I_FLAG_HELP) && reagents?.total_volume > FLUID_PUDDLE)
 		user.visible_message(SPAN_NOTICE("\The [user] dips \the [W] into \the [reagents.get_primary_reagent_name()]."))
 		W.fluid_act(reagents)
 		return TRUE

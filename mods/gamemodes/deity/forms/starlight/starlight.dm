@@ -31,12 +31,12 @@
 				/datum/deity_item/boon/blood_boil,
 				/datum/deity_item/boon/emp,
 				/datum/deity_item/boon/cure_light,
-				/datum/deity_item/phenomena/herald,
-				/datum/deity_item/phenomena/wisp,
-				/datum/deity_item/phenomena/flickering_whisper,
-				/datum/deity_item/phenomena/burning_glare,
-				/datum/deity_item/phenomena/open_gateway,
-				/datum/deity_item/phenomena/divine_right
+				/datum/deity_item/phenomenon/herald,
+				/datum/deity_item/phenomenon/wisp,
+				/datum/deity_item/phenomenon/flickering_whisper,
+				/datum/deity_item/phenomenon/burning_glare,
+				/datum/deity_item/phenomenon/open_gateway,
+				/datum/deity_item/phenomenon/divine_right
 				)
 
 /datum/god_form/starlight/take_charge(var/mob/living/user, var/charge)

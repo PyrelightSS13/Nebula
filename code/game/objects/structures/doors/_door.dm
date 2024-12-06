@@ -163,7 +163,7 @@
 /obj/structure/door/attackby(obj/item/used_item, mob/user)
 	add_fingerprint(user, 0, used_item)
 
-	if((user.a_intent == I_HURT && used_item.get_attack_force(user)) || istype(used_item, /obj/item/stack/material))
+	if((user.check_intent(I_FLAG_HARM) && used_item.get_attack_force(user)) || istype(used_item, /obj/item/stack/material))
 		return ..()
 
 	if(used_item.user_can_attack_with(user, silent = TRUE))
@@ -217,7 +217,7 @@
 		return FALSE
 	user.do_attack_animation(src)
 	playsound(target.loc, 'sound/effects/glassknock.ogg', 80, 1)
-	if(user.a_intent == I_HURT)
+	if(user.check_intent(I_FLAG_HARM))
 		target.visible_message(
 			SPAN_DANGER("\The [user] bangs against \the [src]!"),
 			blind_message = "You hear a banging sound!"
@@ -255,8 +255,8 @@
 	material = /decl/material/solid/gemstone/diamond
 
 /obj/structure/door/wood
-	material = /decl/material/solid/organic/wood
-	color = /decl/material/solid/organic/wood::color
+	material = /decl/material/solid/organic/wood/oak
+	color = /decl/material/solid/organic/wood/oak::color
 
 /obj/structure/door/mahogany
 	material = /decl/material/solid/organic/wood/mahogany
@@ -275,7 +275,7 @@
 	color = /decl/material/solid/organic/wood/walnut::color
 
 /obj/structure/door/wood/saloon
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 	opacity = FALSE
 
 /obj/structure/door/wood/saloon/ebony

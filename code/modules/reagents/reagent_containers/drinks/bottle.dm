@@ -34,7 +34,7 @@
 //when thrown on impact, bottles smash and spill their contents
 /obj/item/chems/drinks/bottle/throw_impact(atom/hit_atom, var/datum/thrownthing/TT)
 	..()
-	if(material?.is_brittle() && TT.thrower && TT.thrower.a_intent != I_HELP)
+	if(material?.is_brittle() && TT.thrower && !TT.thrower.check_intent(I_FLAG_HELP))
 		if(TT.speed > throw_speed || smash_check(TT.dist_travelled)) //not as reliable as smashing directly
 			smash(loc, hit_atom)
 
@@ -157,7 +157,7 @@
 /obj/item/chems/drinks/bottle/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	. = ..()
 
-	if(user.a_intent != I_HURT)
+	if(!user.check_intent(I_FLAG_HARM))
 		return
 	if(!smash_check(1))
 		return //won't always break on the first hit
