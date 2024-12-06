@@ -45,7 +45,7 @@
 
 /obj/item/runestone/attackby(obj/item/W, mob/user)
 
-	if(W.get_attack_force() && user.a_intent == I_HURT)
+	if(W.get_attack_force() && user.check_intent(I_FLAG_HARM))
 		user.visible_message("\The [user] brings \the [W] down on \the [src]!")
 		crack_runestone(user)
 		return TRUE
