@@ -69,13 +69,13 @@
 	volume = 60
 
 /obj/item/chems/glass/handmade/cup/wood
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 
 /obj/item/chems/glass/handmade/mug/wood
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 
 /obj/item/chems/glass/handmade/bowl/wood
-	material = /decl/material/solid/organic/wood
+	material = /decl/material/solid/organic/wood/oak
 
 
 /obj/item/chems/glass/handmade/bottle/beer/populate_reagents()

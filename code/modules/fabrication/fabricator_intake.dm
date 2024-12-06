@@ -103,7 +103,7 @@
 		return TRUE
 
 	// Gate some simple interactions beind intent so people can still feed lathes disks.
-	if(user.a_intent != I_HURT)
+	if(!user.check_intent(I_FLAG_HARM))
 
 		// Set or update our local network.
 		if(IS_MULTITOOL(O))

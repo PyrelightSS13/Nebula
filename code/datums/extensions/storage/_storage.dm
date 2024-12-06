@@ -153,10 +153,10 @@ var/global/list/_test_storage_items = list()
 			return 0
 
 	//If attempting to lable the storage item, silently fail to allow it
-	if(istype(W, /obj/item/hand_labeler) && user?.a_intent != I_HELP)
+	if(istype(W, /obj/item/hand_labeler) && !user?.check_intent(I_FLAG_HELP))
 		return FALSE
 	//Prevent package wrapper from being inserted by default
-	if(istype(W, /obj/item/stack/package_wrap) && user?.a_intent != I_HELP)
+	if(istype(W, /obj/item/stack/package_wrap) && !user?.check_intent(I_FLAG_HELP))
 		return FALSE
 
 	// Don't allow insertion of unsafed compressed matter implants

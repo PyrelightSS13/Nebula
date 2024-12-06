@@ -1,11 +1,11 @@
-/datum/phenomena/communicate
+/datum/phenomenon/communicate
 	name = "Direct Communication"
 	desc = "Communicate directly with a mortal being. You may communicate with non-followers, but they will find you easier to ignore."
 	cost = 0
 	flags = PHENOMENA_FOLLOWER | PHENOMENA_NONFOLLOWER
 	expected_type = /mob/living
 
-/datum/phenomena/communicate/activate(var/mob/living/L)
+/datum/phenomenon/communicate/activate(var/mob/living/L)
 	var/text_to_send = sanitize(input(linked, "Subjugate a member to your will", "Message a Believer") as text)
 	if(text_to_send)
 		var/text_size = 4
@@ -15,7 +15,7 @@
 		to_chat(linked, SPAN_NOTICE("You send the message [text_to_send] to \the [L]"))
 		log_and_message_admins("communicated the message \"[text_to_send]\" to [key_name(L)]", linked)
 
-/datum/phenomena/point
+/datum/phenomenon/point
 	name = "Point"
 	desc = "Attract your follower's attentions to something nearby."
 	cost = 0
@@ -23,7 +23,7 @@
 	expected_type = /atom
 	var/image/arrow
 
-/datum/phenomena/point/activate(var/atom/a)
+/datum/phenomenon/point/activate(var/atom/a)
 	..()
 	if(!arrow)
 		arrow = image('icons/effects/markers.dmi', icon_state = "arrow", layer = POINTER_LAYER)
@@ -37,24 +37,24 @@
 			if((M in view) && M.client)
 				to_chat(M, SPAN_OCCULT("Your attention is eerily drawn to \the [a]."))
 				M.client.images += arrow
-				events_repository.register(/decl/observ/logged_out, M, src, TYPE_PROC_REF(/datum/phenomena/point, remove_image))
+				events_repository.register(/decl/observ/logged_out, M, src, TYPE_PROC_REF(/datum/phenomenon/point, remove_image))
 				spawn(20)
 					if(M.client)
 						remove_image(M)
 
-/datum/phenomena/point/proc/remove_image(var/mob/living/L)
+/datum/phenomenon/point/proc/remove_image(var/mob/living/L)
 	L.client.images -= arrow
 	events_repository.unregister(/decl/observ/logged_out, L, src)
 
-/datum/phenomena/punish
+/datum/phenomenon/punish
 	name = "Punish"
-	desc = "Punish your followers for insubordination, the cost to use this phenomena is based on how deadly you choose the punishment to be."
+	desc = "Punish your followers for insubordination, the cost to use this phenomenon is based on how deadly you choose the punishment to be."
 	cost = 0
 	flags = PHENOMENA_FOLLOWER
 	expected_type = /mob/living
 	var/static/list/punishment_list = list("Pain (0)" = 0, "Light Wound (5)" = 5, "Brain Damage (10)" = 10, "Heavy Wounds (20)" = 20)
 
-/datum/phenomena/punish/activate(var/mob/living/L)
+/datum/phenomenon/punish/activate(var/mob/living/L)
 	var/pain = input(linked, "Choose their punishment.", "Punishment") as null|anything in punishment_list
 	if(!pain)
 		return

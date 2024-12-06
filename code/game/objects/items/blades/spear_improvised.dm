@@ -34,7 +34,7 @@
 
 /obj/item/bladed/polearm/spear/improvised/steel
 	material            = /decl/material/solid/metal/steel
-	hilt_material       = /decl/material/solid/organic/wood
+	hilt_material       = /decl/material/solid/organic/wood/oak
 	force_binding_color = COLOR_GREEN
 
 /obj/item/bladed/polearm/spear/improvised/supermatter

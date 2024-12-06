@@ -9,24 +9,25 @@
 	compile_overlays()
 
 /obj/screen/intent/deity/proc/sync_to_mob(var/mob)
-	var/mob/living/deity/D = mob
-	for(var/i in 1 to D.control_types.len)
-		var/obj/screen/deity_marker/S = new(null, D)
-		desc_screens[D.control_types[i]] = S
+	var/mob/living/deity/deity = mob
+	for(var/i in 1 to deity.control_types.len)
+		var/obj/screen/deity_marker/S = new(null, deity)
+		desc_screens[deity.control_types[i]] = S
 		S.screen_loc = screen_loc
 		//This sets it up right. Trust me.
 		S.maptext_y = 33/2*i - i*i/2 - 10
-		D.client.screen += S
-
+		deity.client.screen += S
 	update_text()
 
 /obj/screen/intent/deity/proc/update_text()
-	if(!isdeity(usr))
+	var/mob/living/deity/deity = usr
+	var/mob/owner = owner_ref?.resolve()
+	if(!istype(deity) || !istype(owner) || owner != deity)
 		return
-	var/mob/living/deity/D = usr
-	for(var/i in D.control_types)
+	var/decl/intent/intent = owner.get_intent()
+	for(var/i in deity.control_types)
 		var/obj/screen/deity_marker/S = desc_screens[i]
-		var/datum/phenomena/P = D.intent_phenomenas[intent][i]
+		var/datum/phenomenon/P = deity.intent_phenomena[intent][i]
 		if(P)
 			S.maptext = "<span style='font-size:7pt;font-family:Impact'><font color='#3C3612'>[P.name]</font></span>"
 		else

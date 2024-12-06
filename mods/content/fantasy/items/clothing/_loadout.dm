@@ -168,7 +168,7 @@
 	slot = slot_shoes_str
 	available_materials = list(
 		/decl/material/solid/organic/leather,
-		/decl/material/solid/organic/wood,
+		/decl/material/solid/organic/wood/oak,
 		/decl/material/solid/organic/wood/mahogany,
 		/decl/material/solid/organic/wood/maple,
 		/decl/material/solid/organic/wood/ebony,
@@ -243,7 +243,7 @@
 	name = "shovel"
 	path = /obj/item/tool/shovel/one_material
 	available_materials = list(
-		/decl/material/solid/organic/wood,
+		/decl/material/solid/organic/wood/oak,
 		/decl/material/solid/organic/wood/mahogany,
 		/decl/material/solid/organic/wood/maple,
 		/decl/material/solid/organic/wood/ebony,

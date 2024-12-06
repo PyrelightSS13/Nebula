@@ -9,7 +9,7 @@
 	throw_range             = 10
 	slot_flags              = SLOT_LOWER_BODY
 	material_alteration     = MAT_FLAG_ALTERATION_COLOR
-	material                = /decl/material/solid/organic/wood
+	material                = /decl/material/solid/organic/wood/oak
 	drop_sound              = 'sound/foley/tooldrop5.ogg'
 	pickup_sound            = 'sound/foley/paperpickup2.ogg'
 

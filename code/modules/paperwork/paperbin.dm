@@ -32,7 +32,7 @@
 	if(!CanPhysicallyInteract(user))
 		return FALSE
 
-	if(user.a_intent == I_HURT || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
+	if(user.check_intent(I_FLAG_HARM) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 
 	if(LAZYLEN(papers) < 1 && amount < 1)

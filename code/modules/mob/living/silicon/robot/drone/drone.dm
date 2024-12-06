@@ -170,7 +170,7 @@
 	if(istype(W, /obj/item/borg/upgrade))
 		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return TRUE
-	else if(IS_CROWBAR(W) && user.a_intent != I_HURT)
+	else if(IS_CROWBAR(W) && !user.check_intent(I_FLAG_HARM))
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
 		return TRUE
 	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))

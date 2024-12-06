@@ -1,4 +1,4 @@
-/datum/phenomena
+/datum/phenomenon
 	var/name = "Phenomena"
 	var/desc = "This has no desc."
 	var/cost = 0
@@ -8,21 +8,21 @@
 	var/refresh_time = 0
 	var/expected_type
 
-/datum/phenomena/New(var/master)
+/datum/phenomenon/New(var/master)
 	linked = master
 	..()
 
-/datum/phenomena/Destroy()
-	linked.remove_phenomena(src)
+/datum/phenomenon/Destroy()
+	linked.remove_phenomenon(src)
 	return ..()
 
-/datum/phenomena/proc/Click(var/atom/target)
+/datum/phenomenon/proc/Click(var/atom/target)
 	if(can_activate(target))
 		linked.adjust_power(-cost)
 		refresh_time = world.time + cooldown
 		activate(target)
 
-/datum/phenomena/proc/can_activate(var/atom/target)
+/datum/phenomenon/proc/can_activate(var/atom/target)
 	if(!linked)
 		return 0
 	if(refresh_time > world.time)
@@ -62,12 +62,12 @@
 
 	return 1
 
-/datum/phenomena/proc/activate(var/target)
-	to_chat(linked, SPAN_NOTICE("You use the phenomena [name] on \the [target]"))
-	log_and_message_admins("uses the phenomena [name] on \the [target]", linked, get_turf(target))
+/datum/phenomenon/proc/activate(var/target)
+	to_chat(linked, SPAN_NOTICE("You use the phenomenon [name] on \the [target]"))
+	log_and_message_admins("uses the phenomenon [name] on \the [target]", linked, get_turf(target))
 	return
 
-/datum/phenomena/proc/get_desc()
+/datum/phenomenon/proc/get_desc()
 	. = desc
 	if(cooldown)
 		. = "<b>Cooldown: [cooldown/10] seconds.</b> [.]"

@@ -21,27 +21,27 @@
 				/datum/deity_item/boon/single_charge/create_air,
 				/datum/deity_item/boon/single_charge/acid_spray,
 				/datum/deity_item/boon/single_charge/force_wall,
-				/datum/deity_item/phenomena/dimensional_locker,
+				/datum/deity_item/phenomenon/dimensional_locker,
 				/datum/deity_item/boon/single_charge/faithful_hound,
 				/datum/deity_item/wizard_armaments,
 				/datum/deity_item/boon/single_charge/sword,
 				/datum/deity_item/boon/single_charge/shield,
-				/datum/deity_item/phenomena/portals,
+				/datum/deity_item/phenomenon/portals,
 				/datum/deity_item/boon/single_charge/fireball,
 				/datum/deity_item/boon/single_charge/force_portal,
-				/datum/deity_item/phenomena/banishing_smite,
+				/datum/deity_item/phenomenon/banishing_smite,
 				/datum/deity_item/transmutation,
 				/datum/deity_item/boon/single_charge/slippery_surface,
 				/datum/deity_item/boon/single_charge/smoke,
 				/datum/deity_item/boon/single_charge/knock,
 				/datum/deity_item/boon/single_charge/burning_grip,
-				/datum/deity_item/phenomena/warp_body,
+				/datum/deity_item/phenomenon/warp_body,
 				/datum/deity_item/boon/single_charge/jaunt,
 				/datum/deity_item/healing_spells,
 				/datum/deity_item/boon/single_charge/heal,
 				/datum/deity_item/boon/single_charge/heal/major,
 				/datum/deity_item/boon/single_charge/heal/area,
-				/datum/deity_item/phenomena/rock_form
+				/datum/deity_item/phenomenon/rock_form
 				)
 
 /datum/god_form/wizard/take_charge(var/mob/living/user, var/charge)

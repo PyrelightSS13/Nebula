@@ -119,7 +119,7 @@
 		//attacking - Cannot be carrying something, cause then your clamp would be full
 		else if(isliving(target))
 			var/mob/living/M = target
-			if(user.a_intent == I_HURT)
+			if(user.check_intent(I_FLAG_HARM))
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
 				if(prob(33))

@@ -107,7 +107,7 @@
 				neighbor.update_icon()
 		return TRUE
 
-	if(!seed && user.a_intent == I_HURT && (IS_SHOVEL(O) || IS_HOE(O)))
+	if(!seed && user.check_intent(I_FLAG_HARM) && (IS_SHOVEL(O) || IS_HOE(O)))
 		var/use_tool = O.get_tool_quality(TOOL_SHOVEL) > O.get_tool_quality(TOOL_HOE) ? TOOL_SHOVEL : TOOL_HOE
 		if(use_tool)
 			if(O.do_tool_interaction(use_tool, user, src, 3 SECONDS, "filling in", "filling in", check_skill = SKILL_BOTANY))

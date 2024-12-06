@@ -2841,12 +2841,12 @@
 /turf/floor/tiled/airless,
 /area/slavers_base/demo)
 "hO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/radio/shortwave,
 /turf/floor/tiled/airless,
 /area/slavers_base/demo)
 "hP" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/secure_storage/briefcase/money,
 /obj/random/cash,
 /obj/random/cash,
@@ -2976,12 +2976,12 @@
 /turf/floor/tiled/airless,
 /area/slavers_base/demo)
 "ij" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/bag/cash,
 /turf/floor/tiled/airless,
 /area/slavers_base/demo)
 "ik" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/random/cash,
 /turf/floor/tiled/airless,
 /area/slavers_base/demo)
@@ -3052,7 +3052,7 @@
 /turf/floor/tiled,
 /area/slavers_base/dorms)
 "iy" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/paper{
 	info = "<center><b> Contract </b></center> <br>This contract describes exchanging of monetary pieces for the right o? the ownership for following examples: <list><*> Human, age 17. Price - 1500cr. <*> Human, age 49. Price - 1100cr. <*> Human, age 28. Good fist fighter. Price - 2400cr. <*> Human, age 34. Expirienced medic. Price - 6800cr. </list> <b> Overall price: 11800cr</b><br><small>Place for signatures</small>";
 	name = "Contract"
@@ -3060,7 +3060,7 @@
 /turf/floor/tiled/airless,
 /area/slavers_base/demo)
 "iz" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/random/coin,
 /obj/item/pen,
 /turf/floor/tiled/airless,

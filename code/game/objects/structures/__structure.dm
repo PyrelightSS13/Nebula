@@ -226,7 +226,7 @@
 		return TRUE
 
 	var/mob/living/victim = grab.get_affecting_mob()
-	if(user.a_intent == I_HURT)
+	if(user.check_intent(I_FLAG_HARM))
 
 		if(!istype(victim))
 			to_chat(user, SPAN_WARNING("You need to be grabbing a living creature to do that!"))

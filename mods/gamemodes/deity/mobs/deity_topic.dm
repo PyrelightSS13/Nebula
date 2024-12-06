@@ -4,9 +4,9 @@
 		if(type)
 			set_form(type)
 		return TOPIC_HANDLED
-	if(href_list["select_phenomena"])
+	if(href_list["select_phenomenon"])
 		nano_data["phenomenaMenu"] = 1
-		selected = phenomenas[href_list["select_phenomena"]]
+		selected = phenomena[href_list["select_phenomenon"]]
 		nano_data["selectedPhenomenaName"] = selected.name
 		return TOPIC_HANDLED
 	if(href_list["clear_selected"])
@@ -15,13 +15,18 @@
 		nano_data["selectedPhenomenaName"] = null
 		return TOPIC_HANDLED
 	if(href_list["select_intent"])
-		var/list/intent = intent_phenomenas[href_list["select_intent"]]
-		if(intent[href_list["select_binding"]])
-			remove_phenomena_from_intent(href_list["select_intent"], href_list["select_binding"], 0)
+		var/decl/intent/intent = locate(href_list["select_intent"])
+		if(!istype(intent))
+			return TOPIC_NOACTION
+		var/binding = href_list["select_binding"]
+		var/list/phenomenon = intent_phenomena[intent]
+		if(phenomenon[binding])
+			remove_phenomena_from_intent(intent, binding, 0)
 		if(selected)
-			set_phenomena(selected, href_list["select_intent"], href_list["select_binding"])
+			set_phenomenon(selected, intent, binding)
 		update_phenomena_bindings()
 		return TOPIC_HANDLED
+
 	if(href_list["jump"])
 		var/atom/a = locate(href_list["jump"])
 		var/follow = 0

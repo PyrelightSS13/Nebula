@@ -26,9 +26,9 @@
 	base_cost = 110
 	boon_path = /spell/aoe_turf/drain_blood
 
-/datum/deity_item/phenomena/exude_blood
-	name = "Phenomena: Exude Blood"
+/datum/deity_item/phenomenon/exude_blood
+	name = "Phenomenon: Exude Blood"
 	desc = "You extract the raw blood used in your faith and give it to one of your flock."
 	category = "Dark Spells"
 	base_cost = 30
-	phenomena_path = /datum/phenomena/exude_blood
+	phenomenon_path = /datum/phenomenon/exude_blood

@@ -23,7 +23,7 @@
 		/datum/deity_item/boon/torment,
 		/datum/deity_item/boon/blood_shard,
 		/datum/deity_item/boon/drain_blood,
-		/datum/deity_item/phenomena/exude_blood,
+		/datum/deity_item/phenomenon/exude_blood,
 		/datum/deity_item/sacrifice,
 		/datum/deity_item/boon/sac_dagger,
 		/datum/deity_item/boon/sac_spell,
@@ -33,7 +33,7 @@
 		/datum/deity_item/boon/soul_shard,
 		/datum/deity_item/boon/blood_zombie,
 		/datum/deity_item/boon/tear_veil,
-		/datum/deity_item/phenomena/hellscape,
+		/datum/deity_item/phenomenon/hellscape,
 		/datum/deity_item/blood_crafting/narsie,
 		/datum/deity_item/blood_crafting/armored,
 		/datum/deity_item/blood_crafting/space

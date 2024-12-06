@@ -68,7 +68,7 @@
 			to_chat(user, SPAN_NOTICE("With [comp_ind], you could harvest [english_list(comp_string_comps)]."))
 
 /obj/item/food/fruit/attackby(obj/item/W, mob/living/user)
-	if(user?.a_intent != I_HURT)
+	if(!user?.check_intent(I_FLAG_HARM))
 		var/list/fruit_comp = get_composition()
 		for(var/datum/fruit_segment/comp as anything in fruit_comp)
 			var/remaining = comp.dissect_amount - LAZYACCESS(removed_segments, comp)

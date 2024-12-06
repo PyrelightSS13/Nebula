@@ -1,4 +1,4 @@
-/datum/phenomena/herald
+/datum/phenomenon/herald
 	name = "Bestow Heraldry"
 	desc = "Turn one of your followers into a herald of your coming."
 	cost = 100
@@ -25,12 +25,12 @@
 												)
 									)
 
-/datum/phenomena/herald/can_activate(var/a)
+/datum/phenomenon/herald/can_activate(var/a)
 	if(!..())
 		return FALSE
 	return valid_for_herald(a)
 
-/datum/phenomena/herald/proc/valid_for_herald(var/a)
+/datum/phenomenon/herald/proc/valid_for_herald(var/a)
 	var/mob/living/human/H = a
 	if(!istype(H))
 		return FALSE
@@ -41,13 +41,13 @@
 			return FALSE
 	return TRUE
 
-/datum/phenomena/herald/proc/equip_slot(var/mob/living/L, var/slot_id, var/new_item)
+/datum/phenomenon/herald/proc/equip_slot(var/mob/living/L, var/slot_id, var/new_item)
 	var/equipped = L.get_equipped_slot_for_item(slot_id)
 	if(equipped)
 		L.try_unequip(equipped, get_turf(L))
 	L.equip_to_slot_if_possible(new_item, slot_id)
 
-/datum/phenomena/herald/Topic(var/href, var/list/href_list)
+/datum/phenomenon/herald/Topic(var/href, var/list/href_list)
 	if(..())
 		return 1
 	if(usr != linked)
@@ -78,10 +78,10 @@
 				L.add_spell(boon)
 		to_chat(L, "<span class='notice'>You have been chosen by your master to lead your fellow followers into the next age of rebirth.<br>You have been granted powerful armor and a powerful spell. Don't lose them, as they are your key to your divinity and leadership.<br>You also have particular sway over your deity's structures.</span>")
 		to_chat(linked, SPAN_NOTICE("\The [L] is now your herald!"))
-		linked.remove_phenomena(name)
+		linked.remove_phenomenon(name)
 		show_browser(linked, null, "window=herald")
 
-/datum/phenomena/herald/activate(var/mob/living/human/H)
+/datum/phenomenon/herald/activate(var/mob/living/human/H)
 	var/list/html = list()
 	html += "<center><h2>Heralds</h2></center>"
 	html += "<br><i>Pick the type of herald you want.</i></br>"
@@ -92,14 +92,14 @@
 	html += "</table>"
 	show_browser(linked, jointext(html,null), "window=herald")
 
-/datum/phenomena/create_gateway
+/datum/phenomenon/create_gateway
 	name = "Create Gateway"
 	desc = "Creates a gateway from this world to the next. Gateways syphon absurd amounts of power but can be sacrificed to summon powerful minions."
 	cost = 200
 	flags = PHENOMENA_NEAR_STRUCTURE
 	expected_type = /atom
 
-/datum/phenomena/create_gateway/can_activate(var/atom/a)
+/datum/phenomenon/create_gateway/can_activate(var/atom/a)
 	if(!..())
 		return 0
 	if(istype(a, /obj/structure/deity/gateway))
@@ -115,20 +115,20 @@
 			return 0
 	return 1
 
-/datum/phenomena/create_gateway/activate(var/atom/a)
+/datum/phenomenon/create_gateway/activate(var/atom/a)
 	..()
 	if(istype(a, /obj/structure/deity/gateway))
 		qdel(a)
 	else
 		new /obj/structure/deity/gateway(get_turf(a), linked)
 
-/datum/phenomena/flickering_whisper
+/datum/phenomenon/flickering_whisper
 	name = "Flickering Whisper"
 	desc = "Whisper to a non-believer, allowing you to intrude on their thoughts and see what they see."
 	flags = PHENOMENA_NONFOLLOWER
 	expected_type = /mob/living
 
-/datum/phenomena/flickering_whisper/activate(var/mob/living/L)
+/datum/phenomenon/flickering_whisper/activate(var/mob/living/L)
 	var/atom/whisper_from
 	for(var/obj/structure/deity/radiant_statue/rs in view(3, L))
 		whisper_from = rs
@@ -142,12 +142,12 @@
 	events_repository.register(/decl/observ/destroyed, L, src, PROC_REF(deactivate_look))
 	addtimer(CALLBACK(src, PROC_REF(deactivate_look), L), 30 SECONDS)
 
-/datum/phenomena/flickering_whisper/proc/deactivate_look(var/mob/viewer)
+/datum/phenomenon/flickering_whisper/proc/deactivate_look(var/mob/viewer)
 	if(!linked.is_follower(viewer)) //Don't remove if they are follower
 		linked.eyenet.remove_source(viewer)
 	events_repository.unregister(/decl/observ/destroyed, viewer, src)
 
-/datum/phenomena/burning_glare
+/datum/phenomenon/burning_glare
 	name = "Burning Glare"
 	desc = "Burn a victim. If they are burnt enough, you'll set them ablaze."
 	cost = 100
@@ -155,7 +155,7 @@
 	cooldown = 30 SECONDS
 	expected_type = /mob/living
 
-/datum/phenomena/burning_glare/activate(var/mob/living/L)
+/datum/phenomenon/burning_glare/activate(var/mob/living/L)
 	..()
 	to_chat(L, SPAN_DANGER("You feel yourself burn!"))
 	L.take_damage(10, BURN)
@@ -163,7 +163,7 @@
 		L.fire_stacks += 50
 		L.IgniteMob()
 
-/datum/phenomena/divine_right
+/datum/phenomenon/divine_right
 	name = "Divine Right"
 	desc = "Trigger your rebirth into the body of someone wearing a herald's uniform. This takes time, requires 3 open gateways, and if the body is destroyed during the ritual... so are you. But once complete, you become an unstoppable demigod of unnatural power."
 	cost = 300
@@ -171,7 +171,7 @@
 	flags = PHENOMENA_FOLLOWER|PHENOMENA_NEAR_STRUCTURE
 	expected_type = /mob/living
 
-/datum/phenomena/divine_right/can_activate(var/mob/living/L)
+/datum/phenomenon/divine_right/can_activate(var/mob/living/L)
 	if(!..())
 		return FALSE
 	var/active_gateways = 0
@@ -190,7 +190,7 @@
 		to_chat(linked, SPAN_WARNING("\The [L] is not wearing a herald's uniform."))
 	return FALSE
 
-/datum/phenomena/divine_right/activate(var/mob/living/L)
+/datum/phenomenon/divine_right/activate(var/mob/living/L)
 	..()
 	to_chat(L, SPAN_OCCULT("Your soul is ripped from your body as your master prepares to possess it."))
 	to_chat(linked, SPAN_OCCULT("You prepare the body for possession. Keep it safe. If it is totally destroyed, you will die."))
@@ -209,10 +209,10 @@
 		else
 			to_chat(player, SPAN_NOTICE("Your Master is being reborn into the body of \the [L]. Protect it at all costs."))
 
-/datum/phenomena/divine_right/proc/fail_ritual(var/mob/living/L)
+/datum/phenomenon/divine_right/proc/fail_ritual(var/mob/living/L)
 	qdel(linked)
 
-/datum/phenomena/divine_right/proc/succeed_ritual(var/mob/living/L)
+/datum/phenomenon/divine_right/proc/succeed_ritual(var/mob/living/L)
 	to_chat(linked, SPAN_OCCULT("You have been reborn! Your power is limited here, focused on your body, but in return you are both eternal and physical."))
 	for(var/mob/living/player in global.player_list)
 		sound_to(player, 'sound/effects/cascade.ogg')
@@ -221,12 +221,12 @@
 	L.SetName("[linked] Incarnate")
 	L.real_name = "[linked] Incarnate"
 
-/datum/phenomena/movable_object/wisp
+/datum/phenomenon/movable_object/wisp
 	name = "Wisp"
 	desc = "Creates or moves a small ball of light for your followers to use."
 	cost = 30
 	object_type = /obj/item/flashlight/slime
 
-/datum/phenomena/movable_object/wisp/add_object()
+/datum/phenomenon/movable_object/wisp/add_object()
 	..()
 	object_to_move.SetName("wisp")

@@ -88,7 +88,7 @@
 		if(istype(pronouns))
 			stat("Coordinates:", "[pronouns.get_coordinates()]")
 
-		stat("Intent:", "[a_intent]")
+		stat("Intent:", "[get_intent().name]")
 		stat("Move Mode:", "[move_intent.name]")
 
 		if(SSevac.evacuation_controller)
@@ -962,9 +962,6 @@
 
 /mob/living/human/get_admin_job_string()
 	return job || uppertext(species.name)
-
-/mob/living/human/can_change_intent()
-	return TRUE
 
 /mob/living/human/breathing_hole_covered()
 	. = ..()

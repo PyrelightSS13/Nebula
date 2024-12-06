@@ -6,7 +6,7 @@
 /turf/unsimulated/wall,
 /area/map_template/wizard_station)
 "ac" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/backpack/cultpack,
 /turf/floor/carpet,
 /area/map_template/wizard_station)
@@ -21,7 +21,7 @@
 	},
 /area/map_template/wizard_station)
 "af" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/backpack/satchel/grey/withwallet,
 /turf/floor/carpet,
 /area/map_template/wizard_station)
@@ -42,7 +42,7 @@
 /turf/floor/carpet,
 /area/map_template/wizard_station)
 "ak" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
 	on = 0;
 	pixel_x = -3;
@@ -52,9 +52,9 @@
 /turf/floor/carpet,
 /area/map_template/wizard_station)
 "al" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/dice,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "am" = (
 /obj/structure/bed/padded,
@@ -62,12 +62,12 @@
 /turf/floor/carpet,
 /area/map_template/wizard_station)
 "an" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/dice/d20,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "ao" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/backpack/satchel/grey/withwallet,
 /obj/item/clothing/glasses/eyepatch/monocle,
 /turf/floor/carpet,
@@ -76,15 +76,15 @@
 /mob/living/human/monkey{
 	name = "Murphey"
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/food/chawanmushi,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "ar" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/abstract/landmark{
 	name = "Teleport-Scroll"
 	},
@@ -92,36 +92,36 @@
 /turf/floor/carpet,
 /area/map_template/wizard_station)
 "as" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/megaphone,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "at" = (
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "au" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/cash/c1,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "av" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/item/radio/intercom/wizard{
 	dir = 8;
 	pixel_x = 22
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aw" = (
 /obj/machinery/vending/magivend,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "ax" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "ay" = (
 /obj/abstract/landmark/start{
@@ -145,24 +145,24 @@
 	name = "Forbidden Knowledge"
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aC" = (
 /obj/structure/bookcase{
 	name = "bookcase (Tactics)"
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aD" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/nuclear,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aE" = (
 /obj/structure/bookcase{
 	name = "Forbidden Knowledge"
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aF" = (
 /turf/unsimulated/wall/fakeglass{
@@ -175,7 +175,7 @@
 "aH" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/robotics_cyborgs,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aI" = (
 /obj/item/bikehorn/rubberducky,
@@ -197,12 +197,12 @@
 /turf/unsimulated/floor/freezer,
 /area/map_template/wizard_station)
 "aL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/radio/intercom/wizard{
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aM" = (
 /obj/structure/closet/coffin,
@@ -212,12 +212,12 @@
 /obj/structure/bed/chair/wood/wings{
 	dir = 4
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/box/cups,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aP" = (
 /obj/structure/closet,
@@ -228,9 +228,9 @@
 /turf/unsimulated/floor/lino,
 /area/map_template/wizard_station)
 "aQ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/bag/cash,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aR" = (
 /obj/structure/closet,
@@ -241,9 +241,9 @@
 /turf/unsimulated/floor/lino,
 /area/map_template/wizard_station)
 "aS" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/box/candles,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aT" = (
 /obj/structure/closet,
@@ -273,9 +273,9 @@
 /turf/unsimulated/floor/freezer,
 /area/map_template/wizard_station)
 "aY" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/box/fancy/donut,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "aZ" = (
 /obj/structure/door/wood,
@@ -283,7 +283,7 @@
 /area/map_template/wizard_station)
 "ba" = (
 /obj/structure/door/silver,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "bb" = (
 /turf/unsimulated/floor/lino,
@@ -316,9 +316,9 @@
 /turf/unsimulated/floor/freezer,
 /area/map_template/wizard_station)
 "bg" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/chems/glass/bowl/mapped/meatball,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "bh" = (
 /obj/structure/closet,
@@ -362,14 +362,14 @@
 /area/map_template/wizard_station)
 "bm" = (
 /obj/structure/bookcase,
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "bn" = (
 /obj/item/radio/intercom/wizard{
 	dir = 1;
 	pixel_y = -30
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/laminate,
 /area/map_template/wizard_station)
 "bo" = (
 /turf/unsimulated/floor/cult,
@@ -414,7 +414,7 @@
 /turf/unsimulated/floor/cult,
 /area/map_template/wizard_station)
 "by" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/unsimulated/floor/cult,
 /area/map_template/wizard_station)
 "bz" = (

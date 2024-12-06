@@ -45,7 +45,7 @@
 	if(component_attackby(W, user))
 		return TRUE
 
-	if(user?.a_intent == I_HURT)
+	if(user?.check_intent(I_FLAG_HARM))
 		return ..() // bash, bash!
 
 	if(sample)

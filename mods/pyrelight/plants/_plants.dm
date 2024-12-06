@@ -54,7 +54,7 @@
 			harvest_timer -= harvest_time
 
 /obj/structure/flora/growing/attackby(obj/item/O, mob/user)
-	if(user.a_intent == I_HELP)
+	if(user.check_intent(I_FLAG_HELP))
 		if(!harvest_tool)
 			to_chat(user, "You must use your hands to harvest from \the [src].")
 			return TRUE
@@ -67,7 +67,7 @@
 	return ..()
 
 /obj/structure/flora/growing/attack_hand(mob/user)
-	if(user.a_intent == I_HELP)
+	if(user.check_intent(I_FLAG_HELP))
 		if(harvest_tool)
 			var/decl/tool_archetype/tool = GET_DECL(harvest_tool)
 			to_chat(user, SPAN_WARNING("You must use \a [tool] to harvest from \the [src]."))

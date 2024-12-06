@@ -137,7 +137,7 @@ var/global/list/card_decks = list()
 			cards += P
 
 /obj/item/deck/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
+	if(user.check_intent(I_FLAG_GRAB) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
 	draw_card(user)
 	return TRUE
