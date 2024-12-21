@@ -1,18 +1,18 @@
 /obj/structure/door
-	name = "door"
-	icon = 'icons/obj/doors/material_doors.dmi'
-	icon_state = "metal"
-	hitsound = 'sound/weapons/genhit.ogg'
-	material_alteration = MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC | MAT_FLAG_ALTERATION_COLOR
-	max_health = 50
-	density =  TRUE
-	anchored = TRUE
-	opacity =  TRUE
-
-	var/has_window = FALSE
-	var/changing_state = FALSE
-	var/icon_base
+	name                  = "door"
+	icon                  = 'icons/obj/doors/material_doors.dmi'
+	icon_state            = "metal"
+	hitsound              = 'sound/weapons/genhit.ogg'
+	material_alteration   = MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC | MAT_FLAG_ALTERATION_COLOR
+	max_health            = 50
+	density               = TRUE
+	anchored              = TRUE
+	opacity               = TRUE
+	structure_flags       = STRUCTURE_FLAG_THROWN_DAMAGE
+	var/has_window        = FALSE
+	var/changing_state    = FALSE
 	var/door_sound_volume = 25
+	var/icon_base
 
 /obj/structure/door/Initialize()
 	..()

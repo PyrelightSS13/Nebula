@@ -41,7 +41,7 @@
 /obj/item/chems/drinks/bottle/proc/smash_check(var/distance)
 	if(!material?.is_brittle())
 		return 0
-	if(rag && rag.on_fire) // Molotovs should be somewhat reliable, they're a pain to make.
+	if(rag?.is_on_fire()) // Molotovs should be somewhat reliable, they're a pain to make.
 		return TRUE
 	if(!smash_duration)
 		return 0
@@ -68,13 +68,13 @@
 	if(rag)
 		rag.dropInto(T)
 		while(T)
-			rag.forceMove(T)
-			if(rag.on_fire)
-				T.hotspot_expose(700, 5)
-				for(var/mob/living/M in T.contents)
-					M.IgniteMob()
 			if(!rag || QDELETED(src) || !HasBelow(T.z) || !T.is_open())
 				break
+			rag.forceMove(T)
+			if(rag.is_on_fire())
+				T.hotspot_expose(700, 5)
+				for(var/mob/living/M in T.contents)
+					M.ignite_fire()
 			T = GetBelow(T)
 		rag = null
 
@@ -148,7 +148,7 @@
 	. = ..()
 	underlays.Cut()
 	if(rag)
-		var/underlay_image = image(icon='icons/obj/drinks.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
+		var/underlay_image = image(icon='icons/obj/drinks.dmi', icon_state=rag.is_on_fire()? "[rag_underlay]_lit" : rag_underlay)
 		underlays += underlay_image
 		set_light(rag.light_range, 0.1, rag.light_color)
 	else
@@ -178,8 +178,8 @@
 	if(reagents)
 		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
 		reagents.splash(target, reagents.total_volume)
-		if(rag && rag.on_fire && istype(target))
-			target.IgniteMob()
+		if(rag?.is_on_fire() && istype(target))
+			target.ignite_fire()
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
 	var/obj/item/broken_bottle/B = smash(target.loc, target)

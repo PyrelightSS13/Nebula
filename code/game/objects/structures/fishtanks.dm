@@ -191,13 +191,13 @@ var/global/list/global/aquarium_states_and_layers = list(
 		return
 	if(!Adjacent(target))
 		return
-	usr.visible_message(SPAN_WARNING("\The [user] starts climbing out of \the [src]!"))
+	user.visible_message(SPAN_WARNING("\The [user] starts climbing out of \the [src]!"))
 	if(!do_after(user,50))
 		return
 	if (!Adjacent(target))
 		return
-	usr.forceMove(target)
-	usr.visible_message(SPAN_WARNING("\The [user] climbs out of \the [src]!"))
+	user.forceMove(target)
+	user.visible_message(SPAN_WARNING("\The [user] climbs out of \the [src]!"))
 
 /obj/structure/glass_tank/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	. = locate(/obj/structure/glass_tank) in (target == loc) ? (mover && mover.loc) : target

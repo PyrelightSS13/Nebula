@@ -4,7 +4,7 @@
 	feedback = "EJ"
 	school = "transmutation"
 	charge_max = 30 SECONDS
-	spell_flags = Z2NOCAST | NEEDSCLOTHES | INCLUDEUSER
+	spell_flags = Z2NOCAST | INCLUDEUSER
 	invocation = "none"
 	invocation_type = SpI_NONE
 	range = 0
@@ -31,7 +31,7 @@
 			animation.anchored = TRUE
 			animation.icon = 'icons/mob/mob.dmi'
 			animation.layer = FLY_LAYER
-			target.ExtinguishMob()
+			target.extinguish_fire()
 			if(target.buckled)
 				target.buckled = null
 			jaunt_disappear(animation, target)

@@ -43,11 +43,14 @@
 
 /mob/living/bot/cleanbot/confirmTarget(var/obj/effect/decal/cleanable/D)
 	if(!..())
-		return 0
+		return FALSE
+	if(istype(D, /obj/effect/decal/cleanable/dirt))
+		var/obj/effect/decal/cleanable/dirt/dirt = D
+		return dirt.dirt_amount >= 25
 	for(var/T in target_types)
 		if(istype(D, T))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /mob/living/bot/cleanbot/handleAdjacentTarget()
 	if(get_turf(target) == src.loc)

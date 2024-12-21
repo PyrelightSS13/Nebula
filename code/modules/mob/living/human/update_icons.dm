@@ -139,7 +139,7 @@ Please contact me on #coderbus IRC. ~Carn x
 		return
 
 	var/matrix/M = matrix()
-	if(current_posture?.prone && (root_bodytype.prone_overlay_offset[1] || root_bodytype.prone_overlay_offset[2]))
+	if(current_posture?.prone && !isnull(root_bodytype.prone_overlay_offset) && (root_bodytype.prone_overlay_offset[1] || root_bodytype.prone_overlay_offset[2]))
 		M.Translate(root_bodytype.prone_overlay_offset[1], root_bodytype.prone_overlay_offset[2])
 
 	var/mangle_planes = FALSE

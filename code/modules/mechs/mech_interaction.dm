@@ -314,7 +314,7 @@
 			if(!silent)
 				to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 			return
-		hud_open.toggled()
+		hud_open.toggled(user)
 		if(!silent)
 			to_chat(user, SPAN_NOTICE("You open the hatch and climb out of \the [src]."))
 	else
@@ -506,7 +506,7 @@
 			to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 			return TRUE
 		if(hud_open)
-			hud_open.toggled()
+			hud_open.toggled(user)
 			return TRUE
 
 /mob/living/exosuit/default_hurt_interaction(var/mob/user)

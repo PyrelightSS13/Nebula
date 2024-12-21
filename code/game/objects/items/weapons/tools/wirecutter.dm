@@ -46,7 +46,7 @@
 	var/obj/item/handcuffs/cable/cuffs = target.get_equipped_item(slot_handcuffed_str)
 	if(user.check_intent(I_FLAG_HELP) && istype(cuffs) && target.try_unequip(cuffs))
 		user.visible_message(
-			"\The [usr] cuts \the [target]'s restraints with \the [src]!",
+			"\The [user] cuts \the [target]'s restraints with \the [src]!",
 			"You cut \the [target]'s restraints with \the [src]!",
 			"You hear cable being cut."
 		)

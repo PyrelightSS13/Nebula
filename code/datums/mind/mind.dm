@@ -78,7 +78,6 @@
 
 /datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
 	if (current == deleted_mob)
-		current.spellremove()
 		current = null
 
 	if (original == deleted_mob)
@@ -152,8 +151,8 @@
 
 	if(href_list["add_goal"])
 
-		var/mob/caller = locate(href_list["add_goal_caller"])
-		if(caller && caller == current) can_modify = TRUE
+		var/mob/calling_proc = locate(href_list["add_goal_caller"])
+		if(calling_proc && calling_proc == current) can_modify = TRUE
 
 		if(can_modify)
 			if(is_admin)
@@ -171,8 +170,8 @@
 	if(href_list["abandon_goal"])
 		var/datum/goal/goal = get_goal_from_href(href_list["abandon_goal"])
 
-		var/mob/caller = locate(href_list["abandon_goal_caller"])
-		if(caller && caller == current) can_modify = TRUE
+		var/mob/calling_proc = locate(href_list["abandon_goal_caller"])
+		if(calling_proc && calling_proc == current) can_modify = TRUE
 
 		if(goal && can_modify)
 			if(usr == current)
@@ -186,8 +185,8 @@
 	if(href_list["reroll_goal"])
 		var/datum/goal/goal = get_goal_from_href(href_list["reroll_goal"])
 
-		var/mob/caller = locate(href_list["reroll_goal_caller"])
-		if(caller && caller == current) can_modify = TRUE
+		var/mob/calling_proc = locate(href_list["reroll_goal_caller"])
+		if(calling_proc && calling_proc == current) can_modify = TRUE
 
 		if(goal && (goal in goals) && can_modify)
 			qdel(goal)

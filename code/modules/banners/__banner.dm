@@ -1,5 +1,6 @@
 /obj/item/banner
 	name                 = "banner"
+	base_name            = "banner" // necessary for premapped subtypes
 	desc                 = "A furled-up banner."
 	icon                 = 'icons/obj/items/banners/banner.dmi'
 	icon_state           = ICON_STATE_WORLD
@@ -12,7 +13,6 @@
 	var/hung_desc        = "The banner is rather unremarkable."
 	var/banner_type      = /obj/item/banner
 	var/embroiderable    = TRUE
-	var/name_prefix
 	var/list/decals
 	var/trim_color
 
@@ -65,11 +65,6 @@ var/global/list/banner_type_to_symbols = list()
 			return TRUE
 
 	. = ..()
-
-// 'woven grass banner', 'forked linen banner'
-/obj/item/banner/update_name()
-	. = ..()
-	SetName("[name_prefix] [name]")
 
 /obj/item/banner/examine(mob/user, distance, infix, suffix)
 	. = ..()

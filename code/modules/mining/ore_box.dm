@@ -31,7 +31,7 @@
 		return insert_ore(W, user)
 	if(W.storage)
 		var/added_ore = FALSE
-		W.storage.hide_from(usr)
+		W.storage.hide_from(user)
 		for(var/obj/item/stack/material/ore/O in W.storage.get_contents())
 			if(total_ores >= maximum_ores)
 				break

@@ -83,12 +83,13 @@
 		else
 			msg += "[use_He] [use_is] looking a bit damp.\n"
 
-	if(fire_stacks > 0)
+	var/fire_level = get_fire_intensity()
+	if(fire_level > 0)
 		msg += "[use_He] [use_is] looking highly flammable!\n"
-	else if(fire_stacks < 0)
+	else if(fire_level < 0)
 		msg += "[use_He] [use_is] looking rather damp.\n"
 
-	if(on_fire)
+	if(is_on_fire())
 		msg += "<span class='warning'>[use_He] [use_is] on fire!.</span>\n"
 
 	var/ssd_msg = species.get_ssd(src)
@@ -268,13 +269,13 @@
 	return
 
 /mob/living/human/getHUDsource(hudtype)
-	var/obj/item/clothing/glasses/pronouns = get_equipped_item(slot_glasses_str)
-	if(!istype(pronouns))
+	var/obj/item/clothing/glasses/glasses = get_equipped_item(slot_glasses_str)
+	if(!istype(glasses))
 		return ..()
-	if(pronouns.glasses_hud_type & hudtype)
-		return pronouns
-	if(pronouns.hud && (pronouns.hud.glasses_hud_type & hudtype))
-		return pronouns.hud
+	if(glasses.glasses_hud_type & hudtype)
+		return glasses
+	if(glasses.hud && (glasses.hud.glasses_hud_type & hudtype))
+		return glasses.hud
 
 /mob/living/silicon/robot/getHUDsource(hudtype)
 	for(var/obj/item/borg/sight/sight in list(module_state_1, module_state_2, module_state_3))

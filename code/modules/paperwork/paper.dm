@@ -332,7 +332,7 @@
 		var/pen_flags = I.get_tool_property(TOOL_PEN, TOOL_PROP_PEN_FLAG)
 		var/decl/tool_archetype/pen/parch = GET_DECL(TOOL_PEN)
 		if(!(pen_flags & PEN_FLAG_ACTIVE))
-			parch.toggle_active(usr, I)
+			parch.toggle_active(user, I)
 		var/iscrayon = pen_flags & PEN_FLAG_CRAYON
 		var/isfancy  = pen_flags & PEN_FLAG_FANCY
 

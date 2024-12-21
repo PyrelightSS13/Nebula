@@ -7,12 +7,9 @@
 	color               = /decl/material/solid/organic/leather::color
 	_hnoll_onmob_icon   = 'mods/content/fantasy/icons/clothing/trousers_hnoll.dmi'
 
-/obj/item/clothing/pants/trousers/jerkin/Initialize()
-	. = ..()
-	var/obj/item/clothing/shirt/jerkin/jerkin = new
-	attach_accessory(null, jerkin)
-	if(!(jerkin in accessories))
-		qdel(jerkin)
+/obj/item/clothing/pants/trousers/linen
+	material            = /decl/material/solid/organic/cloth/linen
+	color               = /decl/material/solid/organic/cloth/linen::color
 
 /obj/item/clothing/pants/trousers/braies
 	name                = "braies"

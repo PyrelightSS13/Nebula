@@ -637,6 +637,7 @@
 		LAZYDISTINCTADD(., air_graphic)
 	if(length(weather?.vis_contents_additions))
 		LAZYADD(., weather.vis_contents_additions)
+		. += pick(weather.particle_sources) // we know . is never null here
 	if(flooded)
 		var/flood_object = get_flood_overlay(flooded)
 		if(flood_object)

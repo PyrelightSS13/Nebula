@@ -322,3 +322,10 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 	W.pixel_x = (CELLSIZE * (cell_x + 0.5)) - center["x"]
 	W.pixel_y = (CELLSIZE * (cell_y + 0.5)) - center["y"]
 	W.pixel_z = 0
+
+/obj/structure/hitby(var/atom/movable/AM, var/datum/thrownthing/TT)
+	. = ..()
+	if(. && (structure_flags & STRUCTURE_FLAG_THROWN_DAMAGE))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+		playsound(src.loc, hitsound, 100, 1)
+		take_damage(AM.get_thrown_attack_force() * (TT.speed/THROWFORCE_SPEED_DIVISOR), AM.atom_damage_type)

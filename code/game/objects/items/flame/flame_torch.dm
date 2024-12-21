@@ -50,7 +50,7 @@
 
 	update_icon()
 
-/obj/item/flame/torch/extinguish(var/mob/user, var/no_message)
+/obj/item/flame/torch/snuff_out(mob/user, no_message = FALSE)
 	. = ..()
 	if(. && _fuel <= 0 && !burnt)
 		burnt = TRUE

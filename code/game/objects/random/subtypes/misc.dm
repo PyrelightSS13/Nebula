@@ -164,7 +164,7 @@
 		/obj/effect/decal/cleanable/ash,
 		/obj/effect/decal/cleanable/generic,
 		/obj/effect/decal/cleanable/flour,
-		/obj/effect/decal/cleanable/dirt,
+		/obj/effect/decal/cleanable/dirt/visible,
 		/obj/item/remains/robot
 	)
 	return spawnable_choices
@@ -210,8 +210,8 @@
 		/obj/item/stack/material/plank/mapped/wood/fifty,
 		/obj/item/stack/material/cardstock/mapped/cardboard/fifty,
 		/obj/item/stack/material/sheet/reinforced/mapped/plasteel/fifty,
-		/obj/item/stack/material/rods/ten,
-		/obj/item/stack/material/rods/fifty
+		/obj/item/stack/material/rods/mapped/steel/ten,
+		/obj/item/stack/material/rods/mapped/steel/fifty
 	)
 	return spawnable_choices
 
@@ -515,22 +515,22 @@
 
 /obj/random/jewelry/spawn_choices()
 	var/static/list/spawnable_choices = list(
-		/obj/item/clothing/ears/stud/wood                = 10,
-		/obj/item/clothing/ears/dangle/wood              = 10,
-		/obj/item/clothing/gloves/bracelet               = 10,
-		/obj/item/clothing/neck/necklace                 = 10,
-		/obj/item/clothing/gloves/ring/material/silver   = 5,
-		/obj/item/clothing/gloves/ring/material/bronze   = 5,
-		/obj/item/clothing/gloves/ring/material/gold     = 3,
-		/obj/item/clothing/ears/stud/silver              = 3,
-		/obj/item/clothing/ears/dangle/silver            = 3,
-		/obj/item/clothing/ears/stud/gold                = 3,
-		/obj/item/clothing/ears/dangle/gold              = 3,
-		/obj/item/clothing/gloves/ring/material/platinum = 1,
-		/obj/item/clothing/ears/stud/platinum            = 1,
-		/obj/item/clothing/ears/dangle/platinum          = 1,
-		/obj/item/clothing/ears/stud/diamond             = 1,
-		/obj/item/clothing/ears/dangle/diamond           = 1
+		/obj/item/clothing/ears/stud/wood       = 10,
+		/obj/item/clothing/ears/dangle/wood     = 10,
+		/obj/item/clothing/gloves/bracelet      = 10,
+		/obj/item/clothing/neck/necklace        = 10,
+		/obj/item/clothing/gloves/ring/silver   = 5,
+		/obj/item/clothing/gloves/ring/bronze   = 5,
+		/obj/item/clothing/gloves/ring/gold     = 3,
+		/obj/item/clothing/ears/stud/silver     = 3,
+		/obj/item/clothing/ears/dangle/silver   = 3,
+		/obj/item/clothing/ears/stud/gold       = 3,
+		/obj/item/clothing/ears/dangle/gold     = 3,
+		/obj/item/clothing/gloves/ring/platinum = 1,
+		/obj/item/clothing/ears/stud/platinum   = 1,
+		/obj/item/clothing/ears/dangle/platinum = 1,
+		/obj/item/clothing/ears/stud/diamond    = 1,
+		/obj/item/clothing/ears/dangle/diamond  = 1
 
 	)
 	return spawnable_choices

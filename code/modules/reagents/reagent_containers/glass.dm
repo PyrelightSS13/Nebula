@@ -56,14 +56,14 @@
 /obj/item/chems/glass/proc/can_lid()
 	return TRUE
 
-/obj/item/chems/glass/attack_self()
+/obj/item/chems/glass/attack_self(mob/user)
 	. = ..()
 	if(!. && can_lid())
 		if(ATOM_IS_OPEN_CONTAINER(src))
-			to_chat(usr, SPAN_NOTICE("You put the lid on \the [src]."))
+			to_chat(user, SPAN_NOTICE("You put the lid on \the [src]."))
 			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 		else
-			to_chat(usr, SPAN_NOTICE("You take the lid off \the [src]."))
+			to_chat(user, SPAN_NOTICE("You take the lid off \the [src]."))
 			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 

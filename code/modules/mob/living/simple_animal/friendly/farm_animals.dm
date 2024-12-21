@@ -103,7 +103,7 @@
 	see_in_dark = 6
 	max_health = 50
 	butchery_data = /decl/butchery_data/animal/ruminant/cow
-
+	// When cows can accept food items: /obj/item/food/hay
 	var/static/list/responses = list(
 		"looks at you imploringly",
 		"looks at you pleadingly",

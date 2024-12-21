@@ -118,7 +118,7 @@
 
 /datum/fabricator_recipe/struts
 	name = "strut, steel"
-	path = /obj/item/stack/material/strut/mapped/steel
+	path = /obj/item/stack/material/rods/mapped/steel
 
 /datum/fabricator_recipe/struts/get_resources()
 	resources = list(
@@ -127,7 +127,7 @@
 
 /datum/fabricator_recipe/struts/plastic
 	name = "strut, plastic"
-	path = /obj/item/stack/material/strut/mapped/plastic
+	path = /obj/item/stack/material/rods/mapped/plastic
 
 /datum/fabricator_recipe/struts/plastic/get_resources()
 	resources = list(
@@ -136,7 +136,7 @@
 
 /datum/fabricator_recipe/struts/aluminium
 	name = "strut, aluminium"
-	path = /obj/item/stack/material/strut/mapped/aluminium
+	path = /obj/item/stack/material/rods/mapped/aluminium
 	fabricator_types = list(FABRICATOR_CLASS_INDUSTRIAL)
 
 /datum/fabricator_recipe/struts/aluminium/get_resources()
@@ -146,7 +146,7 @@
 
 /datum/fabricator_recipe/struts/titanium
 	name = "strut, titanium"
-	path = /obj/item/stack/material/strut/mapped/titanium
+	path = /obj/item/stack/material/rods/mapped/titanium
 	fabricator_types = list(FABRICATOR_CLASS_INDUSTRIAL)
 
 /datum/fabricator_recipe/struts/titanium/get_resources()

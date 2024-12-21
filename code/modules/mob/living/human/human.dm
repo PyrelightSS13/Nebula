@@ -84,9 +84,9 @@
 	. = ..()
 	if(statpanel("Status"))
 
-		var/obj/item/gps/pronouns = get_active_held_item()
-		if(istype(pronouns))
-			stat("Coordinates:", "[pronouns.get_coordinates()]")
+		var/obj/item/gps/gps = get_active_held_item()
+		if(istype(gps))
+			stat("Coordinates:", "[gps.get_coordinates()]")
 
 		stat("Intent:", "[get_intent().name]")
 		stat("Move Mode:", "[move_intent.name]")
@@ -182,7 +182,7 @@
 			var/datum/computer_file/report/crew_record/R = network.get_crew_record_by_name(perpname)
 			if(R)
 				var/setcriminal = input(user, "Specify a new criminal status for this person.", "Security HUD", R.get_criminalStatus()) as null|anything in global.security_statuses
-				if(hasHUD(usr, HUD_SECURITY) && setcriminal)
+				if(hasHUD(user, HUD_SECURITY) && setcriminal)
 					R.set_criminalStatus(setcriminal)
 					modified = 1
 
@@ -196,11 +196,11 @@
 							U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(user, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
 			return TOPIC_HANDLED
 
 	if (href_list["secrecord"])
-		if(hasHUD(usr, HUD_SECURITY))
+		if(hasHUD(user, HUD_SECURITY))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -274,11 +274,11 @@
 			var/datum/computer_file/report/crew_record/E = network.get_crew_record_by_name(perpname)
 			if(E)
 				if(hasHUD(user, HUD_MEDICAL))
-					to_chat(usr, "<b>Name:</b> [E.get_name()]")
-					to_chat(usr, "<b>Gender:</b> [E.get_gender()]")
-					to_chat(usr, "<b>Species:</b> [E.get_species_name()]")
-					to_chat(usr, "<b>Blood Type:</b> [E.get_bloodtype()]")
-					to_chat(usr, "<b>Details:</b> [E.get_medical_record()]")
+					to_chat(user, "<b>Name:</b> [E.get_name()]")
+					to_chat(user, "<b>Gender:</b> [E.get_gender()]")
+					to_chat(user, "<b>Species:</b> [E.get_species_name()]")
+					to_chat(user, "<b>Blood Type:</b> [E.get_bloodtype()]")
+					to_chat(user, "<b>Details:</b> [E.get_medical_record()]")
 					read = 1
 			if(!read)
 				to_chat(user, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
