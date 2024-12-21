@@ -31,7 +31,7 @@
 
 /decl/outfit/job/karzerfeste/steppe/representative
 	name = "Karzerfeste - Nine Mothers Representative"
-	mask = /obj/item/clothing/neck/necklace/prayer_beads/bone
+	mask = /obj/item/clothing/neck/prayer_beads/bone
 
 /decl/outfit/job/karzerfeste/steppe/honor_guard
 	name = "Karzerfeste - Nine Mothers Honor Guard"

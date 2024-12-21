@@ -10,6 +10,9 @@
 	sound_env = CAVE
 	area_flags = AREA_FLAG_IS_BACKGROUND
 
+/area/karzerfeste/caves/poi
+	name = "\improper Subterrain - Points Of Interest"
+
 /area/karzerfeste/outside/caves
 	name = "\improper Subterrain Chasm"
 	color = COLOR_GRAY80

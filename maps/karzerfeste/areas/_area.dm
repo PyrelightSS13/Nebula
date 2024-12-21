@@ -21,6 +21,13 @@
 	)
 	sound_env = GENERIC
 	ambience = list()
+	var/list/additional_fishing_results
+
+/area/karzerfeste/Initialize()
+	if(additional_fishing_results)
+		for(var/fish in additional_fishing_results)
+			fishing_results[fish] = additional_fishing_results[fish]
+	. = ..()
 
 /area/karzerfeste/outside
 	name = "\improper Wilderness"
@@ -38,7 +45,36 @@
 	area_blurb_category = /area/karzerfeste/outside
 	interior_ambient_light_modifier = -0.3
 	area_flags = AREA_FLAG_EXTERNAL | AREA_FLAG_IS_BACKGROUND
+	additional_fishing_results = list(
+		/mob/living/simple_animal/aquatic/fish/large        = 5,
+		/mob/living/simple_animal/aquatic/fish/large/salmon = 5,
+		/mob/living/simple_animal/aquatic/fish/large/trout  = 5,
+		/mob/living/simple_animal/aquatic/fish/large/pike   = 3
+	)
 
 /area/karzerfeste/outside/above
 	name = "\improper Heights"
 	color = COLOR_GRAY80
+
+// Forest level
+/area/karzerfeste/outside/forest
+	name = "\improper Western Forest"
+	sound_env = FOREST
+
+/area/karzerfeste/outside/forest/woods
+	name = "\improper Western Woods"
+
+/area/karzerfeste/outside/forest/lake
+	name = "\improper Western Lake"
+	additional_fishing_results = list(
+		/mob/living/simple_animal/aquatic/fish/large/bass    = 5,
+		/mob/living/simple_animal/aquatic/fish/large/trout   = 5,
+		/mob/living/simple_animal/aquatic/fish/large/javelin = 5,
+		/mob/living/simple_animal/hostile/aquatic/carp       = 3,
+		/mob/living/simple_animal/aquatic/fish/large/koi     = 1
+	)
+	color = COLOR_BLUE_GRAY
+
+/area/karzerfeste/outside/forest/deep
+	name = "\improper Western Deepwoods"
+	color = COLOR_DARK_GREEN_GRAY

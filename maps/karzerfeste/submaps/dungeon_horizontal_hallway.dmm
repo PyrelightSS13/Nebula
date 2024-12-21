@@ -1,0 +1,201 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon/hallway)
+"g" = (
+/obj/structure/decoration/gargoyle/random{
+	dir = 1
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon/hallway)
+"t" = (
+/turf/template_noop,
+/area/template_noop)
+"A" = (
+/obj/structure/decoration/gargoyle/random,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon/hallway)
+"M" = (
+/turf/wall/brick/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon/hallway)
+
+(1,1,1) = {"
+M
+M
+t
+t
+a
+M
+t
+"}
+(2,1,1) = {"
+M
+a
+a
+t
+a
+a
+M
+"}
+(3,1,1) = {"
+M
+A
+a
+a
+a
+g
+M
+"}
+(4,1,1) = {"
+M
+a
+a
+a
+a
+a
+M
+"}
+(5,1,1) = {"
+t
+M
+a
+a
+a
+M
+M
+"}
+(6,1,1) = {"
+t
+M
+a
+a
+a
+M
+t
+"}
+(7,1,1) = {"
+M
+a
+a
+a
+a
+t
+t
+"}
+(8,1,1) = {"
+t
+A
+a
+a
+t
+g
+M
+"}
+(9,1,1) = {"
+t
+a
+a
+a
+a
+a
+M
+"}
+(10,1,1) = {"
+t
+M
+a
+a
+a
+M
+M
+"}
+(11,1,1) = {"
+t
+M
+a
+a
+a
+M
+t
+"}
+(12,1,1) = {"
+M
+a
+a
+a
+a
+a
+t
+"}
+(13,1,1) = {"
+M
+A
+a
+a
+a
+g
+M
+"}
+(14,1,1) = {"
+t
+a
+a
+a
+a
+a
+M
+"}
+(15,1,1) = {"
+M
+M
+a
+t
+t
+M
+t
+"}
+(16,1,1) = {"
+M
+M
+a
+t
+a
+M
+t
+"}
+(17,1,1) = {"
+M
+a
+a
+a
+a
+a
+M
+"}
+(18,1,1) = {"
+M
+A
+a
+a
+a
+g
+M
+"}
+(19,1,1) = {"
+M
+a
+a
+a
+a
+a
+t
+"}
+(20,1,1) = {"
+M
+M
+a
+a
+a
+M
+t
+"}

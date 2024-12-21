@@ -1952,6 +1952,9 @@
 /obj/item/flame/candle/handmade,
 /turf/floor/path/granite,
 /area/karzerfeste/ward/shrine)
+"KG" = (
+/turf/floor/clay,
+/area/karzerfeste/outside/ward)
 "KH" = (
 /obj/structure/door/ebony{
 	dir = 4
@@ -3766,7 +3769,7 @@ rP
 dd
 Xt
 dd
-rP
+dd
 rP
 rP
 rP
@@ -3919,7 +3922,7 @@ rP
 dd
 dd
 dd
-rP
+dd
 rP
 rP
 rP
@@ -4071,7 +4074,7 @@ rP
 rP
 Xt
 dd
-rP
+dd
 rP
 rP
 rP
@@ -10912,14 +10915,14 @@ lE
 st
 st
 st
-dd
-dd
+KG
+KG
+KG
+KG
 st
-dd
 st
-st
-dd
-dd
+KG
+KG
 st
 ys
 ys
@@ -10965,7 +10968,7 @@ EJ
 EJ
 EJ
 EJ
-rP
+EJ
 rP
 rP
 dd
@@ -11062,17 +11065,17 @@ ZM
 ZM
 ZM
 ZM
-dd
+KG
 ZM
 ZM
 ZM
-dd
+KG
 ZM
 ZM
 ZM
 ZM
-dd
-dd
+KG
+KG
 ys
 ys
 bi
@@ -11106,7 +11109,6 @@ Xt
 Xt
 Xt
 Xt
-Xt
 EJ
 EJ
 EJ
@@ -11117,7 +11119,8 @@ EJ
 EJ
 EJ
 EJ
-rP
+EJ
+EJ
 rP
 rP
 dd
@@ -11258,7 +11261,6 @@ Xt
 Xt
 Xt
 Xt
-Xt
 EJ
 EJ
 EJ
@@ -11270,7 +11272,8 @@ EJ
 EJ
 EJ
 EJ
-rP
+EJ
+EJ
 rP
 dd
 Xt
@@ -11410,7 +11413,6 @@ Xt
 Xt
 Xt
 Xt
-Xt
 EJ
 EJ
 EJ
@@ -11422,7 +11424,8 @@ EJ
 EJ
 EJ
 EJ
-rP
+EJ
+EJ
 rP
 rP
 Xt
@@ -11574,7 +11577,7 @@ EJ
 EJ
 EJ
 EJ
-rP
+EJ
 rP
 Xt
 rP
@@ -11727,8 +11730,8 @@ EJ
 EJ
 EJ
 EJ
-rP
-Xt
+EJ
+EJ
 rP
 dd
 Xt
@@ -12034,7 +12037,7 @@ EJ
 EJ
 EJ
 EJ
-Xt
+EJ
 dd
 dd
 rM
@@ -12181,13 +12184,13 @@ EJ
 EJ
 EJ
 EJ
-Xt
-Xt
 EJ
 EJ
 EJ
 EJ
-rP
+EJ
+EJ
+EJ
 dd
 QR
 rM
@@ -12331,15 +12334,15 @@ EJ
 EJ
 EJ
 EJ
-Xt
-Xt
-Xt
-Xt
-rP
-rP
 EJ
 EJ
-dd
+Xt
+Xt
+EJ
+EJ
+EJ
+EJ
+EJ
 dd
 pJ
 QY
@@ -12479,10 +12482,10 @@ Xt
 Xt
 Xt
 Xt
-Xt
 EJ
 EJ
-Xt
+EJ
+EJ
 Xt
 Xt
 Xt
@@ -12631,10 +12634,10 @@ Xt
 Xt
 Xt
 Xt
-Xt
 EJ
 EJ
-Xt
+EJ
+EJ
 Xt
 Xt
 Xt
@@ -12783,10 +12786,10 @@ Xt
 Xt
 dd
 Xt
-Xt
 EJ
 EJ
-Xt
+EJ
+EJ
 Xt
 Xt
 Xt
@@ -12904,7 +12907,7 @@ CN
 Te
 dQ
 Sm
-dd
+KG
 Gb
 Gb
 Gb
@@ -12935,11 +12938,11 @@ dd
 Xt
 dd
 dd
-Xt
 EJ
 EJ
 EJ
-Xt
+EJ
+EJ
 Xt
 Xt
 rP
@@ -13056,7 +13059,7 @@ CN
 Te
 sc
 Ll
-dd
+KG
 Gb
 Gb
 Gb
@@ -13088,10 +13091,10 @@ Xt
 dd
 dd
 Xt
-Xt
 EJ
 EJ
-Xt
+EJ
+EJ
 Xt
 dd
 rP
@@ -13211,7 +13214,7 @@ Sm
 Sm
 Sm
 Sm
-dd
+KG
 Gb
 Gb
 Gb
@@ -13364,7 +13367,7 @@ Sm
 Sm
 Sm
 Sm
-dd
+KG
 Gb
 Gb
 Gb
@@ -13394,7 +13397,7 @@ Xt
 Xt
 Xt
 Xt
-Xt
+EJ
 Xt
 dd
 dd
@@ -13516,7 +13519,7 @@ BW
 si
 si
 Ll
-dd
+KG
 Gb
 Gb
 Gb
@@ -13668,7 +13671,7 @@ zk
 zv
 zv
 Sm
-dd
+KG
 Gb
 Gb
 Gb
@@ -15492,7 +15495,7 @@ gh
 ez
 Mi
 bI
-dd
+KG
 Gb
 Gb
 Gb
@@ -15644,7 +15647,7 @@ gh
 ez
 Mi
 At
-dd
+KG
 Gb
 Gb
 Gb
@@ -15796,7 +15799,7 @@ At
 At
 At
 At
-dd
+KG
 Gb
 Gb
 Gb
@@ -15947,7 +15950,7 @@ At
 At
 At
 At
-dd
+KG
 Gb
 Gb
 Gb
@@ -16096,7 +16099,7 @@ dT
 DX
 At
 At
-dd
+KG
 Gb
 Gb
 Gb

@@ -14,7 +14,7 @@
 /decl/outfit/job/karzerfeste/shrine/keeper
 	name       = "Karzerfeste - Shrine Keeper"
 	suit       = /obj/item/clothing/suit/mantle
-	mask       = /obj/item/clothing/neck/necklace/prayer_beads/basalt
+	mask       = /obj/item/clothing/neck/prayer_beads/basalt
 
 /decl/outfit/job/karzerfeste/shrine/cleric
 	name       = "Karzerfeste - Shrine Cleric"

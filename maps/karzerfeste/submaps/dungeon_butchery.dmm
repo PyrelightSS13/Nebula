@@ -1,0 +1,198 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"h" = (
+/obj/structure/table/wood/ebony,
+/obj/item/chems/glass/mortar,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"k" = (
+/turf/floor/path/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"o" = (
+/obj/structure/working/spinning_wheel/twisting_bench/ebony,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"r" = (
+/obj/structure/drying_rack/ebony,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"t" = (
+/obj/structure/table/wood/ebony,
+/obj/item/rock/flint/striker,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"x" = (
+/obj/structure/wall_sconce{
+	dir = 4
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"y" = (
+/obj/random/hostile/dungeon,
+/turf/floor/path/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"C" = (
+/turf/wall/brick/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"D" = (
+/obj/structure/table/wood/ebony,
+/obj/item/bladed/folding,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"G" = (
+/obj/structure/closet/crate/chest/ebony,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"S" = (
+/obj/structure/door/ebony,
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"U" = (
+/obj/structure/wall_sconce{
+	dir = 8
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"V" = (
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"X" = (
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"Z" = (
+/obj/structure/reagent_dispensers/barrel/ebony,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+C
+C
+C
+C
+C
+C
+C
+C
+C
+a
+"}
+(3,1,1) = {"
+a
+C
+r
+U
+h
+D
+t
+U
+G
+C
+a
+"}
+(4,1,1) = {"
+a
+C
+r
+X
+X
+X
+X
+X
+G
+C
+a
+"}
+(5,1,1) = {"
+a
+C
+o
+X
+k
+k
+k
+X
+Z
+C
+a
+"}
+(6,1,1) = {"
+a
+C
+G
+X
+k
+y
+k
+X
+Z
+C
+a
+"}
+(7,1,1) = {"
+a
+C
+r
+X
+X
+X
+X
+X
+G
+C
+a
+"}
+(8,1,1) = {"
+a
+C
+r
+V
+x
+V
+V
+V
+G
+C
+a
+"}
+(9,1,1) = {"
+a
+C
+C
+C
+C
+C
+S
+S
+C
+C
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

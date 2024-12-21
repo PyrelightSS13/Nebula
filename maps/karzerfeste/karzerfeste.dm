@@ -1,6 +1,7 @@
 #if !defined(USING_MAP_DATUM)
 
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
+	#include "../../mods/content/dungeon_loot/_dungeon_loot.dme"
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/species/drakes/_drakes.dme" // include before _fantasy.dme so overrides work
@@ -29,7 +30,10 @@
 	#include "outfits/shrine.dm"
 	#include "outfits/steppe.dm"
 
+	#include "submaps/_submaps.dm"
+
 	#include "levels/_level.dm"
+	#include "levels/random_map.dm"
 	#include "levels/strata.dm"
 
 	#include "karzerfeste_currency.dm"
@@ -42,6 +46,8 @@
 	#include "karzerfeste-1-0.dmm"
 	#include "karzerfeste-1-1.dmm"
 	#include "karzerfeste-1-2.dmm"
+	#include "karzerfeste-2-1.dmm"
+
 
 	#define USING_MAP_DATUM /datum/map/karzerfeste
 
