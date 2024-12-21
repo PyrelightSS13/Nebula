@@ -21,9 +21,7 @@ var/global/list/limb_icon_cache = list()
 /obj/item/organ/external/proc/get_surgery_overlay_icon()
 	if(limb_flags & ORGAN_FLAG_SKELETAL)
 		return null
-	if(BP_IS_PROSTHETIC(src))
-		return null
-	return species?.get_surgery_overlay_icon(owner)
+	return bodytype?.get_surgery_overlay_icon(owner)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/human/human)
 	_icon_cache_key = null

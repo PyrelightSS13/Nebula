@@ -5,7 +5,7 @@
 
 /decl/bodytype/shapeshifter/apply_limb_colouration(var/obj/item/organ/external/E, var/icon/applying)
 	applying.MapColors("#4d4d4d","#969696","#1c1c1c", "#000000")
-	applying.SetIntensity(limb_icon_intensity)
+	applying = ..()
 	applying += rgb(,,,180) // Makes the icon translucent, SO INTUITIVE TY BYOND
 	return applying
 
@@ -38,7 +38,8 @@
 /decl/bodytype/shapeshifter/get_icon_cache_uid(var/mob/H)
 	. = ..()
 	if(H)
-		. = "[.]-[wrapped_species_by_ref["\ref[H]"]]"
+		var/decl/species/S = get_species_by_key(wrapped_species_by_ref["\ref[H]"])
+		if(S) return S.default_bodytype.get_icon_cache_uid(H)
 
 /decl/bodytype/shapeshifter/apply_bodytype_organ_modifications(obj/item/organ/org)
 	..()

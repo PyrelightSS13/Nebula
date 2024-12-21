@@ -84,8 +84,8 @@
 #undef SERPENTID_FLIGHT_PRESSURE_THRESHOLD
 
 /decl/species/serpentid/handle_environment_special(var/mob/living/human/H)
-	if(!H.on_fire && H.fire_stacks < 2)
-		H.fire_stacks += 0.2
+	if(!H.is_on_fire() && H.get_fire_intensity() < 2)
+		H.adjust_fire_intensity(0.2)
 	return
 
 /decl/species/serpentid/handle_fall_special(var/mob/living/human/H, var/turf/landing)

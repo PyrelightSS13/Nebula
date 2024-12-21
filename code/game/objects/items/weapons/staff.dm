@@ -42,9 +42,8 @@
 			return TRUE
 	return ..()
 
-// TODO: move back into wizard modpack when the timelines converge.
 /obj/item/staff/crystal
-	name = "wizard's staff"
+	name = "crystal staff"
 	icon = 'icons/obj/items/staff_crystal.dmi'
 
 /obj/item/staff/crystal/can_make_broom_with(mob/user, obj/item/thing)

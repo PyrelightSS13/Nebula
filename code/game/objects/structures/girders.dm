@@ -10,7 +10,7 @@
 	tool_interaction_flags = (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT)
 	max_health = 100
 	parts_amount = 2
-	parts_type = /obj/item/stack/material/strut
+	parts_type = /obj/item/stack/material/rods
 
 	var/cover = 50
 	var/prepped_for_fakewall
@@ -30,9 +30,9 @@
 
 	if(reinf_material)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-		visible_message(SPAN_NOTICE("\The [user] begins unscrewing \the [reinf_material.solid_name] struts from \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] begins unscrewing \the [reinf_material.solid_name] rods from \the [src]."))
 		if(do_after(user, 5 SECONDS, src) || QDELETED(src) || !reinf_material)
-			visible_message(SPAN_NOTICE("\The [user] unscrews and removes \the [reinf_material.solid_name] struts from \the [src]."))
+			visible_message(SPAN_NOTICE("\The [user] unscrews and removes \the [reinf_material.solid_name] rods from \the [src]."))
 			reinf_material.place_dismantled_product(get_turf(src))
 			reinf_material = null
 		return TRUE
@@ -85,7 +85,7 @@
 
 /obj/structure/girder/can_unanchor(var/mob/user)
 	if(anchored && reinf_material)
-		to_chat(user, SPAN_WARNING("You must remove the support struts before you can dislodge \the [src]."))
+		to_chat(user, SPAN_WARNING("You must remove the support rods before you can dislodge \the [src]."))
 		return FALSE
 	. = ..()
 
@@ -145,7 +145,7 @@
 		to_chat(user, SPAN_WARNING("You will need a support made of sturdier material to hold up [S.material.solid_name] cladding."))
 		return FALSE
 
-	add_hiddenprint(usr)
+	add_hiddenprint(user)
 	if(S.material.integrity < 50)
 		to_chat(user, SPAN_WARNING("This material is too soft for use in wall construction."))
 		return 0
@@ -165,7 +165,7 @@
 	var/turf/wall/T = get_turf(src)
 	T.set_turf_materials(S.material, reinf_material, null, material)
 	T.can_open = prepped_for_fakewall
-	T.add_hiddenprint(usr)
+	T.add_hiddenprint(user)
 	material = null
 	reinf_material = null
 	qdel(src)
@@ -182,7 +182,7 @@
 	if(!istype(M) || M.integrity < 50)
 		to_chat(user, SPAN_WARNING("You cannot reinforce \the [src] with [M.solid_name]; it is too soft."))
 		return TRUE
-	visible_message(SPAN_NOTICE("\The [user] begins installing [M.solid_name] struts into \the [src]."))
+	visible_message(SPAN_NOTICE("\The [user] begins installing [M.solid_name] rods into \the [src]."))
 	if (!do_after(user, 4 SECONDS, src) || !S.use(2))
 		return TRUE
 	visible_message(SPAN_NOTICE("\The [user] finishes reinforcing \the [src] with [M.solid_name]."))

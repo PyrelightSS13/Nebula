@@ -151,7 +151,7 @@
 	name = "Condensed Capsaicin"
 	minimum_temperature = 100 CELSIUS
 	maximum_temperature = 200 CELSIUS // To avoid cooking chili creating condensed capsaicin.
-	mix_message = "darkens and thickens as it seperates from its water content"
+	mix_message = "darkens and thickens as it separates from its water content"
 	required_reagents = list(/decl/material/liquid/capsaicin = 2)
 	result = list(/decl/material/liquid/capsaicin/condensed = 1)
 

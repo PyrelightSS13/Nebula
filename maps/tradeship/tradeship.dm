@@ -5,7 +5,6 @@
 	#endif
 
 	#include "../../mods/gamemodes/cult/_cult.dme"
-	#include "../../mods/gamemodes/deity/_deity.dme"
 	#include "../../mods/gamemodes/heist/_heist.dme"
 	#include "../../mods/gamemodes/ninja/_ninja.dme"
 	#include "../../mods/gamemodes/revolution/_revolution.dme"
@@ -18,6 +17,7 @@
 	#include "../../mods/content/government/away_sites/icarus/icarus.dm"
 	#include "../../mods/content/corporate/away_sites/lar_maria/lar_maria.dm"
 
+	#include "../../mods/content/standard_jobs/_standard_jobs.dme"
 	#include "../../mods/content/dungeon_loot/_dungeon_loot.dme"
 	#include "../../mods/content/mundane.dm"
 	#include "../../mods/content/bigpharma/_bigpharma.dme"
@@ -53,14 +53,12 @@
 	#include "../away/mining/mining.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
 	#include "../away/smugglers/smugglers.dm"
-	#include "../away/slavers/slavers_base.dm"
 	#include "../away/unishi/unishi.dm"
 	#include "../away/yacht/yacht.dm"
 	#include "../away/liberia/liberia.dm"
 
 	#include "tradeship_antagonists.dm"
 	#include "tradeship_areas.dm"
-	#include "tradeship_departments.dm"
 	#include "tradeship_documents.dm"
 	#include "tradeship_jobs.dm"
 	#include "tradeship_loadouts.dm"
@@ -80,7 +78,6 @@
 	#include "jobs/engineering.dm"
 	#include "jobs/medical.dm"
 	#include "jobs/science.dm"
-	#include "jobs/synthetics.dm"
 
 	#include "outfits/_outfits.dm"
 	#include "outfits/command.dm"

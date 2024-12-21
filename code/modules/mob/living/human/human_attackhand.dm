@@ -99,7 +99,7 @@
 	if(user == src)
 		check_self_injuries()
 		return TRUE
-	if(ishuman(user) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath) && !on_fire && !(user.get_target_zone() == BP_R_ARM || user.get_target_zone() == BP_L_ARM))
+	if(ishuman(user) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath) && !is_on_fire() && !(user.get_target_zone() == BP_R_ARM || user.get_target_zone() == BP_L_ARM))
 		if (performing_cpr)
 			performing_cpr = FALSE
 		else

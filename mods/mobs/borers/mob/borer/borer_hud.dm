@@ -54,7 +54,7 @@
 /obj/screen/borer/handle_click(mob/user, params)
 	if(!isborer(user))
 		return FALSE
-	var/mob/living/simple_animal/borer/worm = usr
+	var/mob/living/simple_animal/borer/worm = user
 	if(!worm.host)
 		return FALSE
 	return TRUE

@@ -48,7 +48,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 // Return TRUE if further actions (afterattack, etc) should be prevented, FALSE if they can proceed.
 /atom/movable/proc/bash(obj/item/weapon, mob/user)
-	if(isliving(user) && user.check_intent(I_FLAG_HELP))
+	if(isliving(user) && !user.check_intent(I_FLAG_HARM))
 		return FALSE
 	if(!weapon.user_can_attack_with(user))
 		return FALSE

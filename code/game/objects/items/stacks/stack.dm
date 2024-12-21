@@ -53,7 +53,6 @@
 	update_name()
 
 /obj/item/stack/update_name()
-	. = ..()
 	if(amount == 1)
 		gender = NEUTER
 		SetName(singular_name)

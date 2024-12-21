@@ -216,7 +216,6 @@
 
 /obj/item/stack/tile/carpet/on_update_icon()
 	. = ..()
-	color = get_color()
 	if(detail_color)
 		set_overlays(overlay_image(icon, "[icon_state]-detail", detail_color, RESET_COLOR))
 

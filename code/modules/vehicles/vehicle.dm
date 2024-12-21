@@ -240,23 +240,23 @@
 		turn_on()
 		return
 
-/obj/vehicle/proc/insert_cell(var/obj/item/cell/C, var/mob/living/human/H)
+/obj/vehicle/proc/insert_cell(var/obj/item/cell/C, var/mob/living/user)
 	if(cell)
 		return
 	if(!istype(C))
 		return
-	if(!H.try_unequip(C, src))
+	if(!user.try_unequip(C, src))
 		return
 	cell = C
 	powercheck()
-	to_chat(usr, "<span class='notice'>You install [C] in [src].</span>")
+	to_chat(user, "<span class='notice'>You install [C] in [src].</span>")
 
-/obj/vehicle/proc/remove_cell(var/mob/living/human/H)
+/obj/vehicle/proc/remove_cell(var/mob/living/user)
 	if(!cell)
 		return
 
-	to_chat(usr, "<span class='notice'>You remove [cell] from [src].</span>")
-	H.put_in_hands(cell)
+	to_chat(user, "<span class='notice'>You remove [cell] from [src].</span>")
+	user.put_in_hands(cell)
 	cell = null
 	powercheck()
 

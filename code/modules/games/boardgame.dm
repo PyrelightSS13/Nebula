@@ -101,7 +101,7 @@
 	if(selected >= 0 && !isobserver(user))
 		dat += "<br><A href='byond://?src=\ref[src];remove=0'>Remove Selected Piece</A>"
 	show_browser(user, jointext(dat, null), "window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
-	onclose(usr, "boardgame")
+	onclose(user, "boardgame")
 
 /obj/item/board/Topic(href, href_list)
 	if(!usr.Adjacent(src))

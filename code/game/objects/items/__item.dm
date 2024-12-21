@@ -6,6 +6,9 @@
 	abstract_type = /obj/item
 	temperature_sensitive = TRUE
 
+	/// Set to prefix name with this string ('woven' for 'woven basket' etc)
+	var/name_prefix
+
 	/// Set to false to skip state checking and never draw an icon on the mob (except when held)
 	var/draw_on_mob_when_equipped = TRUE
 
@@ -170,6 +173,19 @@
 		set_material(material_key)
 	paint_verb ||= "painted" // fallback for the case of no material
 
+	// This is a bit gross, but it makes writing rings and necklaces much easier.
+	// If the decorations list is already populated at this point, we assume it's
+	// prebaked decorations.
+	// Only things handled appropriately at the moment are gems and material inlays.
+	if(length(decorations))
+		for(var/decoration_type in decorations)
+			decorations -= decoration_type
+			if(ispath(decoration_type, /obj/item/gemstone))
+				decorations[GET_DECL(/decl/item_decoration/setting)] = list("object" = new decoration_type(src))
+			else if(ispath(decoration_type, /decl/material))
+				decorations[GET_DECL(/decl/item_decoration/inset)]   = list("material" = GET_DECL(decoration_type))
+			else
+				PRINT_STACK_TRACE("Item [type] tried to initialize with an unsupported initial decoration type ('[decoration_type]')")
 	. = ..()
 
 	setup_sprite_sheets()
@@ -196,6 +212,9 @@
 			update_icon()
 
 /obj/item/Destroy()
+
+	// May contain object references.
+	LAZYCLEARLIST(decorations)
 
 	if(LAZYLEN(_item_effects))
 		_item_effects = null
@@ -300,11 +319,7 @@
 		var/list/available_recipes = list()
 		for(var/decl/crafting_stage/initial_stage in SSfabrication.find_crafting_recipes(type))
 			if(initial_stage.can_begin_with(src) && ispath(initial_stage.completion_trigger_type))
-				var/atom/movable/prop = initial_stage.completion_trigger_type
-				if(initial_stage.stack_consume_amount > 1)
-					available_recipes[initial_stage] = "[initial_stage.stack_consume_amount] [initial(prop.name)]\s"
-				else
-					available_recipes[initial_stage] = "\a [initial(prop.name)]"
+				available_recipes[initial_stage] = initial_stage.generate_completion_string()
 
 		if(length(available_recipes))
 
@@ -580,11 +595,6 @@
 			return cell_loaded.try_load(user, used_item)
 
 	return ..()
-
-/obj/item/attack_ghost(mob/user)
-	var/mob/observer/ghost/pronouns = user
-	if(pronouns.client?.holder || pronouns.antagHUD)
-		storage?.show_to(user)
 
 /obj/item/proc/talk_into(mob/living/M, message, message_mode, var/verb = "says", var/decl/language/speaking = null)
 	return
@@ -1042,16 +1052,38 @@ modules/mob/living/human/life.dm if you die, you will be zoomed out.
 	if(item_flags & ITEM_FLAG_IS_BELT)
 		LAZYADD(., slot_belt_str)
 
+	// Where are we usually worn?
+	var/default_slot = get_fallback_slot()
+	if(default_slot)
+		LAZYDISTINCTADD(., default_slot)
+		// Uniforms can show or hide ID.
+		if(default_slot == slot_w_uniform_str)
+			LAZYDISTINCTADD(., slot_wear_id_str)
+
+	// Currently this proc is used for clothing updates, so we
+	// need to care what slot we are being worn in, if any.
+	if(ismob(loc))
+		var/mob/wearer = loc
+		var/equipped_slot = wearer.get_equipped_slot_for_item(src)
+		if(equipped_slot)
+			LAZYDISTINCTADD(., equipped_slot)
+
 // Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/proc/update_clothing_icon(do_update_icon = TRUE)
+
+	// Accessories should pass this back to their holder.
+	if(isitem(loc))
+		var/obj/item/holder = loc
+		return holder.update_clothing_icon(do_update_icon)
+
+	// If we're not on a mob, we do not care.
+	if(!ismob(loc))
+		return FALSE
+
+	// We refresh our equipped slot and any associated slots that might depend on the state of this slot.
 	var/mob/wearer = loc
-	if(!istype(wearer))
-		return FALSE
-	var/equip_slots = get_associated_equipment_slots()
-	if(!islist(equip_slots))
-		return FALSE
-	for(var/slot in equip_slots)
-		wearer.update_equipment_overlay(slot, FALSE)
+	for(var/equipped_slot in get_associated_equipment_slots())
+		wearer.update_equipment_overlay(equipped_slot, FALSE)
 	if(do_update_icon)
 		wearer.update_icon()
 	return TRUE

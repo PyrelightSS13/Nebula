@@ -48,13 +48,14 @@
 		else if(user)
 			to_chat(user, SPAN_NOTICE("You clear the label on \the [src]."))
 
-/obj/item/chems/chem_disp_cartridge/attack_self()
-	..()
+/obj/item/chems/chem_disp_cartridge/attack_self(mob/user)
+	if((. = ..()))
+		return
 	if (ATOM_IS_OPEN_CONTAINER(src))
-		to_chat(usr, SPAN_NOTICE("You put the cap on \the [src]."))
+		to_chat(user, SPAN_NOTICE("You put the cap on \the [src]."))
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
-		to_chat(usr, SPAN_NOTICE("You take the cap off \the [src]."))
+		to_chat(user, SPAN_NOTICE("You take the cap off \the [src]."))
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/chems/chem_disp_cartridge/afterattack(obj/target, mob/user, proximity_flag, click_parameters)

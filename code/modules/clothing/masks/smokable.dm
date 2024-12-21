@@ -82,7 +82,7 @@
 			if (src == user.get_equipped_item(slot_wear_mask_str) && user.internal)
 				environment = user.internal.return_air()
 		if(environment.get_by_flag(XGM_GAS_OXIDIZER) < gas_consumption)
-			extinguish()
+			extinguish_fire()
 		else
 			environment.remove_by_flag(XGM_GAS_OXIDIZER, gas_consumption)
 			environment.adjust_gas(/decl/material/gas/carbon_dioxide, 0.5*gas_consumption,0)
@@ -91,7 +91,7 @@
 /obj/item/clothing/mask/smokable/Process()
 	var/turf/location = get_turf(src)
 	if(submerged() || smoketime < 1)
-		extinguish()
+		extinguish_fire()
 		return
 	smoke(1)
 	if(location)
@@ -126,7 +126,7 @@
 		var/turf/location = get_turf(src)
 		if(location)
 			location.hotspot_expose(700, 5)
-		extinguish(no_message = TRUE)
+		extinguish_fire(no_message = TRUE)
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights \the [src].")
 	if(QDELETED(src))
@@ -152,7 +152,7 @@
 		smoke_amount = reagents.total_volume / smoketime
 		START_PROCESSING(SSobj, src)
 
-/obj/item/clothing/mask/smokable/proc/extinguish(var/mob/user, var/no_message)
+/obj/item/clothing/mask/smokable/extinguish_fire(mob/user, no_message = FALSE)
 	lit = FALSE
 	atom_damage_type =  BRUTE
 	STOP_PROCESSING(SSobj, src)
@@ -182,7 +182,7 @@
 	return ..()
 
 /obj/item/clothing/mask/smokable/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
-	if(target.on_fire)
+	if(target.is_on_fire())
 		user.do_attack_animation(target)
 		light(SPAN_NOTICE("\The [user] coldly lights the \the [src] with the burning body of \the [target]."))
 		return TRUE
@@ -221,7 +221,7 @@
 	if(is_processing)
 		set_scent_by_reagents(src)
 
-/obj/item/clothing/mask/smokable/extinguish(var/mob/user, var/no_message)
+/obj/item/clothing/mask/smokable/extinguish_fire(mob/user, no_message = FALSE)
 	..()
 	remove_extension(src, /datum/extension/scent)
 	if (type_butt)
@@ -384,7 +384,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
 
-	if(!lit && target.on_fire)
+	if(!lit && target.is_on_fire())
 		user.do_attack_animation(target)
 		light(target, user)
 		return TRUE
@@ -412,7 +412,7 @@
 /obj/item/clothing/mask/smokable/cigarette/attack_self(var/mob/user)
 	if(lit == 1)
 		user.visible_message(SPAN_NOTICE("[user] calmly drops and treads on the lit [src], putting it out instantly."))
-		extinguish(no_message = 1)
+		extinguish_fire(no_message = TRUE)
 	return ..()
 
 ////////////
@@ -530,7 +530,7 @@
 		set_scent_by_reagents(src)
 		update_icon()
 
-/obj/item/clothing/mask/smokable/pipe/extinguish(var/mob/user, var/no_message)
+/obj/item/clothing/mask/smokable/pipe/extinguish_fire(mob/user, no_message)
 	..()
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	if(ismob(loc))

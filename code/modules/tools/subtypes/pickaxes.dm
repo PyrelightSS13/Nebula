@@ -75,3 +75,7 @@
 /obj/item/tool/pickaxe/iron
 	material           = /decl/material/solid/metal/iron
 	handle_material    = /decl/material/solid/organic/wood/ebony
+
+/obj/item/tool/pickaxe/bronze
+	material           = /decl/material/solid/metal/bronze
+	handle_material    = /decl/material/solid/organic/wood/ebony

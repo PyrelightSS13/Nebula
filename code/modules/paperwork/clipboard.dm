@@ -111,7 +111,7 @@
 	user.set_machine(src)
 	show_browser(user, dat, "window=[initial(name)]")
 	onclose(user, initial(name))
-	add_fingerprint(usr)
+	add_fingerprint(user)
 	return
 
 /obj/item/clipboard/proc/add_pen(var/obj/item/I, var/mob/user)

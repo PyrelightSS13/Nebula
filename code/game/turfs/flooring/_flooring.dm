@@ -347,3 +347,6 @@ var/global/list/flooring_cache = list()
 
 /decl/flooring/proc/handle_environment_proc(turf/floor/target)
 	return PROCESS_KILL
+
+/decl/flooring/proc/handle_turf_digging(turf/floor/target)
+	return TRUE

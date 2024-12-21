@@ -25,6 +25,7 @@ Twice...
 
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 
+	#include "../../mods/content/standard_jobs/_standard_jobs.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
@@ -65,7 +66,6 @@ Twice...
 	#include "../away/mining/mining.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
 	#include "../away/smugglers/smugglers.dm"
-	#include "../away/slavers/slavers_base.dm"
 	#include "../away/unishi/unishi.dm"
 	#include "../away/yacht/yacht.dm"
 	#include "../away/liberia/liberia.dm"
@@ -85,7 +85,6 @@ Twice...
 	#include "jobs/security.dm"
 	#include "jobs/science.dm"
 	#include "jobs/tradehouse.dm"
-	#include "jobs/synthetics.dm"
 
 	#include "outfits/_outfits.dm"
 	#include "outfits/command.dm"

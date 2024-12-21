@@ -208,7 +208,6 @@ var/global/list/card_decks = list()
 	for(var/mob/living/player in viewers(3))
 		if(!player.stat)
 			players += player
-	//players -= usr
 
 	var/mob/living/M = input("Who do you wish to deal a card?") as null|anything in players
 	if(!usr || !src || !M) return

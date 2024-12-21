@@ -1,7 +1,5 @@
-// I considered just putting this in the fantasy modpack,
-// but it's probably better in core code, since at the very least
-// the Wizard gamemode might want to use the item or icon for something.
-// Also, I think it could just be a neat prop.
+// I considered just putting this in the fantasy modpack, but
+// it's probably better in core code, since it's a nice prop.
 /obj/item/hourglass
 	name = "hourglass"
 	icon = 'icons/obj/items/hourglass.dmi'

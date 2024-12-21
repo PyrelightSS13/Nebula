@@ -31,6 +31,7 @@
 #include "items\clothing\_overrides.dm"
 #include "items\clothing\_recipes.dm"
 #include "items\clothing\armor.dm"
+#include "items\clothing\cloak.dm"
 #include "items\clothing\glasses.dm"
 #include "items\clothing\jerkin.dm"
 #include "items\clothing\loincloth.dm"

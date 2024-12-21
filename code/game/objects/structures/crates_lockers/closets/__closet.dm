@@ -42,7 +42,7 @@ var/global/list/closets = list()
 		var/decl/closet_appearance/app = GET_DECL(closet_appearance)
 		if(app)
 			icon = app.icon
-			color = null
+			reset_color()
 			queue_icon_update()
 
 	return INITIALIZE_HINT_LATELOAD
@@ -344,7 +344,7 @@ var/global/list/closets = list()
 	if(!. && istype(AM) && opened && !istype(AM, /obj/structure/closet) && AM.simulated && !AM.anchored && (large || !ismob(AM)))
 		step_towards(AM, loc)
 		if(user != AM)
-			user.show_viewers(SPAN_DANGER("\The [user] stuffs \the [AM] into \the [src]!"))
+			user.visible_message(SPAN_DANGER("\The [user] stuffs \the [AM] into \the [src]!"), SPAN_DANGER("You stuff \the [AM] into \the [src]!"))
 		return TRUE
 
 /obj/structure/closet/attack_ai(mob/living/silicon/ai/user)

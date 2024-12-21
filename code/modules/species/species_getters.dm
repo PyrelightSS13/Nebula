@@ -19,9 +19,6 @@
 /decl/species/proc/get_vision_flags(var/mob/living/human/H)
 	return vision_flags
 
-/decl/species/proc/get_surgery_overlay_icon(var/mob/living/human/H)
-	return 'icons/mob/surgery.dmi'
-
 /decl/species/proc/get_footstep(var/mob/living/human/H, var/footstep_type)
 	return
 

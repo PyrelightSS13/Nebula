@@ -129,7 +129,7 @@
 	//Dump all stored papers too
 	for(var/i=1 to amount)
 		var/obj/item/paper/P = new /obj/item/paper(forced_loc)
-		P.merge_with_existing(forced_loc, usr)
+		P.merge_with_existing(forced_loc, user)
 	LAZYCLEARLIST(papers)
 
 /obj/item/paper_bin/proc/add_paper(var/obj/item/paper/P)
