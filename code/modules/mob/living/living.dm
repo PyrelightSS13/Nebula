@@ -406,7 +406,7 @@ default behaviour is:
 /mob/living/proc/update_damage_overlays(update_icons = TRUE)
 
 	// first check whether something actually changed about damage appearance
-	var/damage_appearance = ""
+	var/damage_appearance = get_overlay_state_modifier() || ""
 	for(var/obj/item/organ/external/O in get_external_organs())
 		damage_appearance += O.damage_state || "00"
 
