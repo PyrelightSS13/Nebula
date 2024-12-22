@@ -7,8 +7,8 @@
 
 	// Leaving these for later replacement.
 	dock_name     = "shaded heights"
-	boss_name     = "the Splinter Kingdoms"
-	boss_short    = "Splinter Kingdoms"
+	boss_name     = "the Guild"
+	boss_short    = "Guild"
 	company_name  = "whispers from the Deep"
 	company_short = "the Deep"
 	system_name   = "Downlands"
@@ -52,5 +52,4 @@
 
 // TODO replace this
 /datum/map/karzerfeste/get_map_info()
-	return "You're in the <b>[station_name]</b> of the [system_name], nestled between the mountains and the river and bisected by the decaying Queens' Road. On all sides, you are surrounded by untamed wilds, with only a small ruined fort, rebuilt into an inn, to the east as a sign of civilisation. \
-	Far from the control of [boss_name], you are free to carve forward a path to survival for yourself and your comrades however you wish. Strike the earth!"
+	return "You're in <b>[station_name]</b>, an ancient ruin straddling the mountainous border between the Downlands and the Nine Mothers. In recent years, the Guild has established a settlement in the ruined keep, exploring the dungeons below and brokering an uneasy peace between the Nine Mothers clans and Splinter Kingdom baronies who would otherwise take the keep for themselves."

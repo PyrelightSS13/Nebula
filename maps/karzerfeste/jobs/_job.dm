@@ -25,6 +25,12 @@
 		/datum/job/karzerfeste/steppe/representative,
 		/datum/job/karzerfeste/steppe/honor_guard
 	)
+	default_department_type = /decl/department/karzerfeste/locals
+	species_to_job_whitelist = list(
+		/decl/species/grafadreka = list(
+			/datum/job/karzerfeste/local/traveller
+		)
+	)
 
 /decl/department/karzerfeste
 	abstract_type       = /decl/department/karzerfeste
