@@ -26,6 +26,7 @@
 			attackby(attacking_with, predator)
 		else
 			attack_animal(predator)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
 	return FALSE
 

@@ -18,6 +18,7 @@
 	var/eye_attack_text_victim
 	var/list/usable_with_limbs = list(BP_L_HAND, BP_R_HAND)
 	var/is_starting_default = FALSE
+	var/apply_cooldown = DEFAULT_ATTACK_COOLDOWN
 
 /decl/natural_attack/proc/summarize()
 	var/list/usable_limbs = list()
@@ -74,7 +75,7 @@
 	return damage
 
 // Returns TRUE if further affects should be applied.
-/decl/natural_attack/proc/apply_effects(mob/living/user, mob/living/target, attack_damage, zone)
+/decl/natural_attack/proc/apply_attack_effects(mob/living/user, mob/living/target, attack_damage, zone)
 
 	if(target.stat == DEAD)
 		return FALSE
