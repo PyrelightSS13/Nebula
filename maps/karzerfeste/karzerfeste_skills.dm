@@ -1,5 +1,5 @@
 // Removal of space skills
-/datum/map/shaded_hills/get_available_skill_types()
+/datum/map/karzerfeste/get_available_skill_types()
 	. = ..()
 	. -= list(
 		SKILL_EVA,

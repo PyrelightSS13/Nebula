@@ -114,6 +114,7 @@
 	level_id = "karzerfeste_rooftops"
 	level_generators = list(
 		/datum/random_map/automata/cave_system/karzerfeste,
+		/datum/random_map/noise/karzerfeste/caves
 	)
 
 /datum/level_data/player_level/karzerfeste/woods

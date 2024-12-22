@@ -1,4 +1,4 @@
-/datum/map/shaded_hills
+/datum/map/karzerfeste
 	starting_cash_choices = list(
 		/decl/starting_cash_choice/none,
 		/decl/starting_cash_choice/cash

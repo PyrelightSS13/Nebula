@@ -1,4 +1,4 @@
-/datum/map/shaded_hills
+/datum/map/karzerfeste
 	event_container_mundane  = /datum/event_container/mundane/fantasy
 	event_container_moderate = /datum/event_container/moderate/fantasy
 	event_container_major    = /datum/event_container/major/fantasy
