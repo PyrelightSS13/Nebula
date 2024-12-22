@@ -7,12 +7,9 @@
 
 /datum/map/karzerfeste/finalize_map_generation()
 	. = ..()
-	var/static/list/banned_weather = list(
-		/decl/state/weather/snow/medium,
-		/decl/state/weather/snow/heavy,
-		/decl/state/weather/snow
-	)
-	var/datum/level_data/region = SSmapping.levels_by_id["karzerfeste_region"]
+	// Leaving this defined in case we want to ban rain or such
+	var/static/list/banned_weather = list()
+	var/datum/level_data/region = SSmapping.levels_by_id["karzerfeste_keep"]
 	if(istype(region)) // if this is false, something has badly exploded
 		SSweather.setup_weather_system(region, banned_states = banned_weather)
 
