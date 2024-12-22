@@ -161,16 +161,16 @@
 	return (src.sharp? DAM_SHARP : 0)|(src.edge? DAM_EDGE : 0)
 
 /decl/natural_attack/bite
-	name = "bite"
+	name                = "bite"
 	selector_icon_state = "attack_bite"
-	attack_verb = list("bit")
-	attack_noun = list("mouth")
-	attack_sound = 'sound/weapons/bite.ogg'
-	shredding = 0
-	damage = 0
-	sharp = 0
-	edge = 0
-	usable_with_limbs = list(BP_HEAD)
+	attack_verb         = list("bit")
+	attack_noun         = list("mouth")
+	attack_sound        = 'sound/weapons/bite.ogg'
+	shredding           = 0
+	damage              = 5
+	sharp               = 0
+	edge                = 0
+	usable_with_limbs   = list(BP_HEAD)
 
 /decl/natural_attack/bite/sharp
 	attack_verb = list("bit", "chomped")

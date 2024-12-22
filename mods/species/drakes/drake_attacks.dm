@@ -16,10 +16,16 @@
 		wound.disinfected = FALSE
 
 // 50% damage bonus on prone, stunned or confused enemies.
+/decl/natural_attack/bite/sharp/drake
+	damage = 12 // chomp
+
 /decl/natural_attack/bite/sharp/drake/get_unarmed_damage(mob/living/user, mob/living/victim)
 	. = ..()
 	if(victim.current_posture?.prone || HAS_STATUS(victim, STAT_CONFUSE) || HAS_STATUS(victim, STAT_STUN))
 		. = max(1, round(. * 1.5))
+
+/decl/natural_attack/claws/strong/drake
+	damage = 8 // chonky for digging
 
 /decl/natural_attack/claws/strong/drake/get_unarmed_damage(mob/living/user, mob/living/victim)
 	. = ..()
