@@ -6,15 +6,11 @@
 	base_area = null
 	base_turf = /turf/floor/dirt
 	abstract_type = /datum/level_data/player_level/karzerfeste
-	ambient_light_level = 1
-	ambient_light_color = "#f3e6ca"
 	strata = /decl/strata/karzerfeste
 	exterior_atmosphere = list(
 		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
 		/decl/material/gas/nitrogen = MOLES_N2STANDARD
 	)
-	daycycle_type = /datum/daycycle/karzerfeste
-	daycycle_id = "daycycle_karzerfeste"
 	template_edge_padding = 0 // we use a strictly delineated subarea, no need for this guard
 	var/submap_budget   = 0
 	var/submap_category = null
@@ -116,6 +112,8 @@
 		/datum/random_map/automata/cave_system/karzerfeste,
 		/datum/random_map/noise/karzerfeste/caves
 	)
+	daycycle_type = /datum/daycycle/karzerfeste
+	daycycle_id = "daycycle_karzerfeste"
 
 /datum/level_data/player_level/karzerfeste/woods
 	name = "Karzerfeste - Woods"
@@ -138,6 +136,8 @@
 			10
 		)
 	)
+	daycycle_type = /datum/daycycle/karzerfeste
+	daycycle_id = "daycycle_karzerfeste"
 
 /obj/abstract/level_data_spawner/karzerfeste_caves
 	level_data_type = /datum/level_data/player_level/karzerfeste/caves
