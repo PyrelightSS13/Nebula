@@ -22,7 +22,7 @@
 /turf/floor/path/running_bond/granite,
 /area/karzerfeste/keep/gatehouse/west)
 "av" = (
-/turf/wall/brick/basalt/shutter,
+/turf/wall/wattle/daubed/plastered/framed/walnut/shutter,
 /area/karzerfeste/ward/shrine)
 "aD" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -417,7 +417,7 @@
 /turf/floor/path/running_bond/granite,
 /area/karzerfeste/ward/shrine)
 "gZ" = (
-/turf/wall/brick/basalt,
+/turf/wall/wattle/daubed/plastered/framed/walnut,
 /area/karzerfeste/ward/shrine)
 "hp" = (
 /obj/structure/closet/crate/chest/ebony,
@@ -1911,6 +1911,12 @@
 "JK" = (
 /turf/wall/brick/basalt,
 /area/karzerfeste/ward/wall/two)
+"JT" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 4
+	},
+/turf/floor/path/running_bond/granite,
+/area/karzerfeste/ward/shrine)
 "JX" = (
 /obj/structure/wall_sconce/lantern{
 	dir = 8
@@ -1955,12 +1961,6 @@
 "KG" = (
 /turf/floor/clay,
 /area/karzerfeste/outside/ward)
-"KH" = (
-/obj/structure/door/ebony{
-	dir = 4
-	},
-/turf/floor/path/running_bond/basalt,
-/area/karzerfeste/ward/shrine)
 "KS" = (
 /obj/structure/produce_bin/ebony,
 /turf/floor/dirt,
@@ -2519,6 +2519,7 @@
 /obj/item/ancient_surgery/bonesetter,
 /obj/item/ancient_surgery/retractor,
 /obj/item/ancient_surgery/sutures,
+/obj/structure/wall_sconce/lantern,
 /turf/floor/path/running_bond/granite,
 /area/karzerfeste/ward/shrine)
 "Xj" = (
@@ -18093,7 +18094,7 @@ dd
 dd
 av
 nD
-nD
+JT
 nD
 nD
 nD
@@ -18563,7 +18564,7 @@ gZ
 gZ
 gZ
 gZ
-KH
+BE
 gZ
 gZ
 VX
@@ -19025,7 +19026,7 @@ gZ
 gZ
 av
 gZ
-gZ
+BE
 gZ
 gZ
 Xt
