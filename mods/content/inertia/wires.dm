@@ -7,11 +7,10 @@
 		new /datum/wire_description(DAMPER_WIRE_CONTROL, "This wire connects to the main control panel."),
 		new /datum/wire_description(DAMPER_WIRE_AICONTROL, "This wire connects to automated control systems.")
 	)
-
-var/global/const/DAMPER_WIRE_POWER = 1			// Cut to disable power input into the generator. Pulse does nothing. Mend to restore.
-var/global/const/DAMPER_WIRE_HACK = 2			// Pulse to hack the dampener, causing false display on engine consoles. Cut to unhack. Mend does nothing.
-var/global/const/DAMPER_WIRE_CONTROL = 4		// Cut to lock controls. Mend to unlock them. Pulse does nothing.
-var/global/const/DAMPER_WIRE_AICONTROL = 8		// Cut to disable AI control. Mend to restore.
+	var/const/DAMPER_WIRE_POWER     = 1 // Cut to disable power input into the generator. Pulse does nothing. Mend to restore.
+	var/const/DAMPER_WIRE_HACK      = 2 // Pulse to hack the dampener, causing false display on engine consoles. Cut to unhack. Mend does nothing.
+	var/const/DAMPER_WIRE_CONTROL   = 4 // Cut to lock controls. Mend to unlock them. Pulse does nothing.
+	var/const/DAMPER_WIRE_AICONTROL = 8 // Cut to disable AI control. Mend to restore.
 
 /datum/wires/inertial_damper/CanUse()
 	var/obj/machinery/inertial_damper/I = holder

@@ -1,28 +1,6 @@
-#define WARNING_DELAY 80			//seconds between warnings.
-var/global/list/ship_inertial_dampers = list()
-
-/datum/ship_inertial_damper
-	var/name = "ship inertial damper"
-	var/obj/machinery/holder
-
-/datum/ship_inertial_damper/proc/get_damping_strength(var/reliable)
-	return 0
-
-/datum/ship_inertial_damper/New(var/obj/machinery/_holder)
-	..()
-	holder = _holder
-	global.ship_inertial_dampers += src
-
-/datum/ship_inertial_damper/Destroy()
-	global.ship_inertial_dampers -= src
-	for(var/obj/effect/overmap/visitable/ship/S in SSshuttle.ships)
-		S.inertial_dampers -= src
-	holder = null
-	. = ..()
-
 /obj/machinery/inertial_damper
 	name = "inertial damper"
-	icon = 'icons/obj/machines/inertial_damper.dmi'
+	icon = 'mods/content/inertia/icons/inertial_damper.dmi'
 	desc = "An inertial damper, a very large machine that balances against engine thrust to prevent harm to the crew."
 	density = TRUE
 	icon_state = "damper_on"
@@ -66,6 +44,9 @@ var/global/list/ship_inertial_dampers = list()
 	var/current_overlay = null
 	var/width = 3
 	var/height = 2
+
+	/// The cooldown between announcements that the inertial damping system is off.
+	var/const/WARNING_DELAY = 8 SECONDS
 
 /obj/machinery/inertial_damper/Initialize()
 	. = ..()
@@ -117,8 +98,10 @@ var/global/list/ship_inertial_dampers = list()
 /obj/machinery/inertial_damper/proc/is_on()
 	return active
 
-/obj/machinery/inertial_damper/proc/get_damping_strength(var/reliable)
-	if(hacked && !reliable)
+/// Returns either the true damping strength including modifiers (include_modifiers == TRUE),
+/// or just the value the damper is set to (include_modifiers == FALSE).
+/obj/machinery/inertial_damper/proc/get_damping_strength(var/include_modifiers)
+	if(hacked && !include_modifiers)
 		return initial(damping_strength)
 	return damping_strength + damping_modifier
 
@@ -203,5 +186,3 @@ var/global/list/ship_inertial_dampers = list()
 /obj/machinery/inertial_damper/dismantle()
 	if((. = ..()))
 		update_nearby_tiles(locs)
-
-#undef WARNING_DELAY

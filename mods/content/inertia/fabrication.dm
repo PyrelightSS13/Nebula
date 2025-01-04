@@ -11,3 +11,6 @@
 		/obj/item/stock_parts/keyboard = 1,
 		/obj/item/stock_parts/power/apc/buildable = 1
 	)
+
+/datum/fabricator_recipe/imprinter/circuit/inertial_damper
+	path = /obj/item/stock_parts/circuitboard/inertial_damper

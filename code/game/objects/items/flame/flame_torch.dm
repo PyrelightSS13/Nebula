@@ -13,10 +13,6 @@
 	var/head_material     = /decl/material/solid/organic/cloth
 	var/burnt             = FALSE
 
-/obj/item/flame/torch/Initialize()
-	. = ..()
-	set_color(null) // clear our scent color
-
 /obj/item/flame/torch/get_available_scents()
 	var/static/list/available_scents = list(
 		/decl/scent_type/woodsmoke
@@ -34,6 +30,7 @@
 
 /obj/item/flame/torch/Initialize(var/ml, var/material_key, var/_head_material)
 	. = ..()
+	set_color(null) // clear our scent color. TODO: allow flame items to disable scent color setting in the first place
 
 	if(_head_material)
 		head_material = _head_material
@@ -76,11 +73,11 @@
 	if(head_material)
 		var/decl/material/head_mat = GET_DECL(head_material)
 		if(burnt)
-			add_overlay(overlay_image(icon, "[icon_state]-burnt", head_mat.color, flags = RESET_COLOR))
+			add_overlay(overlay_image(icon, "[icon_state]-burnt", head_mat.color, flags = RESET_COLOR|KEEP_APART))
 		else
-			add_overlay(overlay_image(icon, "[icon_state]-head", head_mat.color, flags = RESET_COLOR))
+			add_overlay(overlay_image(icon, "[icon_state]-head", head_mat.color, flags = RESET_COLOR|KEEP_APART))
 	if(lit)
-		add_overlay(overlay_image(icon, "[icon_state]-lit", flags = RESET_COLOR))
+		add_overlay(overlay_image(icon, "[icon_state]-lit", flags = RESET_COLOR|KEEP_APART))
 
 /obj/item/flame/torch/get_sconce_overlay()
 	. = list(overlay_image(icon, "[icon_state]-sconce", color = color, flags = RESET_COLOR))

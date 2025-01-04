@@ -33,7 +33,6 @@
 	var/key
 	var/name				//replaces mob/var/original_name
 	var/mob/living/current
-	var/mob/living/original	//TODO: remove.not used in any meaningful way ~Carn. First I'll need to tweak the way silicon-mobs handle minds.
 	var/active = 0
 
 	var/gen_relations_info
@@ -71,17 +70,11 @@
 	if(current?.mind == src)
 		current.mind = null
 	current = null
-	if(original?.mind == src)
-		original.mind = null
-	original = null
 	. = ..()
 
 /datum/mind/proc/handle_mob_deletion(mob/living/deleted_mob)
 	if (current == deleted_mob)
 		current = null
-
-	if (original == deleted_mob)
-		original = null
 
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
@@ -505,7 +498,6 @@
 		mind.key = key
 	else
 		mind = new /datum/mind(key)
-		mind.original = src
 		SSticker.minds += mind
 	if(!mind.name)	mind.name = real_name
 	mind.current = src

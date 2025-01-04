@@ -465,16 +465,6 @@
 	)
 	return spawnable_choices
 
-/obj/random/crayon
-	name = "random crayon"
-	desc = "This is a random crayon."
-	icon = 'icons/obj/items/crayons.dmi'
-	icon_state = "crayonred"
-
-/obj/random/crayon/spawn_choices()
-	var/static/list/spawnable_choices = subtypesof(/obj/item/pen/crayon)
-	return spawnable_choices
-
 /obj/random/umbrella
 	name = "Random Umbrella"
 	desc = "This is a random umbrella."

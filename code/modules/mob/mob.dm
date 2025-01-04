@@ -1297,11 +1297,6 @@
 /mob/proc/get_blood_type()
 	return
 
-// Gets the ID card of a mob, but will not check types in the exceptions list
-/mob/GetIdCard(exceptions = null)
-	RETURN_TYPE(/obj/item/card/id)
-	return LAZYACCESS(GetIdCards(exceptions), 1)
-
 /mob/get_overhead_text_x_offset()
 	return offset_overhead_text_x
 
@@ -1387,3 +1382,11 @@
 
 /mob/proc/can_twohand_item(obj/item/item)
 	return FALSE
+
+/// THIS DOES NOT RELATE TO HELD ITEM SLOTS. It is very specifically a functional BP_L_HAND or BP_R_HAND organ, not necessarily a gripper.
+/mob/proc/get_usable_hand_slot_organ()
+	var/obj/item/organ/external/paw = GET_EXTERNAL_ORGAN(src, BP_L_HAND)
+	if(!istype(paw) && !paw.is_usable())
+		paw = GET_EXTERNAL_ORGAN(src, BP_R_HAND)
+	if(istype(paw) && paw.is_usable())
+		return paw

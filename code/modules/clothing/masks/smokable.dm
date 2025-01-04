@@ -158,6 +158,19 @@
 	STOP_PROCESSING(SSobj, src)
 	set_light(0)
 	update_icon()
+	remove_extension(src, /datum/extension/scent)
+	if (type_butt)
+		var/obj/item/trash/cigbutt/butt = new type_butt(get_turf(src))
+		transfer_fingerprints_to(butt)
+		if(istype(butt) && butt.use_color)
+			butt.color = color
+		if(brand)
+			butt.desc += " This one is a [brand]."
+		if(ismob(loc))
+			var/mob/living/M = loc
+			if (!no_message)
+				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
+		qdel(src)
 
 /obj/item/clothing/mask/smokable/attackby(var/obj/item/W, var/mob/user)
 	if(W.isflamesource() || W.get_heat() >= T100C)
@@ -220,22 +233,6 @@
 	..()
 	if(is_processing)
 		set_scent_by_reagents(src)
-
-/obj/item/clothing/mask/smokable/extinguish_fire(mob/user, no_message = FALSE)
-	..()
-	remove_extension(src, /datum/extension/scent)
-	if (type_butt)
-		var/obj/item/trash/cigbutt/butt = new type_butt(get_turf(src))
-		transfer_fingerprints_to(butt)
-		if(istype(butt) && butt.use_color)
-			butt.color = color
-		if(brand)
-			butt.desc += " This one is a [brand]."
-		if(ismob(loc))
-			var/mob/living/M = loc
-			if (!no_message)
-				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
-		qdel(src)
 
 /obj/item/clothing/mask/smokable/cigarette/menthol
 	name = "menthol cigarette"
@@ -530,22 +527,10 @@
 		set_scent_by_reagents(src)
 		update_icon()
 
-/obj/item/clothing/mask/smokable/pipe/extinguish_fire(mob/user, no_message)
-	..()
-	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	if(ismob(loc))
-		var/mob/living/M = loc
-		if (!no_message)
-			to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
-	remove_extension(src, /datum/extension/scent)
-
 /obj/item/clothing/mask/smokable/pipe/attack_self(var/mob/user)
-	if(lit == 1)
+	if(lit)
 		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), SPAN_NOTICE("You put out [src]."))
-		lit = FALSE
-		update_icon()
-		STOP_PROCESSING(SSobj, src)
-		remove_extension(src, /datum/extension/scent)
+		extinguish_fire(user, no_message = TRUE)
 	else if (smoketime)
 		var/turf/location = get_turf(user)
 		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), SPAN_NOTICE("You empty out [src]."))

@@ -48,7 +48,7 @@
 	name = "Methyl Bromide"
 	required_reagents = list(
 		/decl/material/liquid/bromide = 1,
-		/decl/material/liquid/ethanol = 1,
+		/decl/material/liquid/alcohol/ethanol = 1,
 		/decl/material/liquid/fuel/hydrazine = 1
 	)
 	result_amount = 3
@@ -158,3 +158,27 @@
 /decl/chemical_reaction/compound/condensed_capsaicin/on_reaction(datum/reagents/holder, created_volume, reaction_flags, list/reaction_data)
 	. = ..()
 	holder?.add_reagent(/decl/material/liquid/water, created_volume)
+
+// This is a bit silly, but we need a way to unify oil types until someone rewrites lanterns.
+/decl/chemical_reaction/compound/fuel_oil
+	name = "Plant Fuel Oil"
+	result = /decl/material/liquid/oil
+	result_amount = 3
+	required_reagents = list(
+		/decl/material/liquid/oil/plant = 2,
+		/decl/material/solid/graphite   = 1
+	)
+
+/decl/chemical_reaction/compound/fuel_oil/corn
+	name = "Corn Fuel Oil"
+	required_reagents = list(
+		/decl/material/liquid/oil/plant/corn = 2,
+		/decl/material/solid/graphite        = 1
+	)
+
+/decl/chemical_reaction/compound/fuel_oil/fish
+	name = "Fish Fuel Oil"
+	required_reagents = list(
+		/decl/material/liquid/oil/fish = 2,
+		/decl/material/solid/graphite  = 1
+	)

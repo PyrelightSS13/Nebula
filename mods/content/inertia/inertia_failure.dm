@@ -1,6 +1,17 @@
+// TODO: This should either be removed, or reworked to announce to specifically only the affected ship or its associated map.
 /datum/event/inertial_damper
 	announceWhen = 5
 	check_proc = /proc/inertial_dampener_event_can_fire
+
+/datum/event_container/moderate/New()
+	..()
+	available_events += new /datum/event_meta(
+		EVENT_LEVEL_MODERATE,
+		"Inertial Damper Recalibration",
+		/datum/event/inertial_damper,
+		75,
+		list(ASSIGNMENT_ENGINEER = 25)
+	)
 
 /datum/event/inertial_damper/setup()
 	endWhen = rand(45, 120)
