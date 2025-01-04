@@ -1,0 +1,413 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/door/ebony,
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"b" = (
+/obj/item/cash/imperial/crown,
+/obj/item/cash/imperial/crown,
+/obj/item/cash/imperial/crown,
+/turf/floor/path/basalt/water,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"c" = (
+/turf/template_noop,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"f" = (
+/obj/structure/wall_sconce,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"j" = (
+/obj/structure/table/wood/reinforced/ebony,
+/obj/item/food/grown/dried_tobacco/fine,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"l" = (
+/obj/structure/table/wood/reinforced/ebony,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"m" = (
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"n" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 8
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"p" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 8
+	},
+/obj/random/hostile/dungeon,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"w" = (
+/obj/structure/table/wood/reinforced/ebony,
+/obj/item/bladed/folding,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"x" = (
+/obj/item/cash/imperial/crown,
+/turf/floor/path/basalt/water,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"A" = (
+/turf/wall/brick/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"B" = (
+/obj/structure/wall_sconce{
+	dir = 1;
+	pixel_y = 10
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"C" = (
+/obj/structure/table/wood/reinforced/ebony,
+/obj/item/flame/candle,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"E" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 8
+	},
+/obj/item/remains/human,
+/obj/item/clothing/suit/armor/forged/banded,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"G" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 8
+	},
+/obj/item/stack/material/bolt/mapped/cloth/five,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"J" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 4
+	},
+/obj/item/remains/human,
+/obj/item/clothing/pants/trousers/braies,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"L" = (
+/obj/item/cash/imperial/quin,
+/turf/floor/path/basalt/water,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"P" = (
+/obj/item/cash/imperial/crown,
+/obj/item/cash/imperial/crown,
+/turf/floor/path/basalt/water,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"R" = (
+/obj/random/hostile/dungeon,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"S" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 4
+	},
+/obj/random/hostile/dungeon,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"U" = (
+/obj/structure/table/wood/reinforced/ebony,
+/obj/item/food/grown/dried_tobacco/bad,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"Y" = (
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"Z" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 4
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+
+(1,1,1) = {"
+c
+c
+c
+c
+A
+A
+Y
+Y
+A
+A
+c
+c
+c
+c
+Y
+Y
+A
+A
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+c
+A
+A
+A
+A
+A
+a
+a
+A
+A
+A
+A
+A
+A
+a
+a
+A
+A
+A
+A
+A
+c
+"}
+(3,1,1) = {"
+c
+A
+A
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+A
+A
+"}
+(4,1,1) = {"
+A
+A
+Y
+A
+B
+Y
+Y
+R
+f
+A
+Y
+Y
+A
+B
+Y
+Y
+Y
+f
+A
+Y
+A
+c
+"}
+(5,1,1) = {"
+A
+A
+Y
+Y
+Y
+Z
+J
+Z
+Y
+m
+m
+m
+m
+Y
+Z
+Z
+S
+Y
+Y
+Y
+A
+c
+"}
+(6,1,1) = {"
+Y
+a
+Y
+Y
+Y
+l
+l
+l
+Y
+m
+P
+x
+m
+Y
+w
+U
+U
+Y
+Y
+Y
+a
+Y
+"}
+(7,1,1) = {"
+Y
+a
+Y
+Y
+Y
+l
+l
+j
+Y
+m
+b
+L
+m
+Y
+l
+C
+l
+Y
+Y
+Y
+a
+Y
+"}
+(8,1,1) = {"
+c
+A
+Y
+Y
+Y
+G
+n
+p
+Y
+m
+m
+m
+m
+Y
+n
+n
+E
+Y
+Y
+Y
+A
+c
+"}
+(9,1,1) = {"
+c
+A
+Y
+A
+B
+Y
+Y
+Y
+f
+A
+Y
+Y
+A
+B
+Y
+Y
+Y
+f
+A
+Y
+A
+A
+"}
+(10,1,1) = {"
+c
+A
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+Y
+A
+A
+"}
+(11,1,1) = {"
+c
+A
+A
+A
+A
+A
+a
+a
+A
+A
+A
+A
+A
+A
+a
+a
+A
+A
+A
+A
+A
+A
+"}
+(12,1,1) = {"
+c
+c
+A
+A
+c
+c
+Y
+Y
+c
+c
+A
+A
+c
+c
+Y
+Y
+A
+A
+A
+A
+c
+c
+"}

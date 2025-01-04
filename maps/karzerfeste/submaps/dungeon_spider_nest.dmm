@@ -1,0 +1,196 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/wall/natural/dirt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"d" = (
+/turf/floor/mud/water,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"r" = (
+/turf/template_noop,
+/area/template_noop)
+"y" = (
+/turf/floor/mud/water/deep,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"A" = (
+/obj/item/remains/human,
+/turf/floor/mud,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"E" = (
+/obj/random/hostile/cave,
+/turf/floor/mud,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"W" = (
+/turf/floor/mud,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"Y" = (
+/turf/floor/dirt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+
+(1,1,1) = {"
+r
+r
+r
+a
+a
+a
+a
+a
+W
+r
+r
+a
+"}
+(2,1,1) = {"
+r
+r
+Y
+Y
+a
+Y
+Y
+Y
+Y
+W
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+Y
+Y
+Y
+W
+W
+W
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+Y
+E
+W
+A
+W
+W
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+Y
+Y
+W
+d
+d
+W
+W
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+Y
+W
+d
+d
+d
+d
+W
+Y
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+Y
+W
+d
+y
+d
+d
+E
+Y
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+Y
+W
+d
+d
+d
+d
+d
+W
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+W
+E
+d
+d
+d
+d
+W
+a
+a
+"}
+(10,1,1) = {"
+r
+a
+a
+a
+Y
+Y
+W
+d
+W
+W
+a
+a
+"}
+(11,1,1) = {"
+r
+r
+a
+a
+a
+a
+Y
+W
+W
+a
+a
+r
+"}
+(12,1,1) = {"
+r
+r
+r
+a
+a
+a
+a
+W
+r
+r
+r
+r
+"}

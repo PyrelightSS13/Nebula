@@ -1,0 +1,215 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"d" = (
+/obj/random/hostile/dungeon,
+/turf/floor/path/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"f" = (
+/obj/structure/wall_sconce{
+	dir = 4
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"h" = (
+/obj/structure/closet/crate/chest/ebony,
+/obj/item/stack/material/ingot/mapped/silver/ten,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"i" = (
+/obj/structure/table/wood/ebony,
+/obj/item/tool/hammer,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"k" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 8
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"l" = (
+/turf/wall/brick/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"n" = (
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"p" = (
+/obj/structure/door/ebony,
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"s" = (
+/obj/random/hostile/dungeon,
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"v" = (
+/obj/structure/closet/crate/chest/ebony,
+/obj/item/stack/material/ingot/mapped/gold/ten,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"z" = (
+/obj/structure/table/wood/ebony,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"F" = (
+/obj/structure/closet/crate/chest/ebony,
+/obj/item/stack/material/ingot/mapped/iron/twentyfive,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"G" = (
+/obj/structure/closet/crate/chest/ebony,
+/obj/item/stack/material/ingot/mapped/copper/twenty,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"H" = (
+/obj/structure/closet/crate/chest/ebony,
+/obj/item/stack/material/ingot/mapped/bronze/twenty,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"K" = (
+/obj/structure/closet/crate/chest/ebony,
+/obj/item/stack/material/ingot/mapped/tin/twenty,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"N" = (
+/obj/structure/door/ebony,
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"R" = (
+/obj/structure/table/wood/ebony,
+/obj/item/bladed/knife,
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"T" = (
+/turf/floor/path/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"U" = (
+/turf/floor/path/herringbone/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+"X" = (
+/obj/structure/bed/chair/bench/ebony{
+	dir = 4
+	},
+/turf/floor/path/running_bond/basalt,
+/area/karzerfeste/caves/point_of_interest/dungeon)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+l
+l
+l
+p
+p
+l
+l
+l
+a
+"}
+(3,1,1) = {"
+a
+l
+F
+n
+n
+n
+n
+i
+l
+a
+"}
+(4,1,1) = {"
+a
+l
+h
+U
+U
+s
+U
+z
+l
+a
+"}
+(5,1,1) = {"
+a
+l
+v
+U
+T
+T
+U
+k
+l
+a
+"}
+(6,1,1) = {"
+a
+l
+G
+U
+d
+T
+U
+X
+l
+a
+"}
+(7,1,1) = {"
+a
+l
+H
+U
+U
+U
+U
+i
+l
+a
+"}
+(8,1,1) = {"
+a
+l
+K
+f
+n
+n
+f
+R
+l
+a
+"}
+(9,1,1) = {"
+a
+l
+l
+l
+N
+N
+l
+l
+l
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
