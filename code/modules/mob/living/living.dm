@@ -639,9 +639,9 @@ default behaviour is:
 /mob/living/verb/rest_verb()
 	set name = "Rest"
 	set category = "IC"
-	lay_down()
+	lay_down(block_posture = /decl/posture/sitting)
 
-/mob/living/verb/lay_down()
+/mob/living/verb/lay_down(block_posture as null)
 	set name = "Change Posture"
 	set category = "IC"
 
@@ -650,6 +650,15 @@ default behaviour is:
 		return
 
 	var/list/selectable_postures = get_selectable_postures()
+
+	if(block_posture)
+		for(var/decl/posture/selectable_posture in selectable_postures)
+			if(islist(block_posture))
+				if(is_type_in_list(selectable_posture, block_posture))
+					selectable_postures -= selectable_posture
+			else if(istype(selectable_posture, block_posture))
+				selectable_postures -= selectable_posture
+
 	if(!length(selectable_postures))
 		return
 
@@ -853,8 +862,13 @@ default behaviour is:
 	fluids.touch_mob(src)
 	if(QDELETED(src) || !fluids.total_volume)
 		return
+	var/on_turf = fluids.my_atom == get_turf(src)
 	for(var/atom/movable/A as anything in get_equipped_items(TRUE))
 		if(!A.simulated)
+			continue
+		// if we're being affected by reagent fluids, items check if they're submerged
+		// todo: i don't like how this works, it feels hacky. maybe separate coating and submersion somehow and make this only checked for submersion
+		if(on_turf && !A.submerged())
 			continue
 		A.fluid_act(fluids)
 		if(QDELETED(src) || !fluids.total_volume)
@@ -1519,6 +1533,13 @@ default behaviour is:
 				qdel(grab)
 	if(istype(ai))
 		ai.on_buckled(M)
+	reset_layer()
+	update_icon()
+
+/mob/living/unbuckle_mob()
+	. = ..()
+	reset_layer()
+	update_icon()
 
 /mob/living/try_make_grab(mob/living/user, defer_hand = FALSE)
 	. = ..()
@@ -1885,16 +1906,6 @@ default behaviour is:
 		else if(!item.needs_attack_dexterity || slot.dexterity >= item.needs_attack_dexterity)
 			return TRUE
 	return FALSE
-
-/mob/living/buckle_mob(mob/living/M)
-	. = ..()
-	reset_layer()
-	update_icon()
-
-/mob/living/unbuckle_mob()
-	. = ..()
-	reset_layer()
-	update_icon()
 
 /mob/living/proc/flee(atom/target, upset = FALSE)
 	var/static/datum/automove_metadata/_flee_automove_metadata = new(

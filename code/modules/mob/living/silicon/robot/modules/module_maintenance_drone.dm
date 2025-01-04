@@ -115,6 +115,8 @@
 	..()
 	var/obj/item/chems/spray/cleaner/drone/SC = locate() in equipment
 	SC.add_to_reagents(/decl/material/liquid/cleaner, 8 * amount)
+	var/obj/item/lightreplacer/LR = locate() in equipment
+	LR.Charge(R, amount)
 
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
@@ -126,8 +128,3 @@
 /obj/item/robot_module/drone/construction/Initialize()
 	equipment += /obj/item/rcd/borg
 	. = ..()
-
-/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/lightreplacer/LR = locate() in equipment
-	LR.Charge(R, amount)
-	..()

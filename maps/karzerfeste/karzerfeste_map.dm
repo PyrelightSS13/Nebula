@@ -1,5 +1,5 @@
 /datum/map/karzerfeste
-	default_liquid_fuel_type = /decl/material/liquid/nutriment/plant_oil
+	default_liquid_fuel_type = /decl/material/liquid/oil
 	loadout_categories = list(
 		/decl/loadout_category/fantasy/clothing,
 		/decl/loadout_category/fantasy/utility

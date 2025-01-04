@@ -19,13 +19,6 @@
 	set_extension(src, /datum/extension/penetration/simple, 100)
 	. = ..()
 
-/obj/structure/girder/can_unanchor(var/mob/user)
-	. = ..()
-	var/turf/T = loc
-	if(!anchored && . && (!istype(T) || T.is_open()))
-		to_chat(user, SPAN_WARNING("You can only secure \the [src] to solid ground."))
-		return FALSE
-
 /obj/structure/girder/handle_default_screwdriver_attackby(var/mob/user, var/obj/item/screwdriver)
 
 	if(reinf_material)
@@ -88,6 +81,10 @@
 		to_chat(user, SPAN_WARNING("You must remove the support rods before you can dislodge \the [src]."))
 		return FALSE
 	. = ..()
+	var/turf/T = loc
+	if(!anchored && . && (!istype(T) || T.is_open()))
+		to_chat(user, SPAN_WARNING("You can only secure \the [src] to solid ground."))
+		return FALSE
 
 /obj/structure/girder/can_dismantle(var/mob/user)
 	if(reinf_material)

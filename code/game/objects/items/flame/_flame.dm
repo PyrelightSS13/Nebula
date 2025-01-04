@@ -125,6 +125,9 @@
 	update_attack_force()
 
 	update_icon()
+	if(ismob(loc)) // not very robust for things like accessories...
+		update_held_icon()
+		update_clothing_icon()
 	if(istype(loc, /obj/structure/wall_sconce))
 		loc.update_icon()
 
@@ -167,14 +170,7 @@
 	if(waterproof)
 		return
 
-	var/check_depth = FLUID_PUDDLE
-	if(ismob(loc))
-		var/mob/holder = loc
-		if(!holder.current_posture?.prone)
-			check_depth = FLUID_OVER_MOB_HEAD
-		else
-			check_depth = FLUID_SHALLOW
-	if(fluids.total_volume >= check_depth)
+	if(fluids.total_volume >= FLUID_PUDDLE)
 		snuff_out(no_message = TRUE)
 
 /obj/item/flame/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)

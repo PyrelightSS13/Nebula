@@ -719,11 +719,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /obj/item/weldingtool/can_puncture()
 	return 1
 
-/obj/item/screwdriver/can_puncture()
-	return 1
-
 /obj/item/clothing/mask/smokable/cigarette/can_puncture()
-	return src.lit
+	return ..() || lit // in case someone has a sharp cigarette for some reason
 
 /*
 Checks if that loc and dir has a item on the wall
