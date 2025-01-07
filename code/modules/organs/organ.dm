@@ -22,6 +22,7 @@
 	var/mob/living/human/owner      // Current mob owning the organ.
 	var/decl/species/species               // Original species.
 	var/decl/bodytype/bodytype             // Original bodytype.
+	var/decl/bodytype/appearance_bodytype  // A bodytype used only for icons, marking validation and equipment offsets.
 	var/list/ailments                      // Current active ailments if any.
 	var/meat_name                          // Taken from first owner.
 
@@ -676,3 +677,16 @@ var/global/list/ailment_reference_cache = list()
 		new /obj/effect/decal/cleanable/ash(loc)
 	if(!QDELETED(src))
 		qdel(src)
+
+// For overriding on shapeshifters/changelings in the future.
+/obj/item/organ/proc/set_organ_appearance_bodytype(decl/bodytype/new_bodytype, update_sprite_accessories = TRUE, skip_owner_update = FALSE)
+	if(ispath(new_bodytype, /decl/bodytype))
+		new_bodytype = GET_DECL(new_bodytype)
+	if((new_bodytype && !istype(new_bodytype)) || appearance_bodytype == new_bodytype || bodytype == new_bodytype)
+		return FALSE
+	appearance_bodytype = new_bodytype
+	return TRUE
+
+/obj/item/organ/proc/get_organ_appearance_bodytype()
+	RETURN_TYPE(/decl/bodytype)
+	return appearance_bodytype || bodytype

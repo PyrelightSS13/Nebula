@@ -1110,10 +1110,18 @@
 /mob/proc/get_bodytype()
 	RETURN_TYPE(/decl/bodytype)
 
+// Bit of a stub for now, but should return the bodytype specific
+// to the slot and organ being checked in the future instead of
+// always using the mob root bodytype.
+/mob/proc/get_equipment_bodytype(slot, bodypart)
+	RETURN_TYPE(/decl/bodytype)
+	var/decl/bodytype/root_bodytype = get_bodytype()
+	return root_bodytype?.resolve_to_equipment_bodytype(src)
+
 /mob/proc/has_body_flag(flag, default = FALSE)
 	var/decl/bodytype/root_bodytype = get_bodytype()
 	if(istype(root_bodytype))
-		return root_bodytype.body_flags & flag
+		return (root_bodytype.body_flags & flag)
 	return default
 
 /// Update the mouse pointer of the attached client in this mob.

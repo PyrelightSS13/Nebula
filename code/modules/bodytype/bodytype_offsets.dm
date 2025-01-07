@@ -4,8 +4,8 @@ each one can be in the NORTH, SOUTH, EAST, and WEST direction. Specify
 the x and y amounts to shift the thing for a given direction.
 
 example:
-	equip_adjust = list(
-		slot_back_str = list("[NORTH]" = list(-12, 7), "[EAST]" = list(-2, -12))
+	_equip_adjust = list(
+		(slot_back_str) = list("[NORTH]" = list(-12, 7), "[EAST]" = list(-2, -12))
 	)
 
 This would shift back items (backpacks, axes, etc.) when the mob
@@ -18,15 +18,19 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 */
 
 /decl/bodytype
-	var/list/equip_adjust
-	var/list/equip_overlays = list()
+	VAR_PRIVATE/list/_equip_adjust
+	VAR_PRIVATE/list/equip_overlays = list()
 
-/decl/bodytype/proc/get_equip_adjust(mob/mob)
-	return equip_adjust
+// Will be used by changelings/shapeshifters in the future
+/decl/bodytype/proc/resolve_to_equipment_bodytype(mob/living/user)
+	return src
+
+/decl/bodytype/proc/get_equip_adjustments(mob/mob)
+	return _equip_adjust
 
 /decl/bodytype/proc/get_offset_overlay_image(mob/mob, mob_icon, mob_state, color, slot)
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
-	var/list/use_equip_adjust = get_equip_adjust(mob)
+	var/list/use_equip_adjust = get_equip_adjustments(mob)
 	if(length(use_equip_adjust) && use_equip_adjust[slot] && length(use_equip_adjust[slot]))
 
 		// Check the cache for previously made icons.

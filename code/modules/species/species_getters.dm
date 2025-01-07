@@ -1,6 +1,3 @@
-/decl/species/proc/get_valid_shapeshifter_forms(var/mob/living/human/H)
-	return list()
-
 /decl/species/proc/get_additional_examine_text(var/mob/living/human/H)
 	return
 
