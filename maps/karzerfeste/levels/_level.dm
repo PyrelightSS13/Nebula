@@ -52,32 +52,6 @@
 	time_in_cycle = rand(cycle_duration)
 	..()
 
-/datum/level_data/player_level/karzerfeste/get_subtemplate_areas(template_category, blacklist, whitelist)
-	return submap_area ? (islist(submap_area) ? submap_area : list(submap_area)) : null
-
-/datum/level_data/player_level/karzerfeste/get_subtemplate_budget()
-	return submap_budget
-
-/datum/level_data/player_level/karzerfeste/get_subtemplate_category()
-	return submap_category
-
-/datum/level_data/player_level/karzerfeste/after_generate_level()
-	. = ..()
-	if(length(mobs_to_spawn))
-		for(var/list/mob_category in mobs_to_spawn)
-			var/list/mob_types = mob_category[1]
-			var/mob_turf  = mob_category[2]
-			var/mob_count = mob_category[3]
-			var/sanity = 1000
-			while(mob_count && sanity)
-				sanity--
-				var/turf/place_mob_at = locate(rand(level_inner_min_x, level_inner_max_x), rand(level_inner_min_y, level_inner_max_y), level_z)
-				if(istype(place_mob_at, mob_turf) && !(locate(/mob/living) in place_mob_at))
-					var/mob_type = pickweight(mob_types)
-					new mob_type(place_mob_at)
-					mob_count--
-					CHECK_TICK
-
 /datum/level_data/player_level/karzerfeste/caves
 	name = "Karzerfeste - Subterrain"
 	level_id = "karzerfeste_caves"
