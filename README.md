@@ -42,7 +42,7 @@
 | Code                      | [https://github.com/PyrelightSS13/Pyrelight](https://github.com/PyrelightSS13/Pyrelight)        |
 | Issues                    | [https://github.com/PyrelightSS13/Pyrelight/issues](https://github.com/PyrelightSS13/Pyrelight/issues) |
 | Upstream Issues           | [https://github.com/NebulaSS13/Nebula/issues](https://github.com/NebulaSS13/Nebula/issues)       |
-| Discord                   | Currently private, sorry!                         |
+| Discord                   | [https://discord.gg/BqXq6Mkys5](https://discord.gg/BqXq6Mkys5)                       |
 | Nebula Discord            | [https://discord.gg/DYGXkN2S](https://discord.gg/DYGXkN2S)                       |
 
 This is the codebase for Pyrelight, a middle-fantasy total conversion project for Space Station 13, derived from Nebula SS13.
