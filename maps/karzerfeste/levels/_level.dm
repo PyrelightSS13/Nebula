@@ -1,11 +1,11 @@
 /obj/abstract/map_data/karzerfeste
 	height = 3
 
-/datum/level_data/player_level/karzerfeste
+/datum/level_data/main_level/karzerfeste
 	use_global_exterior_ambience = FALSE
 	base_area = null
 	base_turf = /turf/floor/dirt
-	abstract_type = /datum/level_data/player_level/karzerfeste
+	abstract_type = /datum/level_data/main_level/karzerfeste
 	strata = /decl/strata/karzerfeste
 	exterior_atmosphere = list(
 		/decl/material/gas/oxygen =   MOLES_O2STANDARD,
@@ -18,16 +18,16 @@
 	var/list/mobs_to_spawn = list()
 
 
-/datum/level_data/player_level/karzerfeste/get_subtemplate_areas(template_category, blacklist, whitelist)
+/datum/level_data/main_level/karzerfeste/get_subtemplate_areas(template_category, blacklist, whitelist)
 	return submap_area ? (islist(submap_area) ? submap_area : list(submap_area)) : null
 
-/datum/level_data/player_level/karzerfeste/get_subtemplate_budget()
+/datum/level_data/main_level/karzerfeste/get_subtemplate_budget()
 	return submap_budget
 
-/datum/level_data/player_level/karzerfeste/get_subtemplate_category()
+/datum/level_data/main_level/karzerfeste/get_subtemplate_category()
 	return submap_category
 
-/datum/level_data/player_level/karzerfeste/after_generate_level()
+/datum/level_data/main_level/karzerfeste/after_generate_level()
 	. = ..()
 	if(length(mobs_to_spawn))
 		for(var/list/mob_category in mobs_to_spawn)
@@ -52,7 +52,7 @@
 	time_in_cycle = rand(cycle_duration)
 	..()
 
-/datum/level_data/player_level/karzerfeste/caves
+/datum/level_data/main_level/karzerfeste/caves
 	name = "Karzerfeste - Subterrain"
 	level_id = "karzerfeste_caves"
 	ambient_light_level = 0
@@ -65,7 +65,7 @@
 	submap_category = MAP_TEMPLATE_CATEGORY_KARZ_DUNGEON
 	submap_area = /area/karzerfeste/caves/poi
 
-/datum/level_data/player_level/karzerfeste/surface
+/datum/level_data/main_level/karzerfeste/surface
 	name = "Karzerfeste - Surface"
 	level_id = "karzerfeste_keep"
 	connected_levels = list(
@@ -79,7 +79,7 @@
 		/datum/random_map/noise/forage/karzerfeste/tundra
 	)
 
-/datum/level_data/player_level/karzerfeste/rooftops
+/datum/level_data/main_level/karzerfeste/rooftops
 	name = "Karzerfeste - Rooftops"
 	level_id = "karzerfeste_rooftops"
 	level_generators = list(
@@ -89,7 +89,7 @@
 	daycycle_type = /datum/daycycle/karzerfeste
 	daycycle_id = "daycycle_karzerfeste"
 
-/datum/level_data/player_level/karzerfeste/woods
+/datum/level_data/main_level/karzerfeste/woods
 	name = "Karzerfeste - Woods"
 	level_id = "karzerfeste_woods"
 	connected_levels = list(
@@ -114,13 +114,13 @@
 	daycycle_id = "daycycle_karzerfeste"
 
 /obj/abstract/level_data_spawner/karzerfeste_caves
-	level_data_type = /datum/level_data/player_level/karzerfeste/caves
+	level_data_type = /datum/level_data/main_level/karzerfeste/caves
 
 /obj/abstract/level_data_spawner/karzerfeste_surface
-	level_data_type = /datum/level_data/player_level/karzerfeste/surface
+	level_data_type = /datum/level_data/main_level/karzerfeste/surface
 
 /obj/abstract/level_data_spawner/karzerfeste_rooftops
-	level_data_type = /datum/level_data/player_level/karzerfeste/rooftops
+	level_data_type = /datum/level_data/main_level/karzerfeste/rooftops
 
 /obj/abstract/level_data_spawner/karzerfeste_woods
-	level_data_type = /datum/level_data/player_level/karzerfeste/woods
+	level_data_type = /datum/level_data/main_level/karzerfeste/woods
