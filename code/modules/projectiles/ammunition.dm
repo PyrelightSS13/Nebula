@@ -39,6 +39,10 @@
 		pixel_y = rand(-randpixel, randpixel)
 	. = ..()
 
+/obj/item/ammo_casing/Destroy()
+	QDEL_NULL(BB)
+	return ..()
+
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
 	. = BB
@@ -270,10 +274,9 @@ var/global/list/magazine_icondata_states = list()
 /proc/magazine_icondata_cache_add(var/obj/item/ammo_magazine/M)
 	var/list/icon_keys = list()
 	var/list/ammo_states = list()
-	var/list/states = icon_states(M.icon)
 	for(var/i = 0, i <= M.max_ammo, i++)
 		var/ammo_state = "[M.icon_state]-[i]"
-		if(ammo_state in states)
+		if(check_state_in_icon(ammo_state, M.icon))
 			icon_keys += i
 			ammo_states += ammo_state
 

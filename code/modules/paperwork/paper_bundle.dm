@@ -40,7 +40,7 @@
 
 	// merging bundles
 	else if(istype(W, /obj/item/paper_bundle) && merge(W, user, cur_page))
-		to_chat(user, SPAN_NOTICE("You add \the [W.name] to \the [name]."))
+		to_chat(user, SPAN_NOTICE("You add \the [W] to \the [name]."))
 		return TRUE
 
 	// burning

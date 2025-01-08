@@ -42,20 +42,20 @@
 	var/failed_jobs = 0
 	var/failed_sanity_checks = 0
 
-	var/job_huds = icon_states(global.using_map.id_hud_icons)
+	var/list/job_huds = get_states_in_icon_cached(global.using_map.id_hud_icons)
 
-	if(!("" in job_huds))
+	if(!job_huds[""])
 		log_bad("Sanity Check - Missing default/unnamed HUD icon")
 		failed_sanity_checks++
 
-	if(!("hudunknown" in job_huds))
+	if(!job_huds["hudunknown"])
 		log_bad("Sanity Check - Missing HUD icon: hudunknown")
 		failed_sanity_checks++
 
 	for(var/job_name in SSjobs.titles_to_datums)
 		var/datum/job/J = SSjobs.titles_to_datums[job_name]
 		var/hud_icon_state = J.hud_icon
-		if(!(hud_icon_state in job_huds))
+		if(!job_huds[hud_icon_state])
 			log_bad("[J.title] - Missing HUD icon: [hud_icon_state]")
 			failed_jobs++
 

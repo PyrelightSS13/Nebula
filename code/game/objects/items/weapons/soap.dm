@@ -68,13 +68,13 @@
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	var/cleaned = FALSE
 	if(user.client && (target in user.client.screen))
-		to_chat(user, SPAN_NOTICE("You need to take that [target.name] off before cleaning it."))
+		to_chat(user, SPAN_NOTICE("You need to take \the [target] off before cleaning it."))
 	else if(istype(target,/obj/effect/decal/cleanable/blood))
-		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
+		to_chat(user, SPAN_NOTICE("You scrub \the [target] out."))
 		target.clean() //Blood is a cleanable decal, therefore needs to be accounted for before all cleanable decals.
 		cleaned = TRUE
 	else if(istype(target,/obj/effect/decal/cleanable))
-		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
+		to_chat(user, SPAN_NOTICE("You scrub \the [target] out."))
 		qdel(target)
 		cleaned = TRUE
 	else if(isturf(target) || istype(target, /obj/structure/catwalk))
@@ -90,7 +90,7 @@
 		to_chat(user, SPAN_NOTICE("You wet \the [src] in the sink."))
 		wet()
 	else
-		to_chat(user, SPAN_NOTICE("You clean \the [target.name]."))
+		to_chat(user, SPAN_NOTICE("You clean \the [target]."))
 		target.clean() //Clean bloodied atoms. Blood decals themselves need to be handled above.
 		cleaned = TRUE
 

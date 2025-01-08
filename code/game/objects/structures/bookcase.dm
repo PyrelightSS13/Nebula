@@ -168,7 +168,7 @@ var/global/list/station_bookcases = list()
 			add_overlay(book_overlay)
 
 			var/page_state = "[book_overlay.icon_state]-pages"
-			if(check_state_in_icon(book_overlay.icon, page_state))
+			if(check_state_in_icon(page_state, book_overlay.icon))
 				var/image/page_overlay = overlay_image(book_overlay.icon, page_state, COLOR_WHITE, RESET_COLOR)
 				page_overlay.pixel_x = book_overlay.pixel_x
 				page_overlay.pixel_y = book_overlay.pixel_y

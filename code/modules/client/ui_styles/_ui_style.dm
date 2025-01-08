@@ -46,7 +46,7 @@
 		var/check_icon = icons[ui_key]
 		var/list/missing_states  = list()
 		var/list/checking_states = states_to_check[ui_key]
-		var/list/remaining_states = icon_states(check_icon)
+		var/list/remaining_states = get_states_in_icon(check_icon)
 		for(var/check_state in checking_states)
 			remaining_states -= check_state
 			if(!check_state_in_icon(check_state, check_icon))
