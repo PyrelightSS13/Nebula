@@ -80,7 +80,7 @@
 
 /atom/Destroy()
 	// must be done before deletion // TODO: ADD PRE_DELETION OBSERVATION
-	if(isatom(loc) && loc.storage)
+	if(isatom(loc) && loc.storage && !QDELETED(loc.storage))
 		loc.storage.on_item_pre_deletion(src)
 	UNQUEUE_TEMPERATURE_ATOM(src)
 	QDEL_NULL(reagents)
@@ -94,7 +94,7 @@
 		QDEL_NULL(atom_codex_ref)
 	var/atom/oldloc = loc
 	. = ..()
-	if(isatom(oldloc) && oldloc.storage)
+	if(isatom(oldloc) && oldloc.storage && !QDELETED(loc.storage))
 		oldloc.storage.on_item_post_deletion(src) // must be done after deletion
 	// This might need to be moved onto a Del() override at some point.
 	QDEL_NULL(storage)

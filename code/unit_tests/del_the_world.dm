@@ -7,15 +7,6 @@
 	var/turf/spawn_loc = get_safe_turf()
 	var/list/cached_contents = spawn_loc.contents.Copy()
 
-	/// Types to except from GC checking tests.
-	var/list/gc_exceptions = list(
-		// I hate doing this, but until the graph tests are fixed by someone who actually understands them,
-		// this is the best I can do without breaking other stuff.
-		/datum/node/physical,
-		// Randomly fails to GC during CI, cause unclear. Remove this if the root cause is identified.
-		/obj/item/organ/external/chest
-	)
-
 	var/list/ignore = typesof(
 		// will error if the area already has one
 		/obj/machinery/power/apc,
@@ -64,8 +55,9 @@
 		if(!length(filter_queue))
 			filter_queue_finished = TRUE
 			break
-		var/oldest_item = filter_queue[1]
-		var/qdel_time = filter_queue[oldest_item]
+		var/list/oldest_packet = filter_queue[1]
+		//Pull out the time we inserted at
+		var/qdel_time = oldest_packet[GC_QUEUE_ITEM_GCD_DESTROYED]
 		if(qdel_time > start_time) // Everything is in the check queue now!
 			filter_queue_finished = TRUE
 			break
@@ -89,9 +81,9 @@
 			garbage_queue_processed = TRUE
 			break
 
-		var/oldest_packet = check_queue[1]
-		//Pull out the time we deld at
-		var/qdeld_at = check_queue[oldest_packet]
+		var/list/oldest_packet = check_queue[1]
+		//Pull out the time we inserted at
+		var/qdeld_at = oldest_packet[GC_QUEUE_ITEM_GCD_DESTROYED]
 		//If we've found a packet that got del'd later then we finished, then all our shit has been processed
 		if(qdeld_at > start_time)
 			garbage_queue_processed = TRUE
@@ -109,8 +101,6 @@
 	//Alright, time to see if anything messed up
 	var/list/cache_for_sonic_speed = SSgarbage.items
 	for(var/path in cache_for_sonic_speed)
-		if(path in gc_exceptions)
-			continue
 		var/datum/qdel_item/item = cache_for_sonic_speed[path]
 		if(item.failures)
 			failures += "[item.name] hard deleted [item.failures] times out of a total del count of [item.qdels]"

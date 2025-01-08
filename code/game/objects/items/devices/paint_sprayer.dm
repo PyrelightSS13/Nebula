@@ -223,7 +223,7 @@
 		return FALSE
 
 	if(!flooring.can_paint || F.is_floor_damaged())
-		to_chat(user, SPAN_WARNING("\The [src] cannot paint \the [F.name]."))
+		to_chat(user, SPAN_WARNING("\The [src] cannot paint \the [F]."))
 		return FALSE
 
 	var/list/decal_data = decals[decal]

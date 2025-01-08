@@ -12,7 +12,7 @@
 /obj/structure/mech_wreckage/Initialize(mapload, var/mob/living/exosuit/exosuit, var/gibbed)
 	. = ..(mapload)
 	if(exosuit)
-		name = "wreckage of \the [exosuit.name]"
+		name = "wreckage of \the [exosuit]"
 		loot_pool = list()
 		if(!gibbed)
 			for(var/obj/item/thing in list(exosuit.arms, exosuit.legs, exosuit.head, exosuit.body))

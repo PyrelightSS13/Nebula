@@ -189,7 +189,7 @@
 			visible_message(SPAN_NOTICE("\The [O] misses \the [src] narrowly!"))
 			return FALSE
 
-	visible_message(SPAN_DANGER("\The [src] is hit [affecting ? "in \the [affecting.name] " : ""]by \the [O]!"))
+	visible_message(SPAN_DANGER("\The [src] is hit [affecting ? "in \the [affecting] " : ""]by \the [O]!"))
 	if(TT?.thrower?.client)
 		admin_attack_log(TT.thrower, src, "Threw \an [O] at the victim.", "Had \an [O] thrown at them.", "threw \an [O] at")
 	try_embed_in_mob(TT.thrower, O, zone, throw_damage, dtype, null, affecting, direction = TT.init_dir)

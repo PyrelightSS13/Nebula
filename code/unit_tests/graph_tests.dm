@@ -480,7 +480,7 @@
 /atom/movable/graph_test
 	is_spawnable_type = FALSE
 	var/datum/node/physical/node
-	var/list/neighoursByDirection = list()
+	var/list/neighboursByDirection = list()
 
 /atom/movable/graph_test/Initialize()
 	. = ..()
@@ -497,20 +497,21 @@
 
 /atom/movable/graph_test/proc/Connect(atom/movable/graph_test/neighbour)
 	var/direction = get_dir(src, neighbour)
-	neighoursByDirection[num2text(direction)] = neighbour
-	neighbour.neighoursByDirection[num2text(global.flip_dir[direction])] = src
+	neighboursByDirection[num2text(direction)] = neighbour
+	neighbour.neighboursByDirection[num2text(global.flip_dir[direction])] = src
 	node.Connect(neighbour.node)
 
 /atom/movable/graph_test/CheckNodeNeighbours()
 	// This is a lazy setup for ease of debugging
 	// In a practical setup you'd preferably gather a list of neighbours to be disconnected and pass them in a single Disconnect-call
 	// You'd possibly also verify the dir of this and neighbour nodes, to ensure that they're still facing each other properly
-	for(var/direction in neighoursByDirection)
-		var/atom/movable/graph_test/neighbour = neighoursByDirection[direction]
+	for(var/direction in neighboursByDirection)
+		var/atom/movable/graph_test/neighbour = neighboursByDirection[direction]
 		var/turf/expected_loc = get_step(src, text2num(direction))
-		if(neighbour.loc != expected_loc)
+		// can't connect in nullspace
+		if(isnull(neighbour.loc) || neighbour.loc != expected_loc)
 			node.Disconnect(neighbour.node)
-			neighoursByDirection -= direction
+			neighboursByDirection -= direction
 	return TRUE
 
 /datum/graph/testing

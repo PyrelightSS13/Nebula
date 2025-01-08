@@ -57,7 +57,7 @@ var/global/list/_alpha_masks = list()
 // Proc called by /turf/Entered() to update a mob's mask overlay.
 /atom/movable/proc/update_turf_alpha_mask()
 	set waitfor = FALSE
-	if(!simulated || updating_turf_alpha_mask)
+	if(!simulated || QDELETED(src) || updating_turf_alpha_mask)
 		return
 	updating_turf_alpha_mask = TRUE
 	sleep(0)
