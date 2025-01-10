@@ -421,8 +421,8 @@
 /area/karzerfeste/ward/shrine)
 "hp" = (
 /obj/structure/closet/crate/chest/ebony,
-/obj/item/tool/axe,
-/obj/item/tool/axe,
+/obj/item/tool/axe/iron,
+/obj/item/tool/axe/iron,
 /obj/effect/floor_decal/spline/fancy/wood/walnut{
 	dir = 8
 	},
@@ -2062,7 +2062,7 @@
 /area/karzerfeste/keep/gatehouse)
 "NP" = (
 /obj/item/tool/pickaxe/iron,
-/obj/item/tool/axe,
+/obj/item/tool/axe/iron,
 /obj/structure/closet/crate/chest/ebony,
 /turf/floor/path/running_bond/granite,
 /area/karzerfeste/ward/wall/two)
