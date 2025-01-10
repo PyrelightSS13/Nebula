@@ -8,8 +8,8 @@
 
 /decl/outfit/job/karzerfeste/forester
 	name = "Karzerfeste - Forester"
-	hands = list(/obj/item/tool/axe/ebony/bronze)
+	hands = list(/obj/item/tool/axe/ebony)
 
 /decl/outfit/job/karzerfeste/miner
 	name = "Karzerfeste - Miner"
-	hands = list(/obj/item/tool/pickaxe/bronze)
+	hands = list(/obj/item/tool/pickaxe/iron)
