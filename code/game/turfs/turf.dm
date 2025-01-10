@@ -54,8 +54,8 @@
 	// get overridden almost immediately.
 
 	// TL;DR: just leave these vars alone.
+	var/is_outside = OUTSIDE_AREA
 	var/tmp/obj/abstract/weather_system/weather
-	var/tmp/is_outside = OUTSIDE_AREA
 	var/tmp/last_outside_check = OUTSIDE_UNCERTAIN
 
 	///The cached air mixture of a turf. Never directly access, use `return_air()`.

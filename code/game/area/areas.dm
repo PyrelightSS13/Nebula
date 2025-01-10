@@ -79,7 +79,7 @@ var/global/list/areas = list()
 	var/list/air_vent_info = list()
 	var/list/air_scrub_info = list()
 
-	var/tmp/is_outside = OUTSIDE_NO
+	var/is_outside = OUTSIDE_NO
 
 	var/tmp/saved_map_hash // Used for cleanup when loaded via map templates.
 
