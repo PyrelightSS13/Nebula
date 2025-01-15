@@ -650,8 +650,7 @@
 	return user?.attempt_hug(src)
 
 /mob/living/silicon/robot/default_hurt_interaction(mob/user)
-	var/decl/species/user_species = user.get_species()
-	if(user_species?.can_shred(user))
+	if(user.can_shred())
 		attack_generic(user, rand(30,50), "slashed")
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
