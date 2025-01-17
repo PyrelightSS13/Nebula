@@ -1013,7 +1013,7 @@
 					sleep(5)
 					to_chat(src, "<span class='danger'>Would you like to send a report to the vendor? Y/N</span>")
 					sleep(10)
-					to_chat(src, "<span class='danger'>> N</span>")
+					to_chat(src, "<span class='danger'>\> N</span>")
 					sleep(20)
 					to_chat(src, "<span class='danger'>ERRORERRORERROR</span>")
 					to_chat(src, "<b>Obey these laws:</b>")

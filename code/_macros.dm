@@ -106,9 +106,12 @@
 #define show_image(target, image)                           target << (image)
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
 #define open_link(target, url)                              target << link(url)
+#define ftp_to(target, file_entry, suggested_name)          target << ftp(file_entry, suggested_name)
+#define open_file_for(target, file)                         target << run(file)
 #define to_savefile(target, key, value)                     target[(key)] << (value)
 #define from_savefile(target, key, value)                   target[(key)] >> (value)
 #define to_output(target, output_content, output_args)      target << output((output_content), (output_args))
+// Avoid using this where possible, prefer the other helpers instead.
 #define direct_output(target, value)                        target << (value)
 
 /proc/html_icon(var/thing) // Proc instead of macro to avoid precompiler problems.

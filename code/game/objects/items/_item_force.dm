@@ -160,6 +160,6 @@
 
 	text2file(jointext(rows, "\n"), "weapon_stats_dump.csv")
 	if(fexists("weapon_stats_dump.csv"))
-		direct_output(usr, ftp("weapon_stats_dump.csv", "weapon_stats_dump.csv"))
+		ftp_to(usr, "weapon_stats_dump.csv", "weapon_stats_dump.csv")
 	to_chat(usr, "Done.")
 */
