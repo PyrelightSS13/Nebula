@@ -60,19 +60,9 @@
 
 var/global/default_mobloc = null
 
-/proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/human)
+/proc/create_test_mob_with_mind(var/turf/mobloc, var/mobtype = /mob/living/human)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
-	if(isnull(mobloc))
-		if(!default_mobloc)
-			for(var/turf/floor/tiled/T in world)
-				if(!T.zone?.air)
-					continue
-				var/pressure = T.zone.air.return_pressure()
-				if(90 < pressure && pressure < 120) // Find a turf between 90 and 120
-					default_mobloc = T
-					break
-		mobloc = default_mobloc
 	if(!mobloc)
 		test_result["msg"] = "Unable to find a location to create test mob"
 		return test_result
