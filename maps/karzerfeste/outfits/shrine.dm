@@ -6,6 +6,9 @@
 		/obj/item/clothing/suit/robe/sleeved/shrine
 	)
 	backpack_contents = list(
+		/obj/item/rock/flint/striker,
+		/obj/item/bladed/folding/iron,
+		/obj/item/flame/torch,
 		/obj/item/stack/medical/bandage/crafted/five  = 1,
 		/obj/item/stack/medical/ointment/crafted/five = 1,
 		/obj/item/stack/medical/splint/crafted/five   = 1
