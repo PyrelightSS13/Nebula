@@ -116,19 +116,25 @@
 			bloodDNA = list(blood_data[DATA_BLOOD_DNA] = blood_data[DATA_BLOOD_TYPE])
 		else
 			bloodDNA = list()
-		if(T.simulated)
-			T.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints, bloodDNA, H.dir, 0, H.get_skin_colour() + "25") // Coming (8c is the alpha value)
+		T.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints, bloodDNA, H.dir, 0, H.get_skin_colour() + "25") // Coming (25 is the alpha value)
 		if(isturf(old_loc))
 			var/turf/old_turf = old_loc
-			if(old_turf.simulated)
-				old_turf.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints, bloodDNA, 0, H.dir, H.get_skin_colour() + "25") // Going (8c is the alpha value)
+			old_turf.AddTracks(/obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints, bloodDNA, 0, H.dir, H.get_skin_colour() + "25") // Going (25 is the alpha value)
 
 /decl/species/skrell/check_background()
 	return TRUE
 
+// Copied from blood.
+// TODO: There's not currently a way to check this, which might be a little annoying for forensics.
+// But this is just a stopgap to stop Skrell from literally leaking blood everywhere they go.
+/decl/material/liquid/mucus/skrell/get_reagent_color(datum/reagents/holder)
+	var/list/goo_data = REAGENT_DATA(holder, type)
+	return goo_data?[DATA_BLOOD_COLOR] || ..()
+
 /obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints
 	name = "wet footprints"
 	desc = "They look like still wet tracks left by skrellian feet."
+	chemical = /decl/material/liquid/mucus
 
 /obj/effect/decal/cleanable/blood/tracks/footprints/skrellprints/dry()
 	qdel(src)

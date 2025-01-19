@@ -1203,3 +1203,15 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 // TODO: expand this to more than just Actual Poison.
 /decl/material/proc/is_unsafe_to_drink(mob/user)
 	return toxicity > 0
+
+/// Used for material-dependent effects on stain dry.
+/// Return TRUE to skip default drying handling.
+/decl/material/proc/handle_stain_dry(obj/effect/decal/cleanable/blood/stain)
+	return FALSE
+
+/// Returns (in deciseconds) how long until dry() will be called on this stain,
+/// or null to use the stain's default.
+/// If 0 is returned, it dries instantly.
+/// If any value below 0 is returned, it doesn't start processing.
+/decl/material/proc/get_time_to_dry_stain(obj/effect/decal/cleanable/blood/stain)
+	return initial(stain.time_to_dry)

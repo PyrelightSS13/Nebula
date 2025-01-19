@@ -712,13 +712,29 @@
 		blood_splatter(src, M, 1)
 	return TRUE
 
-/turf/proc/AddTracks(var/typepath,var/bloodDNA,var/comingdir,var/goingdir,var/bloodcolor=COLOR_BLOOD_HUMAN)
+/// Creates a new /obj/effect/decal/cleanable/blood/tracks instance of a given type,
+/// or merges it with an existing (not-yet-cleaned) one that matches typepath and chemical.
+/// typepath is a type, not an instance
+/// new_chemical is optional argument for things like muddy footprints, where typepath isn't enough
+/turf/proc/AddTracks(obj/effect/decal/cleanable/blood/tracks/typepath, bloodDNA, comingdir, goingdir, bloodcolor = COLOR_BLOOD_HUMAN, new_chemical = null)
 	if(!simulated)
 		return
-	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
+	// Populate defaults from the given typepath, where possible.
+	if(isnull(new_chemical))
+		new_chemical = typepath::chemical || /decl/material/liquid/blood
+
+	var/obj/effect/decal/cleanable/blood/tracks/tracks = null
+	for(var/obj/effect/decal/cleanable/blood/tracks/candidate in src)
+		if(!istype(candidate, typepath))
+			continue
+		if(candidate.invisibility >= INVISIBILITY_ABSTRACT) // has been cleaned
+			continue
+		if(candidate.chemical != new_chemical)
+			continue
+		tracks = candidate
 	if(!tracks)
-		tracks = new typepath(src)
-	tracks.AddTracks(bloodDNA,comingdir,goingdir,bloodcolor)
+		tracks = new typepath(src, new_chemical)
+	tracks.AddTracks(bloodDNA, comingdir, goingdir, bloodcolor)
 
 // Proc called in /turf/Entered() to supply an appropriate fluid overlay.
 /turf/proc/get_movable_alpha_mask_state(atom/movable/mover)
@@ -814,7 +830,9 @@
 	if(IS_HOE(held) && can_dig_farm(held.material?.hardness))
 		LAZYADD(., /decl/interaction_handler/dig/farm)
 
-/turf/proc/can_show_coating_footprints()
+/// Contaminant may be the chemical type of the footprint being provided,
+/// or null if we just want to know if we support footprints, at all, ever.
+/turf/proc/can_show_coating_footprints(decl/material/contaminant)
 	return simulated
 
 /decl/interaction_handler/show_turf_contents
