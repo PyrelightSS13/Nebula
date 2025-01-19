@@ -391,5 +391,7 @@ var/global/list/flooring_cache = list()
 /decl/flooring/proc/turf_crossed(atom/movable/crosser)
 	return
 
-/decl/flooring/proc/can_show_coating_footprints(turf/target)
+/// target is the turf that wants to know if it supports footprints
+/// contaminant is, optionally, the material of the coating that wants to be added.
+/decl/flooring/proc/can_show_coating_footprints(turf/target, decl/material/contaminant)
 	return TRUE

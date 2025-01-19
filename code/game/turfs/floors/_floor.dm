@@ -309,5 +309,5 @@
 	flooring?.turf_crossed(AM)
 	return ..()
 
-/turf/floor/can_show_coating_footprints()
-	return ..() && get_topmost_flooring()?.can_show_coating_footprints(src)
+/turf/floor/can_show_coating_footprints(decl/material/contaminant = null)
+	return ..() && get_topmost_flooring()?.can_show_coating_footprints(src, contaminant)

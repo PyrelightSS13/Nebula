@@ -7,7 +7,7 @@
 	is_spawnable_type = FALSE
 	blend_mode        = BLEND_SUBTRACT
 	alpha             = 128
-	var/list/footprints
+	var/list/image/footprints
 
 /obj/effect/footprints/Initialize(mapload)
 	. = ..()
@@ -15,7 +15,7 @@
 	name = null
 
 /obj/effect/footprints/Destroy()
-	QDEL_NULL(footprints)
+	footprints.Cut() // don't qdel images
 	. = ..()
 
 /obj/effect/footprints/on_update_icon()

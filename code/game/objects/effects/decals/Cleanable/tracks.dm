@@ -10,8 +10,7 @@
 #define TRACKS_GOING_EAST   64
 #define TRACKS_GOING_WEST   128
 
-// 5 seconds
-#define TRACKS_CRUSTIFY_TIME   50
+#define TRACKS_CRUSTIFY_TIME   5 SECONDS
 
 /datum/fluidtrack
 	var/direction=0
@@ -26,7 +25,8 @@
 	src.wet=_wet
 
 /obj/effect/decal/cleanable/blood/tracks/reveal_blood()
-	if(!fluorescent)
+	// don't reveal non-blood tracks
+	if(ispath(chemical, /decl/material/liquid/blood) && !fluorescent)
 		if(stack && stack.len)
 			for(var/datum/fluidtrack/track in stack)
 				track.basecolor = COLOR_LUMINOL
