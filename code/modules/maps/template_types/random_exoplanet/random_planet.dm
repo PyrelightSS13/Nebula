@@ -203,9 +203,9 @@
 
 	//Run the finishing touch on all loaded levels
 	for(var/datum/level_data/LD in new_level_data)
-		LD.after_template_load(src)
-		if(SSlighting.initialized)
-			SSlighting.InitializeZlev(LD.level_z)
+		//This is done in parent if we have mappaths, so skip it unless we don't have any
+		if(!length(mappaths))
+			LD.after_template_load(src)
 		log_game("Z-level '[LD.name]'(planetoid:'[name]') loaded at [LD.level_z]")
 	loaded++
 	return WORLD_CENTER_TURF(world.maxz)

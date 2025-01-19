@@ -185,8 +185,6 @@
 	for(var/z_index = bounds[MAP_MINZ] to bounds[MAP_MAXZ])
 		var/datum/level_data/level = SSmapping.levels_by_z[z_index]
 		level.after_template_load(src)
-		if(SSlighting.initialized)
-			SSlighting.InitializeZlev(z_index)
 	Master.StopLoadingMap()
 	log_game("Z-level [name] loaded at [x],[y],[world.maxz]")
 	loaded++
@@ -225,8 +223,6 @@
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state, map_hash, initialized_areas_by_type)
 	after_load()
-	if (SSlighting.initialized)
-		SSlighting.InitializeTurfs(atoms_to_initialise)	// Hopefully no turfs get placed on new coords by SSatoms.
 	Master.StopLoadingMap()
 
 	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
