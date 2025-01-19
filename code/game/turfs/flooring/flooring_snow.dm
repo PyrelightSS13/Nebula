@@ -31,6 +31,17 @@
 		return
 	return ..()
 
+/decl/flooring/snow/turf_crossed(atom/movable/crosser)
+	if(!isliving(crosser))
+		return
+	var/mob/living/walker = crosser
+	walker.add_walking_contaminant(force_material.type, rand(2,3))
+
+/decl/flooring/snow/can_show_coating_footprints(turf/target, decl/material/contaminant)
+	if(force_material.type == contaminant) // So we don't end up covered in a million footsteps that we provided.
+		return FALSE
+	return ..()
+
 /decl/flooring/permafrost
 	name            = "permafrost"
 	desc            = "A stretch of frozen soil that hasn't seen a thaw for many seasons."
