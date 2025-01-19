@@ -36,13 +36,15 @@
 		update_icon()
 
 /obj/effect/decal/cleanable/blood/clean(clean_forensics = TRUE)
-	fluorescent = FALSE
-	if(invisibility != INVISIBILITY_ABSTRACT)
-		set_invisibility(INVISIBILITY_ABSTRACT)
-		amount = 0
-		STOP_PROCESSING(SSobj, src)
-		remove_extension(src, /datum/extension/scent)
-	. = ..(clean_forensics = FALSE)
+	if(ispath(chemical, /decl/material/liquid/blood))
+		clean_forensics = FALSE
+		fluorescent = FALSE
+		if(invisibility != INVISIBILITY_ABSTRACT)
+			set_invisibility(INVISIBILITY_ABSTRACT)
+			amount = 0
+			STOP_PROCESSING(SSobj, src)
+			remove_extension(src, /datum/extension/scent)
+	. = ..(clean_forensics)
 
 /obj/effect/decal/cleanable/blood/hide()
 	return
