@@ -1,3 +1,11 @@
+/obj/item
+	var/_avian_onmob_icon
+
+/obj/item/setup_sprite_sheets()
+	. = ..()
+	if(_avian_onmob_icon && !(BODYTYPE_AVIAN in sprite_sheets))
+		LAZYSET(sprite_sheets, BODYTYPE_AVIAN, _avian_onmob_icon)
+
 //Shoes
 /obj/item/clothing/shoes/magboots
 	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/feet/magboots.dmi'
@@ -18,11 +26,12 @@
 	_avian_onmob_icon = null
 
 //Backpacks & tanks
-
 /obj/item/backpack/satchel
 	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/satchel.dmi'
 
 //Radsuits (theyre essential?)
+/obj/item/clothing/head/radiation
+	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/head/rad_helm.dmi'
 
 /obj/item/clothing/head/radiation
 	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/head/rad_helm.dmi'
@@ -77,12 +86,16 @@
 	name = "stylish uniform"
 	icon = 'mods/species/neoavians/icons/clothing/under/stylish_form.dmi'
 
+/obj/item/clothing/shoes
+	_avian_onmob_icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
+
 /obj/item/clothing/shoes/avian
 	name = "small shoes"
 	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 	color = COLOR_GRAY
 	bodytype_equip_flags = BODY_EQUIP_FLAG_AVIAN
 	_avian_onmob_icon = null
+	icon = 'mods/species/neoavians/icons/clothing/feet/shoes.dmi'
 
 /obj/item/clothing/shoes/avian/footwraps
 	name = "cloth footwraps"
