@@ -70,8 +70,6 @@
 	var/stage = 0
 	var/cavity = 0
 
-	var/list/unarmed_attacks
-
 	var/atom/movable/applied_pressure
 	var/atom/movable/splinted
 
@@ -141,10 +139,6 @@
 	_icon_cache_key = null
 	. = ..()
 	skin_blend = bodytype.limb_blend
-	for(var/attack_type in species.unarmed_attacks)
-		var/decl/natural_attack/attack = GET_DECL(attack_type)
-		if(istype(attack) && (organ_tag in attack.usable_with_limbs))
-			LAZYADD(unarmed_attacks, attack_type)
 	update_icon()
 
 /obj/item/organ/external/set_bodytype(decl/bodytype/new_bodytype, override_material = null, apply_to_internal_organs = TRUE)

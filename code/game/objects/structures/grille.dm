@@ -101,12 +101,10 @@
 
 	var/damage_dealt = 1
 	var/attack_message = "kicks"
-	if(ishuman(user))
-		var/mob/living/human/H = user
-		if(H.species.can_shred(H))
-			attack_message = "mangles"
-			damage_dealt = 5
-	attack_generic(user,damage_dealt,attack_message)
+	if(user.can_shred())
+		attack_message = "mangles"
+		damage_dealt = 5
+	attack_generic(user, damage_dealt, attack_message)
 	return TRUE
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

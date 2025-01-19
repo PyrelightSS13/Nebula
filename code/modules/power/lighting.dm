@@ -316,12 +316,13 @@
 		to_chat(user, "There is no [get_fitting_name()] in this light.")
 		return TRUE
 
-	if(ishuman(user))
-		var/mob/living/human/H = user
-		if(H.species.can_shred(H))
-			visible_message("<span class='warning'>[user.name] smashed the light!</span>", 3, "You hear a tinkle of breaking glass.")
-			broken()
-			return TRUE
+	if(user.can_shred())
+		visible_message(
+			SPAN_DANGER("\The [user] smashes the light!"),
+			blind_message = "You hear a tinkle of breaking glass."
+		)
+		broken()
+		return TRUE
 
 	// make it burn hands if not wearing fire-insulated gloves
 	if(on)

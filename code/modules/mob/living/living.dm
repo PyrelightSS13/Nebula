@@ -2000,3 +2000,11 @@ default behaviour is:
 		for(var/obj/item/organ/external/limb in get_organs_by_categories(global.child_stance_limbs))
 			limb.add_coating(material_type, amount, data)
 	update_equipment_overlay(slot_shoes_str)
+
+/mob/living/verb/pull_punches()
+	set name = "Switch Stance"
+	set desc = "Try not to hurt them."
+	set category = "IC"
+	if(!incapacitated())
+		pulling_punches = !pulling_punches
+		to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))

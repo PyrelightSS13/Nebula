@@ -193,13 +193,9 @@
 /obj/effect/energy_net/attack_hand(var/mob/user)
 	if(!user.check_intent(I_FLAG_HARM))
 		return ..()
-	var/decl/species/my_species = user.get_species()
-	if(my_species)
-		if(my_species.can_shred(user))
-			playsound(src.loc, 'sound/weapons/slash.ogg', 80, 1)
-			current_health -= rand(10, 20)
-		else
-			current_health -= rand(1,3)
+	if(user.can_shred())
+		playsound(src.loc, 'sound/weapons/slash.ogg', 80, 1)
+		current_health -= rand(10, 20)
 	else
 		current_health -= rand(5,8)
 	to_chat(user, SPAN_DANGER("You claw at the energy net."))
