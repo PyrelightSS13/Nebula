@@ -275,6 +275,7 @@
 /decl/interaction_handler/vine_chop
 	name = "Chop Down"
 	expected_target_type = /obj/effect/vine
+	examine_desc = "chop $TARGET_THEM$ down"
 
 /decl/interaction_handler/vine_chop/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/effect/vine/vine = target

@@ -138,7 +138,7 @@
 		for(var/obj/effect/decal/writing/W in src)
 			qdel(W)
 
-		_flooring.on_remove()
+		_flooring.on_flooring_remove(src)
 		if(_flooring.build_type && place_product)
 			// If build type uses material stack, check for it
 			// Because material stack uses different arguments
@@ -172,7 +172,6 @@
 
 /turf/floor/proc/update_from_flooring(skip_update)
 
-
 	var/decl/flooring/copy_from = get_topmost_flooring()
 	if(!istype(copy_from))
 		return // this should never be the case
@@ -198,6 +197,9 @@
 		START_PROCESSING(SSobj, src)
 
 	levelupdate()
+
+	for(var/obj/effect/footprints/print in src)
+		qdel(print)
 
 	if(!skip_update)
 		update_icon()
@@ -276,16 +278,18 @@
 	return PROCESS_KILL
 
 // In case a catwalk or other blocking item is destroyed.
-/turf/floor/Exited(atom/movable/AM)
+/turf/floor/Exited(atom/movable/AM, atom/new_loc)
 	. = ..()
 	if(!is_processing)
 		for(var/decl/flooring/flooring in get_all_flooring())
 			if(flooring.has_environment_proc)
 				START_PROCESSING(SSobj, src)
 				break
+	var/decl/flooring/print_flooring = get_topmost_flooring()
+	print_flooring?.turf_exited(src, AM, new_loc)
 
 // In case something of interest enters our turf.
-/turf/floor/Entered(atom/movable/AM)
+/turf/floor/Entered(atom/movable/AM, atom/old_loc)
 	. = ..()
 	for(var/decl/flooring/flooring in get_all_flooring())
 		if(flooring.has_environment_proc)
@@ -293,6 +297,8 @@
 				START_PROCESSING(SSobj, src)
 			flooring.handle_environment_proc(src)
 			break
+	var/decl/flooring/print_flooring = get_topmost_flooring()
+	print_flooring?.turf_entered(src, AM, old_loc)
 
 /turf/floor/get_plant_growth_rate()
 	var/decl/flooring/flooring = get_topmost_flooring()
@@ -303,5 +309,5 @@
 	flooring?.turf_crossed(AM)
 	return ..()
 
-/turf/floor/can_show_footsteps()
-	return ..() && get_topmost_flooring()?.can_show_footsteps(src)
+/turf/floor/can_show_coating_footprints()
+	return ..() && get_topmost_flooring()?.can_show_coating_footprints(src)

@@ -26,6 +26,7 @@
 	var/can_flip = TRUE
 	var/is_flipped = FALSE
 	var/decl/material/additional_reinf_material
+	var/base_type = /obj/structure/table
 
 	var/top_surface_noun = "tabletop"
 
@@ -36,6 +37,9 @@
 
 	/// Whether items can be placed on this table via clicking.
 	var/can_place_items = TRUE
+
+/obj/structure/table/should_have_alpha_mask()
+	return simulated && isturf(loc) && !(locate(/obj/structure/table) in get_step(loc, SOUTH))
 
 /obj/structure/table/clear_connections()
 	connections = null

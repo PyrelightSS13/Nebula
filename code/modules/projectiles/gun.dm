@@ -744,6 +744,9 @@
 		return FALSE
 	return TRUE
 
+/obj/item/gun/get_quick_interaction_handler(mob/user)
+	return GET_DECL(/decl/interaction_handler/gun/toggle_safety)
+
 /obj/item/gun/get_alt_interactions(mob/user)
 	. = ..()
 	LAZYADD(., /decl/interaction_handler/gun/toggle_safety)
@@ -756,6 +759,7 @@
 
 /decl/interaction_handler/gun/toggle_safety
 	name = "Toggle Safety"
+	examine_desc = "toggle the safety"
 
 /decl/interaction_handler/gun/toggle_safety/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/gun/gun = target
@@ -763,6 +767,7 @@
 
 /decl/interaction_handler/gun/toggle_firemode
 	name = "Change Firemode"
+	examine_desc = "change the firemode"
 
 /decl/interaction_handler/gun/toggle_firemode/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/gun/gun = target

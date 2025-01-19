@@ -56,6 +56,7 @@
 	name = "Open Firebox"
 	expected_target_type = /obj/structure/fire_source/kiln
 	incapacitation_flags = INCAPACITATION_DISRUPTED
+	examine_desc = "open or close the firebox"
 
 /decl/interaction_handler/open_firebox/is_possible(atom/target, mob/user, obj/item/prop)
 	. = ..() && ishuman(user)

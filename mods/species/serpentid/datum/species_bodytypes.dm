@@ -63,6 +63,7 @@
 		ARMOR_BIO    = ARMOR_BIO_SHIELDED,
 		ARMOR_RAD    = 0.5*ARMOR_RAD_MINOR
 	)
+	footprints_icon = 'icons/mob/footprints/footprints_snake.dmi'
 
 /decl/bodytype/serpentid/Initialize()
 	_equip_adjust = list(

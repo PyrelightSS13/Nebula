@@ -136,10 +136,13 @@
 
 /obj/item/modular_computer/get_alt_interactions(var/mob/user)
 	. = ..()
-	LAZYADD(., /decl/interaction_handler/remove_id/modular_computer)
-	LAZYADD(., /decl/interaction_handler/remove_pen/modular_computer)
-	LAZYADD(., /decl/interaction_handler/emergency_shutdown)
-	LAZYADD(., /decl/interaction_handler/remove_chargestick)
+	var/static/list/_modular_computer_interactions = list(
+		/decl/interaction_handler/remove_id/modular_computer,
+		/decl/interaction_handler/remove_pen/modular_computer,
+		/decl/interaction_handler/emergency_shutdown,
+		/decl/interaction_handler/remove_chargestick
+	)
+	LAZYADD(., _modular_computer_interactions)
 
 //
 // Remove ID
@@ -181,6 +184,7 @@
 	icon = 'icons/screen/radial.dmi'
 	icon_state = "radial_power_off"
 	expected_target_type = /obj/item/modular_computer
+	examine_desc = "perform an emergency shutdown"
 
 /decl/interaction_handler/emergency_shutdown/is_possible(atom/target, mob/user, obj/item/prop)
 	. = ..()
@@ -201,6 +205,7 @@
 	icon = 'icons/screen/radial.dmi'
 	icon_state = "radial_eject"
 	expected_target_type = /obj/item/modular_computer
+	examine_desc = "remove a chargestick"
 
 /decl/interaction_handler/remove_chargestick/is_possible(atom/target, mob/user, obj/item/prop)
 	. = ..()

@@ -16,6 +16,7 @@
 	base_eye_color       = "#00aa00"
 	nail_noun            = "claws"
 	uid                  = "bodytype_feline"
+	footprints_icon      = 'icons/mob/footprints/footprints_paw.dmi'
 
 	age_descriptor = /datum/appearance_descriptor/age/tajaran
 

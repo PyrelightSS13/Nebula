@@ -114,12 +114,6 @@
 	. = ..()
 
 // Drinking out of bowls.
-/obj/item/chems/glass/get_food_default_transfer_amount(mob/eater)
-	return eater?.get_eaten_transfer_amount(amount_per_transfer_from_this)
-
-/obj/item/chems/glass/get_food_consumption_method(mob/eater)
-	return EATING_METHOD_DRINK
-
 /obj/item/chems/glass/get_edible_material_amount(mob/eater)
 	return reagents?.total_volume
 
@@ -155,3 +149,28 @@
 		LAZYADD(., /decl/interaction_handler/fill_from)
 	if(user?.get_active_held_item())
 		LAZYADD(., /decl/interaction_handler/empty_into)
+	if(can_lid())
+		LAZYADD(., /decl/interaction_handler/toggle_lid)
+
+/decl/interaction_handler/toggle_lid
+	name = "Toggle Lid"
+	expected_target_type = /obj/item/chems/glass
+
+/decl/interaction_handler/toggle_lid/is_possible(atom/target, mob/user, obj/item/prop)
+	. = ..()
+	if(. && !istype(prop))
+		var/obj/item/chems/glass/glass = target
+		return glass.can_lid()
+
+/decl/interaction_handler/toggle_lid/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/chems/glass/glass = target
+	if(istype(glass) && glass.can_lid())
+		if(ATOM_IS_OPEN_CONTAINER(glass))
+			to_chat(user, SPAN_NOTICE("You put the lid on \the [glass]."))
+			glass.atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+		else
+			to_chat(user, SPAN_NOTICE("You take the lid off \the [glass]."))
+			glass.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+		glass.update_icon()
+	return TRUE
+

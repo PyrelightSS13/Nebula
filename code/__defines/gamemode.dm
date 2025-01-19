@@ -33,31 +33,6 @@
 #define DEFAULT_TELECRYSTAL_AMOUNT 130
 #define IMPLANT_TELECRYSTAL_AMOUNT(x) (round(x * 0.49)) // If this cost is ever greater than half of DEFAULT_TELECRYSTAL_AMOUNT then it is possible to buy more TC than you spend
 
-// SPELL FLAGS
-#define Z2NOCAST        BITFLAG(0)  //if this is added, the spell can't be cast at centcomm
-#define INCLUDEUSER     BITFLAG(1)  //does the spell include the caster in its target selection?
-#define IGNOREDENSE     BITFLAG(2) //are dense turfs ignored in selection?
-
-//End split flags
-#define CONSTRUCT_CHECK BITFLAG(12) //used by construct spells - checks for nullrods
-#define NO_BUTTON       BITFLAG(13) //spell won't show up in the HUD with this
-
-//invocation
-#define SpI_SHOUT	"shout"
-#define SpI_WHISPER	"whisper"
-#define SpI_EMOTE	"emote"
-#define SpI_NONE	"none"
-
-//upgrading
-#define Sp_SPEED	"speed"
-#define Sp_POWER	"power"
-#define Sp_TOTAL	"total"
-
-//casting costs
-#define Sp_RECHARGE	"recharge"
-#define Sp_CHARGES	"charges"
-#define Sp_HOLDVAR	"holdervar"
-
 //Voting-related
 #define VOTE_PROCESS_ABORT    1
 #define VOTE_PROCESS_COMPLETE 2

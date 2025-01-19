@@ -18,6 +18,7 @@
 	eye_flash_mod           = 1.2
 	nail_noun               = "claws"
 	uid                     = "bodytype_unathi_fem"
+	footprints_icon         = 'mods/species/bayliens/unathi/icons/footprints.dmi'
 
 	age_descriptor = /datum/appearance_descriptor/age/lizard
 

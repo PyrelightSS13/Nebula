@@ -404,12 +404,10 @@
 	if (polarized)
 		to_chat(user, SPAN_NOTICE("It appears to be wired."))
 
-/obj/structure/window/proc/set_anchored(var/new_anchored)
-	if(anchored == new_anchored)
-		return
-	anchored = new_anchored
-	update_connections(1)
-	update_nearby_icons()
+/obj/structure/window/set_anchored(new_anchored)
+	if((. = ..()))
+		update_connections(1)
+		update_nearby_icons()
 
 //This proc is used to update the icons of nearby windows. It should not be confused with update_nearby_tiles(), which is an atmos proc!
 /obj/structure/window/proc/update_nearby_icons()

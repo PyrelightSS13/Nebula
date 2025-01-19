@@ -456,6 +456,7 @@
 	name = "Change Color Preset"
 	expected_target_type = /obj/item/paint_sprayer
 	interaction_flags = INTERACTION_NEEDS_PHYSICAL_INTERACTION | INTERACTION_NEEDS_INVENTORY
+	examine_desc = "change the color preset"
 
 /decl/interaction_handler/paint_sprayer_colour/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/paint_sprayer/sprayer = target

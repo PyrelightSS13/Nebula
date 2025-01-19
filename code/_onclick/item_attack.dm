@@ -32,6 +32,10 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 // If TRUE, prevent afterattack from running.
 /atom/proc/attackby(obj/item/used_item, mob/user, var/click_params)
+
+	if(try_handle_interactions(user, get_standard_interactions(user), user?.get_active_held_item(), check_alt_interactions = FALSE))
+		return TRUE
+
 	if(storage)
 		if(isrobot(user) && (used_item == user.get_active_held_item()))
 			return FALSE //Robots can't store their modules.
@@ -39,6 +43,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 			return FALSE
 		used_item.add_fingerprint(user)
 		return storage.handle_item_insertion(user, used_item, click_params = click_params)
+
 	return FALSE
 
 /atom/movable/attackby(obj/item/W, mob/user)
