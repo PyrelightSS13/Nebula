@@ -207,7 +207,7 @@
 	return TRUE
 
 /obj/effect/energy_net/attackby(obj/item/W, mob/user)
-	current_health -= W.get_attack_force(user)
+	current_health -= W.expend_attack_force(user)
 	healthcheck()
 	return TRUE
 

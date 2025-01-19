@@ -25,6 +25,7 @@
 	#include "../../mods/content/supermatter/_supermatter.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/pyrelight/_pyrelight.dme" // include after _fantasy.dme so overrides work
+	#include "../../mods/content/item_sharpening/_item_sharpening.dme"
 
 	#include "../../mods/gamemodes/cult/_cult.dme"
 	#include "../../mods/gamemodes/heist/_heist.dme"

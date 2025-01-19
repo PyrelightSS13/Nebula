@@ -272,7 +272,7 @@
 	return ..()
 
 /mob/living/slime/attackby(var/obj/item/W, var/mob/user)
-	var/force = W.get_attack_force(user)
+	var/force = W.expend_attack_force(user)
 	if(force > 0)
 		var/datum/mob_controller/slime/slime_ai = ai
 		if(istype(slime_ai))

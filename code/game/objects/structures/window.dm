@@ -292,7 +292,7 @@
 	// physical damage types that can impart force; swinging a bat or energy sword
 	if(weapon.atom_damage_type == BRUTE || weapon.atom_damage_type == BURN)
 		user.do_attack_animation(src)
-		hit(weapon.get_attack_force(user))
+		hit(weapon.expend_attack_force(user))
 		if(current_health <= 7)
 			set_anchored(FALSE)
 			step(src, get_dir(user, src))

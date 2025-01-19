@@ -211,9 +211,9 @@
 		playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
 		switch(W.atom_damage_type)
 			if(BURN)
-				take_damage(W.get_attack_force(user))
+				take_damage(W.expend_attack_force(user))
 			if(BRUTE)
-				take_damage(W.get_attack_force(user) * 0.1)
+				take_damage(W.expend_attack_force(user) * 0.1)
 		return TRUE
 
 	return ..()

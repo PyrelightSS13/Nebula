@@ -1761,7 +1761,7 @@ default behaviour is:
 	user.set_special_ability_cooldown(5 SECONDS)
 	visible_message(SPAN_DANGER("You hear something rumbling inside [src]'s stomach..."))
 	var/obj/item/I = user.get_active_held_item()
-	var/force = I?.get_attack_force(user)
+	var/force = I?.expend_attack_force(user)
 	if(!force)
 		return
 	var/d = rand(round(force / 4), force)

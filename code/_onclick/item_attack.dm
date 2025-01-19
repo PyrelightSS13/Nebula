@@ -85,7 +85,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		if(milkable.handle_milked(used_item, user))
 			return TRUE
 
-	if(used_item.edge && has_extension(src, /datum/extension/shearable))
+	if(used_item.has_edge() && has_extension(src, /datum/extension/shearable))
 		var/datum/extension/shearable/shearable = get_extension(src, /datum/extension/shearable)
 		if(shearable.handle_sheared(used_item, user))
 			return TRUE
@@ -170,12 +170,12 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/use_hitsound = hitsound
 	if(!use_hitsound)
-		if(edge || sharp)
+		if(has_edge() || is_sharp())
 			use_hitsound = 'sound/weapons/bladeslice.ogg'
 		else
 			use_hitsound = "swing_hit"
 	playsound(loc, use_hitsound, 50, 1, -1)
-	return target.hit_with_weapon(src, user, get_attack_force(user), hit_zone)
+	return target.hit_with_weapon(src, user, expend_attack_force(user), hit_zone)
 
 /obj/item/proc/handle_reflexive_fire(var/mob/user, var/atom/aiming_at)
 	return istype(user) && istype(aiming_at)

@@ -115,10 +115,10 @@
 	// physical damage types that can impart force; swinging a bat or energy sword
 	switch(weapon.atom_damage_type)
 		if(BURN)
-			current_health -= weapon.get_attack_force(user) * fire_dam_coeff
+			current_health -= weapon.expend_attack_force(user) * fire_dam_coeff
 			. = TRUE
 		if(BRUTE)
-			current_health -= weapon.get_attack_force(user) * brute_dam_coeff
+			current_health -= weapon.expend_attack_force(user) * brute_dam_coeff
 			. = TRUE
 		else
 			. = FALSE
