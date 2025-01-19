@@ -1,5 +1,4 @@
 /datum/map/karzerfeste
-	id_hud_icons        = 'maps/karzerfeste/jobs/icons.dmi'
 	default_job_type    = /datum/job/karzerfeste/local/traveller
 	allowed_jobs        = list(
 		/datum/job/karzerfeste/guild/master,
@@ -49,3 +48,4 @@
 	skill_points        = 20
 	spawn_positions     = 1
 	total_positions     = 1
+	hud_icon_state      = "hudblank"
