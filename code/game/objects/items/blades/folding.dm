@@ -98,6 +98,7 @@
 	name = "Adjust Folding Knife"
 	expected_target_type = /obj/item/bladed/folding
 	interaction_flags = INTERACTION_NEEDS_INVENTORY | INTERACTION_NEEDS_PHYSICAL_INTERACTION
+	examine_desc = "adjust $TARGET_THEM$"
 
 /decl/interaction_handler/folding_knife/is_possible(atom/target, mob/user)
 	. = ..()

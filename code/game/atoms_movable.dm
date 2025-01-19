@@ -591,3 +591,15 @@
 	if(ATOM_IS_OPEN_CONTAINER(src))
 		return loc?.take_vaporized_reagent(reagent, amount)
 	return null
+
+/atom/movable/immune_to_floor_hazards()
+	return ..() || throwing
+
+// TODO: make everything use this.
+/atom/movable/proc/set_anchored(new_anchored)
+	SHOULD_CALL_PARENT(TRUE)
+	if(anchored != new_anchored)
+		anchored = new_anchored
+		return TRUE
+	return FALSE
+

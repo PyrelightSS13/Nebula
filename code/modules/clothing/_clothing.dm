@@ -450,8 +450,9 @@
 /decl/interaction_handler/clothing_set_sensors
 	name = "Set Sensors Level"
 	expected_target_type = /obj/item/clothing
+	examine_desc = "adjust vitals sensors"
 
 /decl/interaction_handler/clothing_set_sensors/invoked(atom/target, mob/user, obj/item/prop)
-	var/obj/item/clothing/U = target
-	U.set_sensors(user)
+	var/obj/item/clothing/clothes = target
+	clothes.set_sensors(user)
 

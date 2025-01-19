@@ -9,6 +9,8 @@
 	turf_flags      = TURF_FLAG_BACKGROUND | TURF_IS_HOLOMAP_PATH | TURF_FLAG_ABSORB_LIQUID
 	force_material  = /decl/material/solid/soil
 	growth_value    = 1.1
+	can_collect     = TRUE
+	print_type      = /obj/effect/footprints
 
 /decl/flooring/mud/fire_act(turf/floor/target, datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(!target.reagents?.total_volume)
@@ -25,7 +27,7 @@
 	var/mob/living/walker = crosser
 	walker.add_walking_contaminant(/decl/material/solid/soil, rand(2,3))
 
-/decl/flooring/mud/can_show_footsteps(turf/target)
+/decl/flooring/mud/can_show_coating_footprints(turf/target)
 	return FALSE // So we don't end up covered in a million footsteps that we provided.
 
 /decl/flooring/dry_mud

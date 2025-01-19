@@ -694,7 +694,14 @@ default behaviour is:
 /mob/living/proc/has_brain()
 	return TRUE
 
-/mob/living/proc/slip(var/slipped_on, stun_duration = 8)
+// We are jumping, levitating or being thrown.
+/mob/living/immune_to_floor_hazards()
+	. = ..() || is_floating
+
+/mob/living/proc/slip(slipped_on, stun_duration = 8)
+
+	if(immune_to_floor_hazards())
+		return FALSE
 
 	var/decl/species/my_species = get_species()
 	if(my_species?.check_no_slip(src))
@@ -1205,6 +1212,7 @@ default behaviour is:
 	expected_user_type = /mob/observer
 	expected_target_type = /mob/living
 	interaction_flags = 0
+	examine_desc = null // DO NOT show this in general.
 
 /decl/interaction_handler/admin_kill/is_possible(atom/target, mob/user, obj/item/prop)
 	. = ..()
@@ -1585,7 +1593,7 @@ default behaviour is:
 
 /mob/living/proc/handle_walking_tracks(turf/T, old_loc)
 
-	if(!T.can_show_footsteps())
+	if(!T.can_show_coating_footprints())
 		return
 
 	// Tracking blood or other contaminants
@@ -1923,8 +1931,8 @@ default behaviour is:
 		var/screen_locs = gear.get_preview_screen_locs()
 		if(screen_locs)
 			return screen_locs
-	var/decl/species/my_species = get_species()
-	return my_species?.character_preview_screen_locs
+	var/decl/bodytype/my_bodytype = get_bodytype()
+	return my_bodytype?.character_preview_screen_locs
 
 /mob/living/can_twohand_item(obj/item/item)
 	if(!istype(item) || !item.can_be_twohanded)

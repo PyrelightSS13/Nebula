@@ -517,6 +517,7 @@
 /decl/interaction_handler/rename/paper_bundle
 	name = "Rename Bundle"
 	expected_target_type = /obj/item/paper_bundle
+	examine_desc = "rename $TARGET_THEM$"
 
 /decl/interaction_handler/rename/paper_bundle/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/paper_bundle/bundle = target

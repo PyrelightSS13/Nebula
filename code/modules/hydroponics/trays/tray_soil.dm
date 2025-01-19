@@ -21,8 +21,8 @@
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/get_alt_interactions(var/mob/user)
 	. = ..()
-	. -= /decl/interaction_handler/drink
-	. -= /decl/interaction_handler/wash_hands
+	LAZYREMOVE(., global._reagent_interactions)
+	LAZYADD(., /decl/interaction_handler/empty_into)
 
 /obj/machinery/portable_atmospherics/hydroponics/soil/Initialize()
 

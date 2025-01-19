@@ -37,7 +37,6 @@
 	return ..() + {"
 		<option value='?_src_=vars;mob_player_panel=\ref[src]'>Show player panel</option>
 		<option>---</option>
-		<option value='?_src_=vars;give_spell=\ref[src]'>Give Spell</option>
 		<option value='?_src_=vars;godmode=\ref[src]'>Toggle Godmode</option>
 		<option value='?_src_=vars;build_mode=\ref[src]'>Toggle Build Mode</option>
 
@@ -49,6 +48,9 @@
 		<option value='?_src_=vars;remlanguage=\ref[src]'>Remove Language</option>
 		<option value='?_src_=vars;addorgan=\ref[src]'>Add Organ</option>
 		<option value='?_src_=vars;remorgan=\ref[src]'>Remove Organ</option>
+
+		<option value='?_src_=vars;give_ability=\ref[src]'>Give Ability</option>
+		<option value='?_src_=vars;remove_ability=\ref[src]'>Remove Ability</option>
 
 		<option value='?_src_=vars;fix_nano=\ref[src]'>Fix NanoUI</option>
 

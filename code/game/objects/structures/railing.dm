@@ -19,6 +19,9 @@
 	var/broken =    FALSE
 	var/neighbor_status = 0
 
+/obj/structure/railing/should_have_alpha_mask()
+	return simulated && isturf(loc) && !(locate(/obj/structure/railing) in get_step(loc, SOUTH))
+
 /obj/structure/railing/mapped
 	anchored = TRUE
 	color = COLOR_ORANGE

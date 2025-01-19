@@ -46,6 +46,8 @@
 	antaghud_offset_x    = 16
 	override_organ_types = list(BP_DRAKE_GIZZARD = /obj/item/organ/internal/drake_gizzard)
 	uid                  = "bodytype_drake"
+	footprints_icon      = 'icons/mob/footprints/footprints_paw.dmi'
+
 	additional_emotes    = list(
 		/decl/emote/audible/drake_warble,
 		/decl/emote/audible/drake_purr,
@@ -92,6 +94,13 @@
 		/decl/emote/visible/pocket,
 		/decl/emote/visible/rsalute,
 		/decl/emote/visible/tfist
+	)
+
+	character_preview_screen_locs = list(
+		"1" = "character_preview_map:1,4:36",
+		"2" = "character_preview_map:1,3:31",
+		"4" = "character_preview_map:1,2:26",
+		"8" = "character_preview_map:1,1:21"
 	)
 
 	available_mob_postures = list(
@@ -184,6 +193,7 @@
 	blood_overlays      = 'mods/species/drakes/icons/hatchling_blood.dmi'
 	eye_icon            = 'mods/species/drakes/icons/hatchling_eyes.dmi'
 	icon_template       = 'icons/mob/human_races/species/template.dmi'
+	damage_overlays     = 'icons/mob/human_races/species/default_damage_overlays.dmi'
 	bodytype_category   = BODYTYPE_GRAFADREKA_HATCHLING
 	mob_size            = MOB_SIZE_SMALL
 	pixel_offset_x      = 0
@@ -203,6 +213,7 @@
 		/decl/emote/audible/drake_sneeze
 	)
 	age_descriptor = /datum/appearance_descriptor/age/grafadreka/hatchling
+	character_preview_screen_locs = null
 	uid = "bodytype_drake_hatchling"
 
 /decl/bodytype/quadruped/grafadreka/hatchling/Initialize()

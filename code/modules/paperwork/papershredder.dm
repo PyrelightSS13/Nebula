@@ -193,6 +193,7 @@
 /decl/interaction_handler/empty/paper_shredder
 	name = "Empty Bin"
 	expected_target_type = /obj/machinery/papershredder
+	examine_desc         = "empty $TARGET_THEM$"
 
 /decl/interaction_handler/empty/paper_shredder/is_possible(obj/machinery/papershredder/target, mob/user, obj/item/prop)
 	return ..() && !target.is_bin_empty()

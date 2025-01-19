@@ -109,7 +109,7 @@
 		"Simulating Alien Abductions",
 		"Scanning Pigeons",
 		"Iterating Chaos Array",
-		"Abstracting Supermatter",
+		"Abstracting Exotic Matter",
 		"Adjusting Social Network",
 		"Recalculating Clown Principle"
 	)
