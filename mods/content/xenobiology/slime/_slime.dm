@@ -33,7 +33,6 @@
 	var/slime_type = /decl/slime_colour/grey
 	var/cores = 1 // the number of /obj/item/slime_extract's the slime has left inside
 	var/core_removal_stage = 0 //For removing cores.
-	var/datum/reagents/metabolism/ingested
 
 /mob/living/slime/Destroy()
 	set_feeding_on()
@@ -65,8 +64,7 @@
 
 	. = ..(mapload)
 
-	ingested = new /datum/reagents/metabolism(240, src, CHEM_TOUCH)
-	reagents = ingested
+	reagents = new /datum/reagents/metabolism(240, src, CHEM_TOUCH)
 	render_target = "slime_\ref[src]"
 
 	verbs += /mob/living/proc/ventcrawl

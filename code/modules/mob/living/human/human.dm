@@ -346,7 +346,7 @@
 			return
 		var/decl/pronouns/pronouns = get_pronouns()
 		visible_message(SPAN_DANGER("\The [src] starts sticking a finger down [pronouns.his] own throat. It looks like [pronouns.he] [pronouns.is] trying to throw up!"))
-		if(!do_after(src, 30))
+		if(!do_after(src, 3 SECONDS))
 			return
 		timevomit = max(timevomit, 5)
 
@@ -355,13 +355,22 @@
 
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
+	var/finish_time = 35 SECONDS
 	if(level > 1)
-		sleep(150 / timevomit)	//15 seconds until second warning
-		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
+		// 15 seconds until second warning
+		addtimer(CALLBACK(src, PROC_REF(vomit_second_warning_message)), 15 SECONDS / timevomit)
+		finish_time += 15 SECONDS / timevomit
 		if(level > 2)
-			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
-			empty_stomach()
-	sleep(350)	//wait 35 seconds before next volley
+			// and you have 10 more for mad dash to the bucket
+			// timer delay must include the time from the prior one also
+			addtimer(CALLBACK(src, PROC_REF(empty_stomach)), 25 SECONDS / timevomit)
+			finish_time += 10 SECONDS / timevomit
+	addtimer(CALLBACK(src, PROC_REF(reset_vomit_cooldown)), finish_time)
+
+/mob/living/human/proc/vomit_second_warning_message()
+	to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
+
+/mob/living/human/proc/reset_vomit_cooldown()
 	lastpuke = FALSE
 
 /mob/living/human/proc/increase_germ_level(n)

@@ -195,3 +195,7 @@
 #define FONT_GIANT(X) "<font size='5'>[X]</font>"
 
 #define PRINT_STACK_TRACE(X) get_stack_trace(X, __FILE__, __LINE__)
+
+/// Checks if potential_weakref is a weakref of thing.
+/// NOTE: These argments are the opposite order of TG's, because I think TG's are counterintuitive.
+#define IS_WEAKREF_OF(potential_weakref, thing) (istype(thing, /datum) && !isnull(potential_weakref) && thing.weakref == potential_weakref)
